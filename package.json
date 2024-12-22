@@ -1,0 +1,35 @@
+{
+  "name": "docusaurus-extensions",
+  "version": "1.0.0",
+  "description": "A set of additional capabilities for documentation sites in Docusaurus",
+  "main": "index.js",
+  "repository": "git@github.com:IainDavis-dev/docusaurus-extensions.git",
+  "author": "Iain Davis <iain@iaindavis.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.3",
+    "@storybook/addon-docs": "^8.4.7",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/builder-vite": "^8.4.7",
+    "@storybook/react-vite": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "@vitejs/plugin-react": "^4.3.4",
+    "prop-types": "^15.8.1",
+    "storybook": "^8.4.7",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  }
+}
