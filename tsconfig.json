@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "jsx": "react-jsx",
+        "lib": ["dom", "esnext"],
         "module": "esnext",
         "moduleResolution": "node",
         "target": "esnext",
@@ -9,13 +10,19 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "paths": {
-            "@components/*": ["src/components/*"],
-            "@dummies/*": ["src/dummies"]
-        }
+            "@components/*": ["src/iaindavis-dev/docusaurus-extensions/components/*"],
+            "@dummies/*": ["src/dummies/*"]
+        },
+        "types": [
+            "react",
+            "react-dom",
+            "vitest/globals",
+            "@testing-library/jest-dom"
+        ]
     },
     "include": [
         "src/**/*.ts",
         "src/**/*.tsx",
         "src/**/*.mdx"
-    ]
+    ],
 }
