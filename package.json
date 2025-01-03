@@ -7,8 +7,10 @@
   "author": "Iain Davis <iain@iaindavis.dev>",
   "license": "MIT",
   "dependencies": {
+    "i18next": "^24.2.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-i18next": "^15.4.0"
   },
   "devDependencies": {
     "@storybook/addon-docs": "^8.4.7",
@@ -22,6 +24,7 @@
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
+    "@types/react-i18next": "^8.1.0",
     "@vitejs/plugin-react": "^4.3.4",
     "prop-types": "^15.8.1",
     "storybook": "^8.4.7",
