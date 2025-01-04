@@ -1,0 +1,52 @@
+html {
+    --secondary-light: lightGray;
+    --secondary-dark: gray;
+}
+
+[data-theme='dark'] {
+    --secondary-light: gray;
+    --secondary-dark: lightGray;
+}
+
+.container {
+    padding-bottom: 1em;
+}
+
+.toggle {
+    border-width: 0px;
+    background-color: inherit;
+    color: var(--secondary-dark);
+    font-size: smaller;
+    margin-left: 1em;
+    margin-top: 1em;
+    line-height: 50%;
+}
+
+.expandableBlock {
+    position: relative;
+    margin-left: 1em;
+    padding-left: 1.3em;
+    border-left: 1px solid;
+    border-color: var(--secondary-light)
+}
+
+.expandableBlock:before {
+    content: " ";
+    background: var(--secondary-light);
+    position: absolute;
+    left: -0.125em;
+    width: 0.25em;
+    height: 0.25em;
+    border-radius: 50%;
+}
+
+.expandableBlock:after {
+    content: " ";
+    background: var(--secondary-light);
+    position: absolute;
+    left: -0.125em;
+    width: 0.25em;
+    height: 0.25em;
+    bottom: -0.2em;
+    border-radius: 50%;
+}

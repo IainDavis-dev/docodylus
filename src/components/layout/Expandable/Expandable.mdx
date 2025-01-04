@@ -1,0 +1,51 @@
+import { Meta, Canvas } from '@storybook/addon-docs';
+import * as ExpandableStories from './Expandable.stories';
+
+<Meta of={ExpandableStories} />
+
+# Expandable
+The 'Expandable' component wraps a block of content, making it
+selectively shown (expanded) or hidden (collapsed). When expanded, it
+provides a visual indication of the extent of the expandable block.
+
+<details>
+<summary>Rationale/Use Case</summary>
+
+>    The Docusaurus default styling for the &lt;details&gt; block uses the
+>    same styling as admonitions and alerts, _i.e._ a bright, colored
+>    border which separates the content from the rest of the text.
+>
+>    The **Expandable** component is for content that you want to
+>    present to the user in an opt-in (or opt-out) manner, without also
+>    removing it from the normal flow of content or unduly highlighting it.
+</details>
+
+<br/>
+
+## Parameters
+```typescript
+type ExpandablePropsType = {
+    startExpanded?: boolean;
+    expandPrompt?: string;
+    collapsePrompt?: string;
+}
+```
+
+---
+
+## Behavior
+### Default
+**Expandable** renders the expandable content in an opt-in manner, by default
+<Canvas of={ExpandableStories.Default} />
+
+### Pre-Expanded
+Supply the 'startExpanded' attribute for 'opt-out' behavior
+<Canvas of={ExpandableStories.PreExpanded} />
+
+### With Custom Expand/Collapse Prompts
+The text prompts for the Expand/Collapse prompts are customizable
+<Canvas of={ExpandableStories.CustomExpandCollapsePrompt} />
+
+### Nested
+An **Expandable** block can be nested within another **Expandable** block
+<Canvas of={ExpandableStories.Nested} />
