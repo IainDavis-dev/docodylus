@@ -11,13 +11,15 @@
         "allowSyntheticDefaultImports": true,
         "paths": {
             "@components/*": ["src/iaindavis-dev/docusaurus-extensions/components/*"],
-            "@dummies/*": ["src/dummies/*"]
+            "@dummies/*": ["src/dummies/*"],
+            "@i18n/*": ["src/infra/i18n/*"],
+            "@validation/*": ["src/infra/validation/*"]
         },
         "types": [
             "react",
             "react-dom",
             "vitest/globals",
-            "@testing-library/jest-dom"
+            "@testing-library/jest-dom",
         ]
     },
     "include": [
