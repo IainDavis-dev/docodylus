@@ -1,5 +1,5 @@
-import { BASE_NAMESPACE } from "src/consts/i18n"
-import { isNoWhitespaceString, NoWhitespaceString } from "src/types/validation"
+import { BASE_NAMESPACE } from '@i18n/consts'
+import { isNoWhitespaceString, NoWhitespaceString } from "@validation/string"
 
 // translations map type
 type Txlns = Record<string, string>
@@ -17,9 +17,8 @@ type NamespacePrepender<NS extends string> = <T extends Txlns>(translations: T) 
 
 /**
  * Factory function for creating a namespace prepender. Prepended
- * namespaces include a locally scoped namespace, and a default base
- * namespace, specifying the scope of the extension library as a
- * whole.
+ * namespaces are of the format `${BASE_NAMESPACE}.${localNamespace}.${key}`
+ * where 'BASE_NAMESPACE' is defined in the internationalization constants
  * 
  * @param localNamespace - The local namespace to prepend to all translation keys.
  * @returns A function that accepts translations and returns namespaced translations.
