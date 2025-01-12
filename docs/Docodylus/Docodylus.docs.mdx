@@ -1,0 +1,42 @@
+import {Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import 'react-tabs/style/react-tabs.css';
+
+import { Meta } from '@storybook/blocks';
+
+import DocodylusBanner from '/docs/assets/images/Docodylus_sillhouette_logo.webp';
+
+import { HashControlledTabs } from '/docs/utils/HashControlledTabs.tsx'
+import I18nDocs from './fragments/internationalization.mdx';
+import ThemeDocs from './fragments/theming.mdx';
+import MiscDocs from './fragments/miscellaneous.mdx';
+
+<Meta title="About Docodylus"/>
+
+<img src={DocodylusBanner}/>
+Docodylus is a set of extensions for React-based documentation frameworks, primarily [Docusaurus](https://docusaurus.io).
+
+Docodylus is under development and should not be considered a 'release' yet. That said, anyone is welcome to use it, and to submit pull requests.
+
+Docodylus is also an opportunity for me, personally, to explore facets of software development that I may or may not have been able to deep-dive into before, and to experience building a library from the ground-up without any more experienced developers to lean on.
+
+### Why "Docodylus"?
+While working with Docusaurus, I found it does _lots_ of great stuff
+for structuring, building and deploying a documentation site. But I
+also encountered a lot of situations where a component implementing a simple layout feature was absent, or I didn't like Docusaurus's handling of it.
+
+While working on my personal website (which is developed with
+Docusaurus), I started developing components in-place to fill these gaps, and
+eventually decided I really ought to make them a reusable library. Docodylus is that library.
+
+So, Docodylus is a close evolutionary descendant of Docusaurus, just as Crocodiles are close evolutionary descendants of Dinosaurs.
+
+I needed a shorter namespace than **docusaurus-extensions**, okay?
+
+## Features
+<HashControlledTabs 
+    tabs={[
+        { key: 'themes', header: 'Themes', content: <ThemeDocs/> },
+        { key: 'i18n', header: 'Internationalization', content: <I18nDocs/> },
+        { key: 'misc', header: 'Miscellaneous', content: <MiscDocs/>}
+    ]}
+/>

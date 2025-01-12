@@ -1,0 +1,26 @@
+import LightThemeImage from '../assets/images/expandable-light.png';
+export const exampleLightTheme = () => (
+    <img
+        src={LightThemeImage}
+        alt="`Expandable` component with 'light' theme"
+    />
+)
+
+import DarkThemeImage from '../assets/images/expandable-dark.png';
+export const exampleDarkTheme = () => (
+    <img
+        src={DarkThemeImage}
+        alt="`Expandable` component with 'dark' theme"
+    />
+)
+
+Docodylus components respect `dark` and `light` themes in Docusaurus environments.
+
+Docusaurus uses attributes for theming, rather than CSS classes, like some frameworks use. Enable theming in non-Docusaurus environments by setting attribute `data-theme` on the `html` element of your document. Supported values are `dark` and `light`
+
+| Light Theme             | Dark Theme            |
+|-------------------------|-----------------------|
+| { exampleLightTheme() } | { exampleDarkTheme()} |
+
+[dark-theme]: ../assets/expandable-dark.png
+[light-theme]: ../assets/expandable-light.png

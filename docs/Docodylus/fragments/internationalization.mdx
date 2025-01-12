@@ -1,0 +1,33 @@
+import { SUPPORTED_LOCALES } from '@i18n/consts'
+
+**Docodylus** uses [**Polyglot**][polyglot] to handle translations for Docodylus components that include text.
+
+Polyglot provides translation lookup with features like pluralization and interpolation.
+
+Docodylus uses dynamic imports and lazy initialization of Polyglot to ensure the smallest possible memory footprint, only loading phrases for the components and locales you use.
+
+#### Provider
+To use the translations provided with Docodylus, wrap your component with **I18nProvider**, which handles instantiation `Polyglot` and the cacheing layer, and provides a place to introduce the locale into the component hierarchy.
+
+```jsx
+<I18nProvider locale="en">
+    <MyDocodylusComponent/>
+</I18nProvider>
+```
+
+:information_source:&nbsp;&nbsp; In the absense of an **I18nProvider** or an explicitly specified locale, Docodylus will fall back to the translations for the default locale, 'en'
+
+:information_source:&nbsp;&nbsp;One instance of `Polyglot` and the caching layer will be created per `Provider`. By using multiple providers, you can specify different locales in different sections of your app.
+
+#### Currently supported locales
+<ul>
+{ SUPPORTED_LOCALES.map((locale) => (<li>{locale}</li>)) }
+</ul>
+
+
+
+
+{/* NAMED LINKS */}
+[polyglot]:
+    https://airbnb.io/polyglot.js/
+    "Polyglot.js: Lightweight i18n engine from AirBnB"
