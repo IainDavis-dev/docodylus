@@ -1,19 +1,6 @@
 import { BASE_NAMESPACE } from '@i18n/consts'
+import { FQTxlns, NamespacePrepender } from '@i18n/types'
 import { isNoWhitespaceString, NoWhitespaceString } from "@validation/string"
-
-// translations map type
-type Txlns = Record<string, string>
-
-// fully-qualified namespace type
-type FQNamespace<NS extends string> = `${typeof BASE_NAMESPACE}.${NS}`
-
-// translations map with fully-qualified namespaced keys type
-type FQTxlns<NS extends string, T extends Txlns> = {
-    [K in keyof T as `${FQNamespace<NS>}.${string & K}`]: T[K]
-}
-
-// function type for factory's return function
-type NamespacePrepender<NS extends string> = <T extends Txlns>(translations: T) =>  FQTxlns<NS, T>
 
 /**
  * Factory function for creating a namespace prepender. Prepended
