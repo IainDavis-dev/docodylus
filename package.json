@@ -5,18 +5,20 @@
   "main": "index.js",
   "repository": "git@github.com:IainDavis-dev/docusaurus-extensions.git",
   "author": "Iain Davis <iain@iaindavis.dev>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
-    "i18next": "^24.2.0",
+    "@testing-library/react": "^16.1.0",
     "node-polyglot": "^2.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-i18next": "^15.4.0"
+    "react-tabs": "^6.1.0",
+    "remark-gemoji": "^8.0.0"
   },
   "devDependencies": {
     "@storybook/addon-docs": "^8.4.7",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-links": "^8.4.7",
     "@storybook/blocks": "^8.4.7",
     "@storybook/builder-vite": "^8.4.7",
     "@storybook/react-vite": "^8.4.7",
@@ -26,12 +28,12 @@
     "@types/node-polyglot": "^2.5.0",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "@types/react-i18next": "^8.1.0",
     "@vitejs/plugin-react": "^4.3.4",
     "prop-types": "^15.8.1",
+    "remark-gfm": "^4.0.0",
     "storybook": "^8.4.7",
     "typescript": "^5.7.2",
-    "vite": "^6.0.5",
+    "vite": "^6.0.7",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.8"
   },
