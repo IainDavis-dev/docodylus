@@ -6,14 +6,15 @@
         "moduleResolution": "node",
         "target": "esnext",
         "strict": true,
-        "baseUrl": "./",
+        "baseUrl": ".",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "paths": {
             "@components/*": ["src/iaindavis-dev/docusaurus-extensions/components/*"],
             "@dummies/*": ["src/dummies/*"],
             "@i18n/*": ["src/infra/i18n/*"],
-            "@validation/*": ["src/infra/validation/*"]
+            "@validation/*": ["src/infra/validation/*"],
+            "@docs/*": ["docs/*"]
         },
         "types": [
             "react",
@@ -26,6 +27,6 @@
     "include": [
         "src/**/*.ts",
         "src/**/*.tsx",
-        "src/**/*.mdx"
+        "src/**/*.mdx",
     ],
 }
