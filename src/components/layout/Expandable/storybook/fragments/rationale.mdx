@@ -1,0 +1,15 @@
+import docusaurusDetailsImg from './resources/docusaurus-details.png'
+
+The immediate intent of **Docodylus** is to extend the set of prefab components available for [Docusaurus](https://docusaurus.io).
+
+Docusaurus, like most MDX frameworks, supports the [&lt;details&gt;][docusaurus-details] element from HTML, which behaves similarly to an Expandable block. But Docusaurus applies very assertive styling, similar to what they use for tips, warnings, and notes (Docusaurus calls these "Admonitions"). This tends to lift the expanded portion _out of_ the flow of the main content, making it feel separate from the body of the document, and often giving it more importance than is intended.
+
+<img
+    src={docusaurusDetailsImg}
+    width="75%"
+/>
+
+What's missing, then, is a component to elide a section of a document for those who don't need the detail, but still preserves it as a continuous flowing document, improving the signal-to-noise ration in the documentation for individual readers. **Expandable** was developed to satisfy this need.
+
+[docusaurus-details]:
+    https://docusaurus.io/docs/markdown-features#details (Docusaurus | Documentation | MDX Features | Details)

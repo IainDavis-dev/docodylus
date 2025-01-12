@@ -3,7 +3,7 @@ import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
 
-import * as stories from './Expandable.stories';
+import * as stories from './Expandable.stories.tsx'
 
 import Expandable from './Expandable';
 

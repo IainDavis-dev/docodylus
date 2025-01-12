@@ -1,16 +1,7 @@
 import React, { KeyboardEventHandler, MouseEventHandler, PropsWithChildren,  useEffect,  useId,  useRef,  useState } from 'react';
 import styles from './Expandable.module.css';
-
-// i18n
-import Polyglot from 'node-polyglot';
-import translations, { ExpandableTranslationKey } from './locales/en';
-
-const polyglot = new Polyglot({
-    phrases: translations,
-    locale: 'en', // Default locale
-});
-
-const t = (key: ExpandableTranslationKey) => polyglot.t(key as string);
+import useLocale from '@i18n/hooks/useLocale';
+import useTranslations from '@i18n/hooks/useTranslations';
 
 export type ExpandablePropsType = {
     startExpanded?: boolean;
@@ -24,13 +15,18 @@ const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
     collapsePrompt,
     children
 }) => {
+    const locale = useLocale();
+    const translationsURL = new URL(`./locales/${locale}.ts`, import.meta.url)
+    const {t, isLoading} = useTranslations(translationsURL);
+
     const idDiscriminator = useId();
 
     const contentRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    const effectiveExpandPrompt = expandPrompt || t('iaindavis-dev.docodylus.layout.expandable.expandPrompt');
-    const effectiveCollapsePrompt = collapsePrompt || t('iaindavis-dev.docodylus.layout.expandable.collapsePrompt');
+    const txlnsLoadingMsg = t("iaindavis-dev.docodylus.i18n.txlns-loading");
+    const effectiveExpandPrompt = isLoading ? txlnsLoadingMsg : expandPrompt || t('iaindavis-dev.docodylus.layout.expandable.expandPrompt');
+    const effectiveCollapsePrompt = isLoading ? txlnsLoadingMsg : collapsePrompt || t('iaindavis-dev.docodylus.layout.expandable.collapsePrompt');
 
     const [isExpanded, setExpanded] = useState(startExpanded);
 
