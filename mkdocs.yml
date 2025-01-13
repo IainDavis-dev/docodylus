@@ -1,0 +1,12 @@
+site_name: Docodylus<br/>Developer Documentation
+site_url: https://IainDavis-dev.github.io/docodylus/
+
+plugins:
+  - search
+
+theme:
+  name: readthedocs
+
+nav:
+  - Overview: ./index.md
+  - Code Organization: ./code-organization/code-organization.md
