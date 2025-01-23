@@ -3,6 +3,8 @@ import styles from './Expandable.module.css';
 import useLocale from '@i18n/hooks/useLocale';
 import useTranslations from '@i18n/hooks/useTranslations';
 
+import type { ExpandableTranslationKey } from './locales/en';
+
 export type ExpandablePropsType = {
     startExpanded?: boolean;
     expandPrompt?: string;
@@ -17,7 +19,7 @@ const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
 }) => {
     const locale = useLocale();
     const translationsURL = new URL(`./locales/${locale}.ts`, import.meta.url)
-    const {t, isLoading} = useTranslations(translationsURL);
+    const {t, isLoading} = useTranslations<ExpandableTranslationKey>(translationsURL);
 
     const idDiscriminator = useId();
 

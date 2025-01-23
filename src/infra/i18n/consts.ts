@@ -8,7 +8,7 @@ export const SUPPORTED_LOCALES = [
     "es"
 ] as const;
 
-export const DEFAULT_TRANSLATIONS: Partial<Record<SupportedLocale, Txlns>> = {
+export const DEFAULT_TRANSLATIONS = {
     en: { "iaindavis-dev.docodylus.i18n.txlns-loading":  "translations loading..." },
     es: { "iaindavis-dev.docodylus.i18n.txlns-loading": "traducciones cargándose..." }
-};
+} as const satisfies Partial<Record<SupportedLocale, Txlns>>;
