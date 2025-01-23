@@ -28,32 +28,32 @@ Docodylus is also a learning project, providing me an opportunity to experience 
 |                          |         |                          |
 |--------------------------|---------|--------------------------|
 | [Typescript][typescript] | ^5.7.2  | compile-time type checks |
-| [React][react]                    | ^19.0.0 | components               |
+| [React][react]           | ^19.0.0 | components               |
 
 **key dependencies**
-|                      |        |              |
-|----------------------|--------|--------------|
-| [Polyglot][polyglot] | ^2.6.0 | translations |
+|                      |        |                   |
+|----------------------|--------|-------------------|
+| [Polyglot][polyglot] | ^2.6.0 | i18n translations |
 
 **build & deploy**
 |                                  |        |                     |
 |----------------------------------|--------|---------------------|
 | [Vite][vite]                     | ^6.0.7 | build engine        |
 | [Github Actions][github-actions] | ~      | CI/CD               |
-| [Githhub Pages][github-pages]    | ~      | hosting [user docs] |
+| [Githhub Pages][github-pages]    | ~      | hosting [docs] |
 
 **test**
-|                          |         |                   |
-|--------------------------|---------|-------------------|
-| [Vitest][vitest]         | ^2.1.8  | unit tests        |
-| [@testing-library/react] | ^16.1.0 | component testing |
+|                                    |         |                   |
+|------------------------------------|---------|-------------------|
+| [Vitest][vitest]                   | ^2.1.8  | unit tests        |
+| [@testing-library/react][tl-react] | ^16.1.0 | component testing |
 
 **docs & showcase**
-|                            |        |                        |
-|----------------------------|--------|------------------------|
-| [Storybook][storybook]     | ^8.4.7 | showcase & user docs   |
-| [GitHub Wiki][github-wiki] | ~      | Developer Docs         |
-| TBD                        | ~      | static site generation |
+|                        |        |                        |
+|------------------------|--------|------------------------|
+| [Storybook][storybook] | ^8.4.7 | showcase & user docs   |
+| [MKDocs][mkdocs]       | ~      | Developer Docs         |
+| TBD                    | ~      | static site generation |
 
 
 <!-- NAMED LINKS -->
@@ -77,6 +77,10 @@ Docodylus is also a learning project, providing me an opportunity to experience 
     https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis
     "Github | About Wikis"
 
+[mkdocs]:
+    https://www.mkdocs.org/getting-started/
+    MKDocs | Getting Started with MKDocs    
+
 [polyglot]:
     https://airbnb.io/polyglot.js/
     "Polyglot | lightweight i18n by AirBnB"
@@ -88,3 +92,11 @@ Docodylus is also a learning project, providing me an opportunity to experience 
 [react]:
     https://react.dev/
     "React | React"
+
+[github-pages]:
+    https://pages.github.com/
+    "Github Pages | Landing Page"
+
+[tl-react]:
+    https://testing-library.com/docs/react-testing-library/intro/
+    "React Testing Library | Introduction"
