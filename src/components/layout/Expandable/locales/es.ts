@@ -7,5 +7,4 @@ const translations = prependNamespace({
     collapsePrompt: 'mostrar menos',
 });
 
-export type ExpandableTranslationKey = keyof typeof translations;
 export default translations;
