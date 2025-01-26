@@ -9,6 +9,7 @@ const config = {
     "../src/**/*.docs.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
+
   addons: [
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
@@ -25,13 +26,16 @@ const config = {
       }
     }
   ],
+
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
+
   core: {
     builder: '@storybook/builder-vite'
   },
+
   viteFinal: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -43,6 +47,10 @@ const config = {
     }
 
     return config;
+  },
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript'
   }
 };
 export default config;
