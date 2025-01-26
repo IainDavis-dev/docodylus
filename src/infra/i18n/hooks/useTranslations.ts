@@ -9,22 +9,7 @@ let fallbackPolyglot: LocaleAwarePolyglot;
 
 type DefaultTranslationKey = keyof typeof DEFAULT_TRANSLATIONS['en'];
 type LoadingState = 'not-loaded' | 'loading' | 'success' | 'error';
-
-/**
- * The response object returned by the {@link useTranslations} hook.
- *
- * @template T - Additional translation keys specific to the component.
- *
- * @property {(key: T | DefaultTranslationKey, options?: PolyglotOptions) =>
- * string} t - A function to retrieve translated strings by key. Note: this
- * is a wrapper around Polyglot.t that provides additional type-safety and
- * code-completion
- * @property {boolean} isLoading - Indicates whether the translations are currently being loaded.
- */
-interface UseTranslationsResponse<T extends string = never> {
-    t: (key: T | DefaultTranslationKey, options?: PolyglotOptions) => string;
-    isLoading: boolean;
-}
+type TWrapper<T> = (key: T | DefaultTranslationKey, options?: PolyglotOptions) => string;
 
 /**
  * A React hook that ensures translations are loaded into
@@ -38,19 +23,18 @@ interface UseTranslationsResponse<T extends string = never> {
  * - `t`: A function to retrieve translated strings by key.
  * - `isLoading`: A boolean indicating whether translations are currently being loaded.
  */
-const useTranslations = <T extends string = never>(translationsSrc: URL): UseTranslationsResponse<T>  => {
+const useTranslations = <T extends string = never>(translationsSrc: URL): TWrapper<T>  => {
     const context = useContext(I18nContext) ?? { i18n: fallbackPolyglot ??= new LocaleAwarePolyglot()};
     const cacheKey = translationsSrc.href;
     const { i18n = fallbackPolyglot } = context;
 
     const [loadingStates, setLoadingStates] = useState<Record<string, LoadingState>>(() => Object.create(null))
     const currentState: LoadingState = loadingStates[cacheKey] ?? 'not-loaded';
-    const isLoading = currentState === 'loading';
-
     
     useEffect(() => {
         // short circuit if we've already attempted loading the file.
-        // may be valuable later to add retry logic on error
+        // may be valuable later to add retry logic on error, but for now just
+        // assume it will continue failing and fallback to default translations
         if (['loading', 'success', 'error'].includes(currentState)) return;
 
         setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'loading'}))
@@ -78,15 +62,12 @@ const useTranslations = <T extends string = never>(translationsSrc: URL): UseTra
 
     const usePlaceholderText = currentState === 'not-loaded' || currentState === 'loading';
 
-    const t = useMemo(() =>
-        (key: T | DefaultTranslationKey, options?: PolyglotOptions) => usePlaceholderText ? i18n.t(LOADING_KEY) : i18n.t(key as string, options),
+    const tWrapper: TWrapper<T> = useMemo(() =>
+        (key, options) => usePlaceholderText ? i18n.t(LOADING_KEY) : i18n.t(key, options),
         [usePlaceholderText] // no need to continually re-create this function
     );
 
-    return {
-        t,
-        isLoading
-    }
+    return tWrapper;
 }
 
 export default useTranslations;

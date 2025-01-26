@@ -19,7 +19,7 @@ const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
 }) => {
     const locale = useLocale();
     const translationsURL = new URL(`./locales/${locale}.ts`, import.meta.url)
-    const {t, isLoading} = useTranslations<ExpandableTranslationKey>(translationsURL);
+    const t = useTranslations<ExpandableTranslationKey>(translationsURL);
 
     const idDiscriminator = useId();
 
