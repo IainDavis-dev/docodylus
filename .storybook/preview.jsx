@@ -1,12 +1,12 @@
 /** @type { import('@storybook/react').Preview } */
-import frameworkStyles from './toolbar/styles/FrameworkStylesGlobal'
-import frameworkStylesDecorator from './decorators/styles/FrameworkStylesDecorator/FrameworkStylesDecorator';
+import frameworkStyles from './customizations/styles/FrameworkStylesGlobal'
+import frameworkStylesDecorator from './customizations/styles/FrameworkStylesDecorator';
 
-import locale from './toolbar/locale/LocaleGlobal';
-import localeDecorator from './decorators/locales/localeDecorator';
+import locale from './customizations/locales/LocaleGlobal';
+import localeDecorator from './customizations/locales/localeDecorator';
 
-import theme from './toolbar/theme/ThemeGlobal';
-import applyThemeDecorator from './decorators/theme/ApplyThemeDecorator'
+import theme from './customizations/themes/ThemeGlobal';
+import applyThemeDecorator from './customizations/themes/ApplyThemeDecorator'
 
 const preview = {
   globalTypes: {

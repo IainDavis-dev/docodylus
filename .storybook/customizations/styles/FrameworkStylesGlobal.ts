@@ -5,8 +5,8 @@ const frameworkStyles = {
     toolbar: {
         icon: 'paintbrush',
         items: [
-            { value: 'default', title: 'Default'},
-            { value: 'docusaurus', title: 'Docusaurus'}
+            { value: 'default', title: 'Default styles'},
+            { value: 'docusaurus', title: 'Docusaurus styles'}
         ],
         dynamicTitle: true
     },
