@@ -3,7 +3,7 @@ import Expandable from '../Expandable';
 import type { ExpandablePropsType } from '../Expandable';
 import Lorem from '@dummies/boilerplate/lorem_ipsum.mdx';
 import LostWorld from '@dummies/boilerplate/lost_world.mdx';
-import { I18nProvider } from '@i18n/context/I18nContext';
+import I18nProvider from '@i18n/context/I18nProvider';
 
 const render = (args: ExpandablePropsType) => (
     <Expandable {...args}>
@@ -91,12 +91,14 @@ export const Nested: Story = {
 
 export const Internationalization: Story = {
   name: 'Internationalization',
-  render: (args, context) => (
-    <I18nProvider locale={context.globals.locale}>
-      <Expandable startExpanded>
-        <LostWorld/>
-      </Expandable>
-    </I18nProvider>
-  )
+  render: (args, context) => {
+    return (
+      <I18nProvider locale={context.globals.locale}>
+        <Expandable startExpanded>
+          <LostWorld />
+        </Expandable>
+      </I18nProvider>
+    );
+  }
 }
 
