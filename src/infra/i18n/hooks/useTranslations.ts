@@ -2,12 +2,13 @@ import { DEFAULT_TRANSLATIONS } from "@i18n/consts";
 import { I18nContext } from "@i18n/context/I18nContext";
 import LocaleAwarePolyglot from "@i18n/LocaleAwarePolyglot/LocaleAwarePolyglot";
 import { PolyglotOptions } from "node-polyglot";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 
 // default instance serves DEFAULT_LOCALE in the absence of an explicit Provider
 let fallbackPolyglot: LocaleAwarePolyglot;
 
 type DefaultTranslationKey = keyof typeof DEFAULT_TRANSLATIONS['en'];
+type LoadingState = 'not-loaded' | 'loading' | 'success' | 'error';
 
 /**
  * The response object returned by the {@link useTranslations} hook.
@@ -20,11 +21,6 @@ type DefaultTranslationKey = keyof typeof DEFAULT_TRANSLATIONS['en'];
  * code-completion
  * @property {boolean} isLoading - Indicates whether the translations are currently being loaded.
  */
-interface UseTranslationsResponse<T extends string = never> {
-    t: (key: T | DefaultTranslationKey, options?: PolyglotOptions) => string;
-    isLoading: boolean;
-}
-
 interface UseTranslationsResponse<T extends string = never> {
     t: (key: T | DefaultTranslationKey, options?: PolyglotOptions) => string;
     isLoading: boolean;
@@ -44,22 +40,39 @@ interface UseTranslationsResponse<T extends string = never> {
  */
 const useTranslations = <T extends string = never>(translationsSrc: URL): UseTranslationsResponse<T>  => {
     const context = useContext(I18nContext) ?? { i18n: fallbackPolyglot ??= new LocaleAwarePolyglot()};
-
+    const key = translationsSrc.href;
     const { i18n = fallbackPolyglot } = context;
-    const [ isLoading, setIsLoading ] = useState(false);
+
+    const [loadingStates, setLoadingStates] = useState<Record<string, LoadingState>>(() => Object.create(null))
+    const currentState: LoadingState = loadingStates[key] ?? 'not-loaded';
+    const isLoading = currentState === 'loading';
     
     useEffect(() => {
-        setIsLoading(true)
+        // short circuit if we've already loaded the file.
+        if (['loading', 'success', 'error'].includes(currentState)) return;
+
+        setLoadingStates((prev) => ({ ...prev, [key]: 'loading'}))
+
         const load = async () => {
-            await i18n.loadTranslations(translationsSrc)
-            setIsLoading(false);
+            try {
+                await i18n.loadTranslations(translationsSrc)
+                setLoadingStates((prev) => ({ ...prev, [key]: 'success'}))
+            } catch(error) {
+                console.error(`Failed to load translations from ${key}:`, error);
+                setLoadingStates((prev) => ({ ...prev, [key]: 'error' }))
+            }
         }
 
         load();
-    }, [i18n, translationsSrc])
+    }, [key])
+
+    const t = useMemo(() =>
+        (key: T | DefaultTranslationKey, options?: PolyglotOptions) => i18n.t(key as string, options),
+        [] // no need to continually re-create this function
+    );
 
     return {
-        t: (key: T | DefaultTranslationKey, options?: PolyglotOptions) => i18n.t(key as string, options),
+        t,
         isLoading
     }
 }
