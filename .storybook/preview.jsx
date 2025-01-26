@@ -1,24 +1,12 @@
 /** @type { import('@storybook/react').Preview } */
-const supportedLocales = ['en', 'es'];
+import locale from './toolbar/locale/LocaleGlobal';
 
 const preview = {
   initialGlobals: {
     locale: 'en', // default
   },
   globalTypes: {
-    locale: {
-      name: 'Locale',
-      description: 'Internationalization locale',
-      defaultValue: 'en',
-      toolbar: {
-        icon: 'globe',
-        items: supportedLocales.map((locale) => ({
-          value: locale,
-          title: locale.toUpperCase(),
-        })),
-        dynamicTitle: true
-      }
-    }
+    locale,
   },
   parameters: {
     controls: {
