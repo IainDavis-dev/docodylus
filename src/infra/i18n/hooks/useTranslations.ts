@@ -33,8 +33,6 @@ const useTranslations = <T extends string = never>(translationsSrc: URL): TWrapp
     
     useEffect(() => {
         // short circuit if we've already attempted loading the file.
-        // may be valuable later to add retry logic on error, but for now just
-        // assume it will continue failing and fallback to default translations
         if (['loading', 'success', 'error'].includes(currentState)) return;
 
         setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'loading'}))
@@ -60,7 +58,7 @@ const useTranslations = <T extends string = never>(translationsSrc: URL): TWrapp
         load();
     }, [cacheKey])
 
-    const usePlaceholderText = currentState === 'not-loaded' || currentState === 'loading';
+    const usePlaceholderText = ['not-loaded', 'loading'].includes(currentState);
 
     const tWrapper: TWrapper<T> = useMemo(() =>
         (key, options) => usePlaceholderText ? i18n.t(LOADING_KEY) : i18n.t(key, options),
