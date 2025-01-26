@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 
-const stylesheetLinkId = 'iaindavis-dev.docodylus.storybook.dynamic-framework-styles';
+const STYLESHEET_LINK_ELEMENT_ID = 'iaindavis-dev.docodylus.storybook.dynamic-framework-styles';
 
 const styleSheets = {
     default: null,
@@ -9,7 +9,7 @@ const styleSheets = {
 } as const;
 
 const applyStyleSheet = (stylesheetUrl) => {
-    const existingLink = document.getElementById(stylesheetLinkId);
+    const existingLink = document.getElementById(STYLESHEET_LINK_ELEMENT_ID);
 
     if(!stylesheetUrl) {
         existingLink?.remove(); // restore defaults
@@ -20,7 +20,7 @@ const applyStyleSheet = (stylesheetUrl) => {
     } else {
         const link = document.createElement('link'); // create new dynamic-styles link
         link.rel = 'stylesheet';
-        link.id = stylesheetLinkId;
+        link.id = STYLESHEET_LINK_ELEMENT_ID;
         link.href = stylesheetUrl;
         document.head.appendChild(link);
     }
