@@ -1,5 +1,8 @@
 /** @type { import('@storybook/react').Preview } */
+import localeDecorator from './decorators/locales/localeDecorator';
+import frameworkStylesDecorator from './decorators/styles/FrameworkStylesDecorator/FrameworkStylesDecorator';
 import locale from './toolbar/locale/LocaleGlobal';
+import frameworkStyles from './toolbar/styles/FrameworkStylesGlobal'
 
 const preview = {
   initialGlobals: {
@@ -7,6 +10,7 @@ const preview = {
   },
   globalTypes: {
     locale,
+    frameworkStyles,
   },
   parameters: {
     controls: {
@@ -19,11 +23,8 @@ const preview = {
 };
 
 export const decorators = [
-  (Story) => (
-    <>
-      <Story />
-    </>
-  )
+  frameworkStylesDecorator,
+  localeDecorator
 ]
 
 export default preview;
