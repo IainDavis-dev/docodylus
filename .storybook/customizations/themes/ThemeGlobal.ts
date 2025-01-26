@@ -4,9 +4,10 @@ const themeGlobal = {
     defaultValue: 'light',
     toolbar: {
         items: [
-            { value: 'light', title: 'light theme', icon: 'sun'},
-            { value: 'dark', title: 'dark theme', icon: 'moon'}
+            { value: 'light', title: 'light theme', icon: 'circle'},
+            { value: 'dark', title: 'dark theme', icon: 'circlehollow'}
         ],
+        dynamicTitle: true
     },
 }
 
