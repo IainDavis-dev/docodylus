@@ -16,10 +16,10 @@ const localeGlobal = {
       defaultValue: 'en',
       toolbar: {
         icon: 'globe',
-        items: [...supportedLocales, ...unsupportedLocales].map(({ tag }) => ({
-          value: tag,
-          title: tag,
-        })),
+        items: [
+            ...supportedLocales.map(({tag}) => ({ value: tag, title: `${tag} (provided)`})),
+            ...unsupportedLocales.map(({tag}) => tag)
+        ],
         dynamicTitle: true
       }
     }
