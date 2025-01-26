@@ -1,13 +1,14 @@
 {
-  "name": "docusaurus-extensions",
-  "version": "1.0.0",
-  "description": "A set of additional capabilities for documentation sites in Docusaurus",
+  "name": "docodylus",
+  "version": "0.0.1",
+  "description": "A library of extensions for Docusaurus and other React-based documentation frameworks",
   "main": "index.js",
   "repository": "git@github.com:IainDavis-dev/docusaurus-extensions.git",
   "author": "Iain Davis <iain@iaindavis.dev>",
   "license": "Apache-2.0",
   "dependencies": {
     "@testing-library/react": "^16.1.0",
+    "locale-codes": "^1.3.1",
     "node-polyglot": "^2.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
