@@ -1,4 +1,4 @@
-import { DEFAULT_TRANSLATIONS } from "@i18n/consts";
+import { DEFAULT_TRANSLATIONS, LOADING_KEY } from "@i18n/consts";
 import { I18nContext } from "@i18n/context/I18nContext";
 import LocaleAwarePolyglot from "@i18n/LocaleAwarePolyglot/LocaleAwarePolyglot";
 import { PolyglotOptions } from "node-polyglot";
@@ -40,44 +40,47 @@ interface UseTranslationsResponse<T extends string = never> {
  */
 const useTranslations = <T extends string = never>(translationsSrc: URL): UseTranslationsResponse<T>  => {
     const context = useContext(I18nContext) ?? { i18n: fallbackPolyglot ??= new LocaleAwarePolyglot()};
-    const key = translationsSrc.href;
+    const cacheKey = translationsSrc.href;
     const { i18n = fallbackPolyglot } = context;
 
     const [loadingStates, setLoadingStates] = useState<Record<string, LoadingState>>(() => Object.create(null))
-    const currentState: LoadingState = loadingStates[key] ?? 'not-loaded';
+    const currentState: LoadingState = loadingStates[cacheKey] ?? 'not-loaded';
     const isLoading = currentState === 'loading';
+
     
     useEffect(() => {
         // short circuit if we've already attempted loading the file.
         // may be valuable later to add retry logic on error
         if (['loading', 'success', 'error'].includes(currentState)) return;
 
-        setLoadingStates((prev) => ({ ...prev, [key]: 'loading'}))
+        setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'loading'}))
 
         const load = async () => {
             try {
-                const module = await import( /* @vite-ignore */ key)
+                const module = await import( /* @vite-ignore */ cacheKey)
                 const translations = module.default;
 
                 if(!translations || typeof translations !== 'object') {
-                    throw new Error(`Invalid translations format from ${key}`);
+                    throw new Error(`Invalid translations format from ${cacheKey}`);
                 }
 
                 i18n.extend(translations);
 
-                setLoadingStates((prev) => ({ ...prev, [key]: 'success'}))
+                setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'success'}))
             } catch(error) {
-                console.error(`Failed to load translations from ${key}:`, error);
-                setLoadingStates((prev) => ({ ...prev, [key]: 'error' }))
+                console.error(`Failed to load translations from ${cacheKey}:`, error);
+                setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'error' }))
             }
         }
 
         load();
-    }, [key])
+    }, [cacheKey])
+
+    const usePlaceholderText = currentState === 'not-loaded' || currentState === 'loading';
 
     const t = useMemo(() =>
-        (key: T | DefaultTranslationKey, options?: PolyglotOptions) => i18n.t(key as string, options),
-        [] // no need to continually re-create this function
+        (key: T | DefaultTranslationKey, options?: PolyglotOptions) => usePlaceholderText ? i18n.t(LOADING_KEY) : i18n.t(key as string, options),
+        [usePlaceholderText] // no need to continually re-create this function
     );
 
     return {

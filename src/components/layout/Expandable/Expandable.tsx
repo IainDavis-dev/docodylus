@@ -26,9 +26,8 @@ const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
     const contentRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    const txlnsLoadingMsg = t("iaindavis-dev.docodylus.i18n.txlns-loading");
-    const effectiveExpandPrompt = isLoading ? txlnsLoadingMsg : expandPrompt || t('iaindavis-dev.docodylus.layout.expandable.expandPrompt');
-    const effectiveCollapsePrompt = isLoading ? txlnsLoadingMsg : collapsePrompt || t('iaindavis-dev.docodylus.layout.expandable.collapsePrompt');
+    const effectiveExpandPrompt =  expandPrompt || t('iaindavis-dev.docodylus.layout.expandable.expandPrompt');
+    const effectiveCollapsePrompt = collapsePrompt || t('iaindavis-dev.docodylus.layout.expandable.collapsePrompt');
 
     const [isExpanded, setExpanded] = useState(startExpanded);
 

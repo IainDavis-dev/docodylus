@@ -71,6 +71,11 @@ class LocaleAwarePolyglot {
         return this.polyglot.t(key, options);
     }
 
+    /**
+     * Merge new translations into the existing set
+     * 
+     * @param translations - the set of translations to cache and add to Polyglot
+     */
     public extend = (translations: Txlns): void => {
         this._updateCache(translations);
         this._pushToPolyglot()

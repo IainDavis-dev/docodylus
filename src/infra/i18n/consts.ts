@@ -17,3 +17,5 @@ export const DEFAULT_TRANSLATIONS = {
     en: { "iaindavis-dev.docodylus.i18n.txlns-loading":  "translations loading..." },
     es: { "iaindavis-dev.docodylus.i18n.txlns-loading": "traducciones cargándose..." }
 } as const satisfies Partial<Record<LocaleLike, Txlns>>;
+
+export const LOADING_KEY: string = "iaindavis-dev.docodylus.i18n.txlns-loading"
