@@ -1,16 +1,18 @@
 /** @type { import('@storybook/react').Preview } */
-import localeDecorator from './decorators/locales/localeDecorator';
-import frameworkStylesDecorator from './decorators/styles/FrameworkStylesDecorator/FrameworkStylesDecorator';
-import locale from './toolbar/locale/LocaleGlobal';
 import frameworkStyles from './toolbar/styles/FrameworkStylesGlobal'
+import frameworkStylesDecorator from './decorators/styles/FrameworkStylesDecorator/FrameworkStylesDecorator';
+
+import locale from './toolbar/locale/LocaleGlobal';
+import localeDecorator from './decorators/locales/localeDecorator';
+
+import theme from './toolbar/theme/ThemeGlobal';
+import applyThemeDecorator from './decorators/theme/ApplyThemeDecorator'
 
 const preview = {
-  initialGlobals: {
-    locale: 'en', // default
-  },
   globalTypes: {
     locale,
     frameworkStyles,
+    theme,
   },
   parameters: {
     controls: {
@@ -24,7 +26,8 @@ const preview = {
 
 export const decorators = [
   frameworkStylesDecorator,
-  localeDecorator
+  localeDecorator,
+  applyThemeDecorator
 ]
 
 export default preview;
