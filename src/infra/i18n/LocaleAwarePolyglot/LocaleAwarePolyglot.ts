@@ -1,8 +1,6 @@
 import Polyglot from "node-polyglot";
 import { asValidLocale, ValidLocale, type Txlns } from "../types";
 import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS } from "../consts";
-import { createImportOnceTranslationsSupplier } from "@i18n/TranslationsSupplier/ImportOnceTranslationsSupplier";
-import { TranslationsSupplier } from "@i18n/TranslationsSupplier/TranslationsSupplier";
 
 /**
  * Options for configuring the {@link LocaleAwarePolyglot} instance.
@@ -32,7 +30,6 @@ interface LocaleAwarePolyglotOptions {
  */
 class LocaleAwarePolyglot {
     private polyglot: Polyglot;
-    private translationsSupplier: TranslationsSupplier<URL> = createImportOnceTranslationsSupplier();
     private fallbackLocale: ValidLocale;
     private translationsCache: Partial<Record<ValidLocale, Txlns>>
 
@@ -64,23 +61,6 @@ class LocaleAwarePolyglot {
     }
 
     /**
-     * Load translation files into the cache for the current locale and
-     * synchronize Polyglot's phrases array
-     * 
-     * @param url - the URL for a file that contains localized strings
-     */
-    public async loadTranslations(url: URL): Promise<void> {
-        const { translations, error } = await this.translationsSupplier.load(url);
-        if (!error && translations) {
-            this._extend(translations);
-        } else if (!error && !translations) {
-            /* NOOP, translations already loaded */
-        } else if (error) {
-            console.error(`Failed to load translations for "${url}`, error);
-        }
-    }
-
-    /**
      * Fetch localized string for the current locale
      * 
      * @param key - the key of the localized string to be fetched
@@ -91,7 +71,7 @@ class LocaleAwarePolyglot {
         return this.polyglot.t(key, options);
     }
 
-    private _extend = (translations: Txlns): void => {
+    public extend = (translations: Txlns): void => {
         this._updateCache(translations);
         this._pushToPolyglot()
     }

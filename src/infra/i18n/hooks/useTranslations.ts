@@ -48,14 +48,23 @@ const useTranslations = <T extends string = never>(translationsSrc: URL): UseTra
     const isLoading = currentState === 'loading';
     
     useEffect(() => {
-        // short circuit if we've already loaded the file.
+        // short circuit if we've already attempted loading the file.
+        // may be valuable later to add retry logic on error
         if (['loading', 'success', 'error'].includes(currentState)) return;
 
         setLoadingStates((prev) => ({ ...prev, [key]: 'loading'}))
 
         const load = async () => {
             try {
-                await i18n.loadTranslations(translationsSrc)
+                const module = await import( /* @vite-ignore */ key)
+                const translations = module.default;
+
+                if(!translations || typeof translations !== 'object') {
+                    throw new Error(`Invalid translations format from ${key}`);
+                }
+
+                i18n.extend(translations);
+
                 setLoadingStates((prev) => ({ ...prev, [key]: 'success'}))
             } catch(error) {
                 console.error(`Failed to load translations from ${key}:`, error);
