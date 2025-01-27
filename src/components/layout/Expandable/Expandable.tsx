@@ -4,12 +4,16 @@ import useLocale from '@i18n/hooks/useLocale';
 import useTranslations from '@i18n/hooks/useTranslations';
 
 import type { ExpandableTranslationKey } from './locales/en';
+import { BASE_NAMESPACE } from '@i18n/consts';
 
 export type ExpandablePropsType = {
     startExpanded?: boolean;
     expandPrompt?: string;
     collapsePrompt?: string;
 }
+
+const ExpandableTranslationsPool = new URL(`./locales`, import.meta.url);
+export const ExpandableNamespace = `${BASE_NAMESPACE}.layout.expandable` as const;
 
 const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
     startExpanded = false,
@@ -26,8 +30,8 @@ const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
     const contentRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    const effectiveExpandPrompt =  expandPrompt || t('iaindavis-dev.docodylus.layout.expandable.expandPrompt');
-    const effectiveCollapsePrompt = collapsePrompt || t('iaindavis-dev.docodylus.layout.expandable.collapsePrompt');
+    const effectiveExpandPrompt =  expandPrompt || t(`${ExpandableNamespace}.expandPrompt`);
+    const effectiveCollapsePrompt = collapsePrompt || t(`${ExpandableNamespace}.collapsePrompt`);
 
     const [isExpanded, setExpanded] = useState(startExpanded);
 
