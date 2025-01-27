@@ -44,7 +44,7 @@ class LocaleAwarePolyglot {
         this._pushToPolyglot();
     }
 
-    private getLocale() {
+    public getLocale() {
         return this.polyglot.locale() as ValidLocale;
     }
 
