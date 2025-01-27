@@ -1,6 +1,7 @@
 import { createNamespacePrepender } from "@i18n/utils/createNamespacePrepender";
+import { ExpandableNamespace } from "../Expandable";
 
-const prependNamespace = createNamespacePrepender('layout.expandable');
+const prependNamespace = createNamespacePrepender(ExpandableNamespace);
 
 const translations = prependNamespace({
     expandPrompt: 'show more...',
