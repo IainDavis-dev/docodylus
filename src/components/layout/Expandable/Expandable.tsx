@@ -3,8 +3,10 @@ import styles from './Expandable.module.css';
 import useLocale from '@i18n/hooks/useLocale';
 import useTranslations from '@i18n/hooks/useTranslations';
 
-import type { ExpandableTranslationKey } from './locales/en';
-import { BASE_NAMESPACE } from '@i18n/consts';
+import type { ExpandableTranslationKey } from './locales/en.txlns';
+
+import { ExpandableNamespace, namespacer as ns } from './locales';
+import { asValidLocale } from '@i18n/types';
 
 export type ExpandablePropsType = {
     startExpanded?: boolean;
@@ -12,8 +14,29 @@ export type ExpandablePropsType = {
     collapsePrompt?: string;
 }
 
-const ExpandableTranslationsPool = new URL(`./locales`, import.meta.url);
-export const ExpandableNamespace = `${BASE_NAMESPACE}.layout.expandable` as const;
+const localeRegex = /\/locales\/(\w+)\.txlns.ts$/i;
+
+const localeFiles = Object.entries(import.meta.glob('./locales/*.txlns.ts')).reduce(
+    (mapped, [relativePath, loader]) => {
+        const match = relativePath.match(localeRegex);
+        const locale = asValidLocale(match?.[1] ?? 'invalid');
+
+        if(!locale) {
+            return mapped;
+        } else {
+            return ({
+                ...mapped,
+                [locale]: {
+                    url: new URL(relativePath, import.meta.url).href,
+                    loader,
+                }
+            });
+        }
+    },
+    {},
+)
+debugger;
+console.log(localeFiles)
 
 const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
     startExpanded = false,

@@ -71,3 +71,7 @@ export function asValidLocale(maybeLocale: LocaleLike | string): ValidLocale | u
  *  A map of translation keys to their corresponding localized strings
  */
 export type Txlns = Record<string, string>
+
+export type FQTxlns<NS extends string, T extends Txlns> = {
+    [K in keyof T as `${NS}.${string & K}`]: T[K]
+}

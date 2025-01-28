@@ -1,9 +1,8 @@
 import { createNamespacePrepender } from "@i18n/utils/createNamespacePrepender";
-import { ExpandableNamespace } from "../Expandable";
+import { ExpandableLocalizedStrings, ExpandableNamespace, prependNamespace } from ".";
 
-const prependNamespace = createNamespacePrepender(ExpandableNamespace);
 
-const translations = prependNamespace({
+const translations: ExpandableLocalizedStrings = prependNamespace({
     expandPrompt: 'show more...',
     collapsePrompt: 'show less',
 });
