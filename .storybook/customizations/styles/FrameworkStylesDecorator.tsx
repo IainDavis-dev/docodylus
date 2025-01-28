@@ -17,7 +17,7 @@ const applyStyleSheet = (stylesheetUrl) => {
 
     if (existingLink instanceof HTMLLinkElement) {
         existingLink.href = stylesheetUrl; // replace existing styles
-    } else {
+    } else if (stylesheetUrl) {
         const link = document.createElement('link'); // create new dynamic-styles link
         link.rel = 'stylesheet';
         link.id = STYLESHEET_LINK_ELEMENT_ID;
