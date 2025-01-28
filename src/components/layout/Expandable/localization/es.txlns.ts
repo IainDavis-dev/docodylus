@@ -1,6 +1,6 @@
 import { ExpandableLocalizedStrings, prependNamespace } from ".";
 
-const translations: Partial<ExpandableLocalizedStrings> = prependNamespace({
+const translations: ExpandableLocalizedStrings = prependNamespace({
     expandPrompt: 'mostrar mas...',
     collapsePrompt: 'mostrar menos',
 });
