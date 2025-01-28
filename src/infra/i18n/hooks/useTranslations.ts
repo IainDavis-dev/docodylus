@@ -1,6 +1,7 @@
 import { DEFAULT_TRANSLATIONS, LOADING_KEY } from "@i18n/consts";
 import { I18nContext } from "@i18n/context/I18nContext";
 import LocaleAwarePolyglot from "@i18n/LocaleAwarePolyglot/LocaleAwarePolyglot";
+import { asValidLocale, ProvidedLocales, Txlns } from "@i18n/types";
 import { PolyglotOptions } from "node-polyglot";
 import { useContext, useEffect, useMemo, useState } from "react";
 
@@ -23,45 +24,51 @@ type TWrapper<T> = (key: T | DefaultTranslationKey, options?: PolyglotOptions) =
  * - `t`: A function to retrieve translated strings by key.
  * - `isLoading`: A boolean indicating whether translations are currently being loaded.
  */
-const useTranslations = <T extends string = never>(translationsSrc: URL): TWrapper<T>  => {
+const useTranslations = <T extends Txlns = never>(providedLocales: ProvidedLocales<T>): TWrapper<keyof T>  => {
     const context = useContext(I18nContext) ?? { i18n: fallbackPolyglot ??= new LocaleAwarePolyglot()};
-    const cacheKey = translationsSrc.href;
+
     const { i18n = fallbackPolyglot } = context;
+    const  locale = i18n.getLocale();
 
     const [loadingStates, setLoadingStates] = useState<Record<string, LoadingState>>(() => Object.create(null))
-    const currentState: LoadingState = loadingStates[cacheKey] ?? 'not-loaded';
+
+    const negotiatedLocales = Object.entries(providedLocales).reduce<ProvidedLocales<T>>(
+        (negotiated, [key, val]) => locale.startsWith(key) ? {...negotiated, [key]: val} : negotiated,
+        {}
+    )
     
     useEffect(() => {
-        // short circuit if we've already attempted loading the file.
-        if (['loading', 'success', 'error'].includes(currentState)) return;
+        Object.entries(negotiatedLocales)
+            .filter(([_, { cacheKey }]) => {
+                const currentState: LoadingState = loadingStates[cacheKey] ?? 'not-loaded';
+                return !['loading', 'success', 'error'].includes(currentState);
+            // map here, rather than forEach, to ensure loaders run synchronously
+            }).map(([locale, { cacheKey, loader }]) => {
+                const wrappedLoader = async () => {
+                    setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'loading'}));
+                    const validLocale = asValidLocale(locale)
+                    if(!validLocale) return
 
-        setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'loading'}))
-
-        const load = async () => {
-            try {
-                const module = await import( /* @vite-ignore */ cacheKey)
-                const translations = module.default;
-
-                if(!translations || typeof translations !== 'object') {
-                    throw new Error(`Invalid translations format from ${cacheKey}`);
+                    try {
+                        const localizedStrings = (await loader()).default as unknown as T;
+                        setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'success'}));
+                        i18n.extend(validLocale, localizedStrings);
+                    } catch (error) {
+                        console.error(`Failed to load translations from ${cacheKey}:`, error);
+                        setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'error' }))
+                    }
                 }
+                wrappedLoader();
+            })
+        }, [locale, providedLocales]);
 
-                i18n.extend(translations);
+    const usePlaceholderText = Object.entries(negotiatedLocales).some(([locale, { cacheKey }]) => {
+        const currentLoadingState = loadingStates[cacheKey];
+        return ['not-loaded', 'loading'].includes(currentLoadingState);
+    })
 
-                setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'success'}))
-            } catch(error) {
-                console.error(`Failed to load translations from ${cacheKey}:`, error);
-                setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'error' }))
-            }
-        }
-
-        load();
-    }, [cacheKey])
-
-    const usePlaceholderText = ['not-loaded', 'loading'].includes(currentState);
-
-    const tWrapper: TWrapper<T> = useMemo(() =>
-        (key, options) => usePlaceholderText ? i18n.t(LOADING_KEY) : i18n.t(key, options),
+    const tWrapper: TWrapper<keyof T> = useMemo(() =>
+        (key, options) => usePlaceholderText ? i18n.t(LOADING_KEY) : i18n.t(key as string, options),
         [usePlaceholderText] // no need to continually re-create this function
     );
 

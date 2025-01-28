@@ -1,20 +1,22 @@
-import { Txlns } from '@i18n/types'
+import { Namespaced, Txlns } from '@i18n/types'
 import { isNoWhitespaceString, NoWhitespaceString } from "@validation/string"
 
-type FQNamespace<NS extends string> = `${NS}`
-
-type FQTxlns<NS extends string, T extends Txlns> = {
-    [K in keyof T as `${FQNamespace<NS>}.${string & K}`]: T[K]
-}
-
-type NamespacePrepender<NS extends string> = <T extends Txlns>(translations: T) =>  FQTxlns<NS, T>
+/**
+ * A utility type representing a function that prepends a namespace to the keys of an object.
+ * 
+ * The function accepts an object `record` and produces a new object where each key is prefixed
+ * with the specified namespace `NS` followed by a dot (`.`).
+ * 
+ * @template NS - A string representing the namespace to prepend to each key.
+ * @template T - The type of the input object, extending `Record<string, unknown>` by default.
+ */
+type NamespacePrepender<NS extends string> = <T extends Record<string, unknown> = Record<string, string>>(record: T) =>  Namespaced<NS, T>
 
 /**
- * Factory function for creating a namespace prepender. Prepended
- * namespaces are of the format `${BASE_NAMESPACE}.${localNamespace}.${key}`
+ * Factory function for creating a namespace prepender.
  * 
  * @param namespace - The local namespace to prepend to all translation keys.
- * @returns A function that accepts translations and returns namespaced translations.
+ * @returns {NamespacePrepender} A function that accepts translations and returns namespaced translations.
  */
 export const createNamespacePrepender = <NS extends NoWhitespaceString<string>>(namespace: NS): NamespacePrepender<NS> => {
 
@@ -24,11 +26,11 @@ export const createNamespacePrepender = <NS extends NoWhitespaceString<string>>(
     }
 
     return (translations) => {
-        return Object.entries(translations).reduce<FQTxlns<NS, typeof translations>>(
+        return Object.entries(translations).reduce<Namespaced<NS, typeof translations>>(
             (mapped, [key, value]) => ({
                 ...mapped,
                 [`${namespace.toLowerCase()}.${key}`]: value
             }),
-            {} as FQTxlns<NS, typeof translations>
+            {} as Namespaced<NS, typeof translations>
         )}
 }

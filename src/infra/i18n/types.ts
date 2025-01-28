@@ -67,11 +67,18 @@ export function asValidLocale(maybeLocale: LocaleLike | string): ValidLocale | u
     }
 }
 
+export type ProvidedLocales<T> = {
+    [x: ValidLocale]: {
+        cacheKey: string,
+        loader: () => Promise<Partial<T>>
+    }
+}
+
 /**
  *  A map of translation keys to their corresponding localized strings
  */
 export type Txlns = Record<string, string>
 
-export type FQTxlns<NS extends string, T extends Txlns> = {
+export type Namespaced<NS extends string, T extends Record<string, unknown> = Record<string, string>> = {
     [K in keyof T as `${NS}.${string & K}`]: T[K]
 }

@@ -76,22 +76,28 @@ class LocaleAwarePolyglot {
      * 
      * @param translations - the set of translations to cache and add to Polyglot
      */
-    public extend = (translations: Txlns): void => {
-        this._updateCache(translations);
+    public extend = (locale: ValidLocale, translations: Txlns): void => {
+        this._updateCache(locale, translations);
         this._pushToPolyglot()
     }
 
-    private _updateCache(translations: Txlns) {
-        this.translationsCache[this.getLocale()] = {
-            ...this.translationsCache[this.getLocale()],
+    private _updateCache(locale: ValidLocale, translations: Txlns) {
+        this.translationsCache[locale] = {
+            ...this.translationsCache[locale],
             ...translations
         }
     }
 
     private _pushToPolyglot() {
+        const negotiatedTranslations = Object.entries(this.translationsCache)
+            .filter(([key]) => this.getLocale().startsWith(key))
+            .toSorted(([aKey], [bKey]) => aKey.length < bKey.length ? -1 : 1)
+            .map(([, txlns]) => txlns)
+            .reduce((a, b) => ({...a, ...b}))
+        
         this.polyglot.replace({
             ...this.translationsCache[this.fallbackLocale],
-            ...this.translationsCache[this.getLocale()],
+            ...negotiatedTranslations
         })
     }
 }

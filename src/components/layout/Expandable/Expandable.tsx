@@ -1,12 +1,10 @@
 import React, { KeyboardEventHandler, MouseEventHandler, PropsWithChildren,  useEffect,  useId,  useRef,  useState } from 'react';
 import styles from './Expandable.module.css';
-import useLocale from '@i18n/hooks/useLocale';
 import useTranslations from '@i18n/hooks/useTranslations';
 
-import type { ExpandableTranslationKey } from './locales/en.txlns';
-
-import { ExpandableNamespace, namespacer as ns } from './locales';
-import { asValidLocale } from '@i18n/types';
+import { ExpandableLocalizedStrings as ExpandableTxlns, ExpandableNamespace as ns } from './localization';
+import { ProvidedLocales } from '@i18n/types';
+import { getProvidedLocales } from '@i18n/utils/localeNegotiation';
 
 export type ExpandablePropsType = {
     startExpanded?: boolean;
@@ -14,29 +12,7 @@ export type ExpandablePropsType = {
     collapsePrompt?: string;
 }
 
-const localeRegex = /\/locales\/(\w+)\.txlns.ts$/i;
-
-const localeFiles = Object.entries(import.meta.glob('./locales/*.txlns.ts')).reduce(
-    (mapped, [relativePath, loader]) => {
-        const match = relativePath.match(localeRegex);
-        const locale = asValidLocale(match?.[1] ?? 'invalid');
-
-        if(!locale) {
-            return mapped;
-        } else {
-            return ({
-                ...mapped,
-                [locale]: {
-                    url: new URL(relativePath, import.meta.url).href,
-                    loader,
-                }
-            });
-        }
-    },
-    {},
-)
-debugger;
-console.log(localeFiles)
+const providedLocales: ProvidedLocales<ExpandableTxlns> = getProvidedLocales(import.meta.glob<Partial<ExpandableTxlns>>('./localization/*.txlns.ts'));
 
 const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
     startExpanded = false,
@@ -44,17 +20,15 @@ const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
     collapsePrompt,
     children
 }) => {
-    const locale = useLocale();
-    const translationsURL = new URL(`./locales/${locale}.ts`, import.meta.url)
-    const t = useTranslations<ExpandableTranslationKey>(translationsURL);
+    const t = useTranslations<ExpandableTxlns>(providedLocales);
 
     const idDiscriminator = useId();
 
     const contentRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    const effectiveExpandPrompt =  expandPrompt || t(`${ExpandableNamespace}.expandPrompt`);
-    const effectiveCollapsePrompt = collapsePrompt || t(`${ExpandableNamespace}.collapsePrompt`);
+    const effectiveExpandPrompt =  expandPrompt || t(`${ns}.expandPrompt`);
+    const effectiveCollapsePrompt = collapsePrompt || t(`${ns}.collapsePrompt`);
 
     const [isExpanded, setExpanded] = useState(startExpanded);
 
