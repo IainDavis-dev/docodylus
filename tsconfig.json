@@ -10,11 +10,14 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "paths": {
-            "@components/*": ["src/iaindavis-dev/docusaurus-extensions/components/*"],
+            "@components/*": ["src/components/*"],
             "@dummies/*": ["src/dummies/*"],
             "@i18n/*": ["src/infra/i18n/*"],
             "@validation/*": ["src/infra/validation/*"],
-            "@docs/*": ["docs/*"]
+            "@docs/*": ["docs/*"],
+            "@test-utils/*": ["test/test-utils/*"],
+            "@types/*": ["src/types/*"],
+            "@shared-utils/*": ["src/infra/sharedUtils/*"],
         },
         "types": [
             "react",
@@ -29,5 +32,7 @@
         "src/**/*.tsx",
         "src/**/*.mdx",
         "vite-env.d.ts",
+        "test/**/*.ts",
+        "test/**/*.tsx",
     ],
 }
