@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Expandable Component > Basic tests > Snapshots/Visual-Regression > should maintain visual consistency between expanded and collapsed states 1`] = `
+<DocumentFragment>
+  <div
+    class="_container_6cd2f2"
+  >
+    <div
+      class="_expandableBlock_6cd2f2"
+      data-testid="expandable-section-:ra:"
+      hidden=""
+      id="expandable-section-:ra:"
+      tabindex="1"
+    />
+    <button
+      aria-controls="expandable-section-toggle-:ra:"
+      aria-expanded="false"
+      class="_toggle_6cd2f2"
+      tabindex="0"
+    >
+      MOCK_COLLAPSE_PROMPT
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Expandable Component > Basic tests > Snapshots/Visual-Regression > should maintain visual consistency between expanded and collapsed states 2`] = `
+<DocumentFragment>
+  <div
+    class="_container_6cd2f2"
+  >
+    <div
+      class="_expandableBlock_6cd2f2"
+      data-testid="expandable-section-:ra:"
+      id="expandable-section-:ra:"
+      tabindex="0"
+    />
+    <button
+      aria-controls="expandable-section-toggle-:ra:"
+      aria-expanded="true"
+      class="_toggle_6cd2f2"
+      tabindex="0"
+    >
+      MOCK_EXPAND_PROMPT
+    </button>
+  </div>
+</DocumentFragment>
+`;
