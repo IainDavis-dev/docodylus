@@ -1,7 +1,7 @@
-import { LocaleLike, Txlns, ValidLocale } from "./types";
+import { LocalizedStrings, ValidLocale } from "./types";
 
 export const BASE_NAMESPACE = "iaindavis-dev.docodylus";
-export const DEFAULT_LOCALE: ValidLocale = "en" as ValidLocale;
+export const DEFAULT_LOCALE: ValidLocale = "en";
 
 export const SUPPORTED_LOCALES = [
     "en",
@@ -13,9 +13,8 @@ export const SUPPORTED_LOCALES = [
  * 
  * Note: translated messages primarily indicate the status of import operations for other translations
  */
-export const DEFAULT_TRANSLATIONS = {
-    en: { "iaindavis-dev.docodylus.i18n.txlns-loading":  "translations loading..." },
-    es: { "iaindavis-dev.docodylus.i18n.txlns-loading": "traducciones cargándose..." }
-} as const satisfies Partial<Record<LocaleLike, Txlns>>;
-
-export const LOADING_KEY: string = "iaindavis-dev.docodylus.i18n.txlns-loading"
+export const TXLNS_LOADING_KEY: string = "iaindavis-dev.docodylus.i18n.txlns-loading"
+export const DEFAULT_TRANSLATIONS: Partial<Record<ValidLocale, LocalizedStrings>> = {
+    ['en']: { [TXLNS_LOADING_KEY]:  "translations loading..." },
+    ['es']: { [TXLNS_LOADING_KEY]: "traducciones cargándose..." }
+} as const
