@@ -2,9 +2,7 @@ import React, { KeyboardEventHandler, MouseEventHandler, PropsWithChildren,  use
 import styles from './Expandable.module.css';
 import useTranslations from '@i18n/hooks/useTranslations';
 
-import { ExpandableLocalizedStrings as ExpandableTxlns, ExpandableNamespace as ns } from './localization';
-import { ProvidedLocales } from '@i18n/types';
-import { getProvidedLocales } from '@i18n/utils/localeNegotiation';
+import { ExpandableLocalizedStrings, getLocalizedStringLoaders, ExpandableNamespace as ns } from './localization';
 
 export type ExpandablePropsType = {
     startExpanded?: boolean;
@@ -12,15 +10,13 @@ export type ExpandablePropsType = {
     collapsePrompt?: string;
 }
 
-const providedLocales: ProvidedLocales<ExpandableTxlns> = getProvidedLocales(import.meta.glob<Partial<ExpandableTxlns>>('./localization/*.txlns.ts'));
-
 const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
     startExpanded = false,
     expandPrompt,
     collapsePrompt,
     children
 }) => {
-    const t = useTranslations<ExpandableTxlns>(providedLocales);
+    const t = useTranslations<ExpandableLocalizedStrings>(getLocalizedStringLoaders());
 
     const idDiscriminator = useId();
 
