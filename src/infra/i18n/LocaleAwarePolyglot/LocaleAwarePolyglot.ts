@@ -1,6 +1,7 @@
 import Polyglot from "node-polyglot";
-import { asValidLocale, ValidLocale, type Txlns } from "../types";
+import type { LocalizedStringsByLocale, ValidLocale, LocalizedStrings, DocodylusLocalizedStrings } from "../types";
 import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS } from "../consts";
+import { mergeLocalizedStrings, negotiateLocales } from "@i18n/utils/localeNegotiation";
 
 /**
  * Options for configuring the {@link LocaleAwarePolyglot} instance.
@@ -31,15 +32,15 @@ interface LocaleAwarePolyglotOptions {
 class LocaleAwarePolyglot {
     private polyglot: Polyglot;
     private fallbackLocale: ValidLocale;
-    private translationsCache: Partial<Record<ValidLocale, Txlns>>
+    private translationsCache: Partial<LocalizedStringsByLocale>
 
     constructor(polyglotInstance: Polyglot = new Polyglot(), options: LocaleAwarePolyglotOptions = {}) {
         const { fallbackLocale = DEFAULT_LOCALE, locale = DEFAULT_LOCALE } = options;
 
         this.polyglot = polyglotInstance;
 
-        this.polyglot.locale(asValidLocale(locale) ?? DEFAULT_LOCALE);
-        this.fallbackLocale = asValidLocale(fallbackLocale) ?? DEFAULT_LOCALE;
+        this.polyglot.locale(locale ?? DEFAULT_LOCALE);
+        this.fallbackLocale = fallbackLocale ?? DEFAULT_LOCALE;
         this.translationsCache = { [fallbackLocale]: {}, ...DEFAULT_TRANSLATIONS };
         this._pushToPolyglot();
     }
@@ -76,12 +77,12 @@ class LocaleAwarePolyglot {
      * 
      * @param translations - the set of translations to cache and add to Polyglot
      */
-    public extend = (locale: ValidLocale, translations: Txlns): void => {
+    public extend = (locale: ValidLocale, translations: LocalizedStrings): void => {
         this._updateCache(locale, translations);
         this._pushToPolyglot()
     }
 
-    private _updateCache(locale: ValidLocale, translations: Txlns) {
+    private _updateCache(locale: ValidLocale, translations: LocalizedStrings) {
         this.translationsCache[locale] = {
             ...this.translationsCache[locale],
             ...translations
@@ -89,15 +90,14 @@ class LocaleAwarePolyglot {
     }
 
     private _pushToPolyglot() {
-        const negotiatedTranslations = Object.entries(this.translationsCache)
-            .filter(([key]) => this.getLocale().startsWith(key))
-            .toSorted(([aKey], [bKey]) => aKey.length < bKey.length ? -1 : 1)
-            .map(([, txlns]) => txlns)
-            .reduce((a, b) => ({...a, ...b}))
+        const negotiatedLocales = negotiateLocales(this.getLocale(), Object.keys(this.translationsCache) as ValidLocale[]);
+        const mergedLocalizedStrings = mergeLocalizedStrings(
+            Object.fromEntries(negotiatedLocales.map(locale => [locale, this.translationsCache[locale]]))
+        );
         
         this.polyglot.replace({
             ...this.translationsCache[this.fallbackLocale],
-            ...negotiatedTranslations
+            ...mergedLocalizedStrings
         })
     }
 }
