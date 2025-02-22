@@ -1,5 +1,5 @@
-import { Namespaced, Txlns } from '@i18n/types'
-import { isNoWhitespaceString, NoWhitespaceString } from "@validation/string"
+import { isNoWhitespaceString, NoWhitespaceString } from "@validation/types"
+import { Namespaced } from "./types"
 
 /**
  * A utility type representing a function that prepends a namespace to the keys of an object.
