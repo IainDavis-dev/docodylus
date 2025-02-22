@@ -1,6 +1,9 @@
 # dependencies
 node_modules
 
+# built files
+static
+
 # Storybook
 *storybook.log
 
