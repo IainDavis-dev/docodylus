@@ -6,13 +6,15 @@ const TestGroups = [
     'UNIT',
     'INTEGRATION',
     'POLICY',
+    'TYPE',
 ] as const;
 type TestGroup = typeof TestGroups[number];
 
-const ALL = TestGroups[0];
-const UNIT = TestGroups[1]
-const INTEGRATION = TestGroups[2];
-const POLICY = TestGroups[3];
+const ALL = TestGroups[0];              // run all tests -- default behavior
+const UNIT = TestGroups[1]              // run unit tests
+const INTEGRATION = TestGroups[2];      // run tests that validate interoperability of modules
+const POLICY = TestGroups[3];           // run tests that enforce conventions
+const TYPE = TestGroups[4];             // run tests that validate typescript types. Note: these must be run in isolation from other test groups so that they can use the --test-types flag
 
 // boilerplate functions
 function isTestGroup(maybeTestGroup: string): maybeTestGroup is TestGroup {
@@ -45,3 +47,9 @@ export const describeIntegrationTest = describe.runIf(checkGroups(INTEGRATION))
  * only when the POLICY test group (or none) is selected
  */
 export const describePolicyTest = describe.runIf(checkGroups(POLICY))
+
+/**
+ * Supplies the necessary boilerplate to ensure a block of tests runs
+ * only when the TYPE test group (or none) is selected
+ */
+export const describeTypeTest = describe.runIf(checkGroups(TYPE))
