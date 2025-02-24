@@ -22,6 +22,7 @@ export default defineConfig({
             '@test-utils': path.resolve(__dirname, './test/test-utils'),
             '@types': path.resolve(__dirname, './src/types'),
             '@shared-utils': path.resolve(__dirname, './src/infra/sharedUtils'),
+            '@error': path.resolve(__dirname, './src/infra/error'),
         }
     },
 })

@@ -12,6 +12,10 @@ export default defineConfig(async () => {
             setupFiles: './vitest.setup.ts',
             include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}', 'test/**/*.{test,spec}.{js,ts,jsx,tsx}'],
             root: ".",
+            typecheck: {
+                tsconfig: './tsconfig.json',
+                exclude: ["./node_modules", "./dist", "./build", "./static"]
+            },
             coverage: {
                 provider: 'istanbul',
                 reporter: ['html', 'text', 'lcov'],
@@ -24,6 +28,8 @@ export default defineConfig(async () => {
                     lines: 20,
                 },
                 exclude: [
+                    "docs", // TODO: separate coverage metrics for docs
+                    "scripts", // TODO: separate coverage metrics for scripts
                     "build", 
                     "static",
                     ".*",   // no dot-files
@@ -36,9 +42,15 @@ export default defineConfig(async () => {
                     // May just do snapshot tests on the rendered content later so at least I can detect if something breaks unexpectedly.
                     "*.mdx",
                     "*.md",
+
+                    // no need to test the test files themselves
                     "**/*.test.*",
+                    "**/*.test-d.*",
+                    "test/test-utils",
                     "**/*.spec.*",
                     "**/*.stories.*",
+                    "**/__mocks__",
+                    "**/__snapshots__",
                 ]
             } as any // something of a desperation move... VS Code is complaining about the perfectly-valid `provider: 'istanbul'` property. Note: everything is fine at runtime, it's just a TS check throwing a spurious warning.
         },
@@ -47,8 +59,5 @@ export default defineConfig(async () => {
             mdxPlugin()
         ],
     };
-
-    console.log("Test configs:", JSON.stringify(config.test, null, 2))
-
     return config;
 });

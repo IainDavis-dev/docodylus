@@ -6,9 +6,11 @@
         "moduleResolution": "node",
         "target": "esnext",
         "strict": true,
+        "noImplicitAny": true,
         "baseUrl": ".",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
         "paths": {
             "@components/*": ["src/components/*"],
             "@dummies/*": ["src/dummies/*"],
@@ -18,6 +20,7 @@
             "@test-utils/*": ["test/test-utils/*"],
             "@types/*": ["src/types/*"],
             "@shared-utils/*": ["src/infra/sharedUtils/*"],
+            "@error/*": ["src/infra/error/*"],
         },
         "types": [
             "react",
