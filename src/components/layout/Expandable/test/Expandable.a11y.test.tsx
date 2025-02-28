@@ -200,9 +200,6 @@ describeUnitTest("Accessibility tests", () => {
             const parentContent = screen.getByText(/outer expandable content/i).closest('div');
             const childContent = screen.getByText(/nested expandable content/i).closest('div');
 
-            screen.debug();
-            console.log("Focused element:", document.activeElement);
-
             expect(parentContent).toHaveFocus();
 
             await userEvent.tab()

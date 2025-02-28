@@ -34,7 +34,7 @@ describeIntegrationTest('i18n Integration Tests (storybook)', () => {
         describe("With no I18nProvider...", () => {
             it('should notify the user when the translations are still loading in the default language (en)', () => {
                 render(<PreExpandedStory />)
-                const TXLNS_LOADING_MSG = DEFAULT_TRANSLATIONS?.[DEFAULT_LOCALE]?.[TXLNS_LOADING_KEY as keyof DocodylusLocalizedStrings]
+                const TXLNS_LOADING_MSG = DEFAULT_TRANSLATIONS?.[DEFAULT_LOCALE]?.['dev.iaindavis.docodylus.internationalization.txlns-loading']
                 const loadingMsg = screen.getByText(TXLNS_LOADING_MSG as keyof DocodylusLocalizedStrings);
                 expect(loadingMsg).toBeVisible();
             });
@@ -69,7 +69,7 @@ describeIntegrationTest('i18n Integration Tests (storybook)', () => {
                     <I18nProvider locale={locale}>
                         <PreExpandedStory />
                     </I18nProvider>)
-                const TXLNS_LOADING_MSG = DEFAULT_TRANSLATIONS[locale]?.[TXLNS_LOADING_KEY]
+                const TXLNS_LOADING_MSG = DEFAULT_TRANSLATIONS[locale]?.['dev.iaindavis.docodylus.internationalization.txlns-loading']
                 if(!TXLNS_LOADING_MSG) assert.fail(`No translations-loading message available for locale '${locale}'`)
                 const loadingMsg = screen.getByText(TXLNS_LOADING_MSG as string);
                 expect(loadingMsg).toBeVisible();
