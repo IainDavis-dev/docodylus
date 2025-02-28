@@ -1,7 +1,7 @@
 import Polyglot from "node-polyglot";
-import type { LocalizedStringsByLocale, ValidLocale, LocalizedStrings, DocodylusLocalizedStrings } from "../types";
-import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS } from "../consts";
-import { mergeLocalizedStrings, negotiateLocales } from "@i18n/utils/localeNegotiation";
+import type { LocalizedStringsByLocale, ValidLocale, LocalizedStrings, DocodylusLocalizedStrings } from "./types";
+import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS } from "./consts";
+import { negotiateLocales } from "@i18n/utils/localeNegotiation";
 
 /**
  * Options for configuring the {@link LocaleAwarePolyglot} instance.
@@ -12,7 +12,6 @@ import { mergeLocalizedStrings, negotiateLocales } from "@i18n/utils/localeNegot
  */
 interface LocaleAwarePolyglotOptions {
     locale?: ValidLocale,
-    fallbackLocale?: ValidLocale,
 }
 
 /**
@@ -31,17 +30,15 @@ interface LocaleAwarePolyglotOptions {
  */
 class LocaleAwarePolyglot {
     private polyglot: Polyglot;
-    private fallbackLocale: ValidLocale;
     private translationsCache: Partial<LocalizedStringsByLocale>
 
     constructor(polyglotInstance: Polyglot = new Polyglot(), options: LocaleAwarePolyglotOptions = {}) {
-        const { fallbackLocale = DEFAULT_LOCALE, locale = DEFAULT_LOCALE } = options;
+        const { locale = DEFAULT_LOCALE } = options;
 
         this.polyglot = polyglotInstance;
 
-        this.polyglot.locale(locale ?? DEFAULT_LOCALE);
-        this.fallbackLocale = fallbackLocale ?? DEFAULT_LOCALE;
-        this.translationsCache = { [fallbackLocale]: {}, ...DEFAULT_TRANSLATIONS };
+        this.polyglot.locale(locale);
+        this.translationsCache = { ...DEFAULT_TRANSLATIONS };
         this._pushToPolyglot();
     }
 
@@ -90,13 +87,13 @@ class LocaleAwarePolyglot {
     }
 
     private _pushToPolyglot() {
-        const negotiatedLocales = negotiateLocales(this.getLocale(), Object.keys(this.translationsCache) as ValidLocale[]);
-        const mergedLocalizedStrings = mergeLocalizedStrings(
-            Object.fromEntries(negotiatedLocales.map(locale => [locale, this.translationsCache[locale]]))
-        );
+        const negotiatedLocales = negotiateLocales(this.getLocale(), Object.keys(this.translationsCache) as ValidLocale[], "sort-for-merge");
+        const mergedLocalizedStrings = negotiatedLocales.reduce<LocalizedStrings>(
+            (merged, locale) => ({ ...merged, ...this.translationsCache[locale] }),
+            {} as LocalizedStrings
+        )
         
         this.polyglot.replace({
-            ...this.translationsCache[this.fallbackLocale],
             ...mergedLocalizedStrings
         })
     }

@@ -14,6 +14,7 @@ const localeRegex = /\/\S*\/localization\/(\S+)\.txlns.ts$/i;
  * @returns a map from {@link ValidLocale} to {@link LocalizationFileLoaderMap}
  */
 export const toLocalizationFileLoaderMap = <T>(fileLoaders: FileLoaderMap<T>): LocalizationFileLoaderMap<T> => {
+    if(!fileLoaders || typeof fileLoaders !== "object" || Array.isArray(fileLoaders)) throw new Error("Invalid FileLoaderMap");
     return Object.entries(fileLoaders).reduce(
         (mapped, [cacheKey, loader]) => {
             const match = cacheKey.match(localeRegex);
