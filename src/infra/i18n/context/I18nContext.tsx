@@ -1,4 +1,4 @@
-import LocaleAwarePolyglot from "@i18n/LocaleAwarePolyglot/LocaleAwarePolyglot";
+import LocaleAwarePolyglot from "@i18n/LocaleAwarePolyglot";
 import { I18nContextValue } from "@i18n/types/context";
 import { createContext } from "react";
 
