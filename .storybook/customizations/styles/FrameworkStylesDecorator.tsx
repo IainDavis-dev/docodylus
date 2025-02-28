@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 
-const STYLESHEET_LINK_ELEMENT_ID = 'iaindavis-dev.docodylus.storybook.dynamic-framework-styles';
+const STYLESHEET_LINK_ELEMENT_ID = 'dev.iaindavis.docodylus.storybook.dynamic-framework-styles';
 
 const styleSheets = {
     default: null,

@@ -19,9 +19,9 @@ import.meta.glob<Record<string, {default: LocalizedStrings}>>("../localization/*
     },
     {} as any);
 
-const COLLAPSE_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'iaindavis-dev.docodylus.layout.expandable.collapsePrompt' as const;
-const EXPAND_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'iaindavis-dev.docodylus.layout.expandable.expandPrompt' as const ;
-const TXLNS_LOADING_KEY = 'iaindavis-dev.docodylus.i18n.txlns-loading' as keyof DocodylusLocalizedStrings;
+const COLLAPSE_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'dev.iaindavis.docodylus.layout.expandable.collapsePrompt' as const;
+const EXPAND_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'dev.iaindavis.docodylus.layout.expandable.expandPrompt' as const ;
+const TXLNS_LOADING_KEY = 'dev.iaindavis.docodylus.i18n.txlns-loading' as keyof DocodylusLocalizedStrings;
 
 const {
     Default: DefaultStory,
