@@ -52,7 +52,8 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test:unit": "TEST_GROUP=UNIT vitest",
+    "test:unit": "TEST_GROUP=UNIT,TYPE vitest --typecheck",
+    "test:types": "TEST_GROUP=TYPE vitest --typecheck",
     "test:integration": "TEST_GROUP=INTEGRATION vitest",
     "generate-locales": "node scripts/generate-valid-locales.mjs",
     "postinstall": "yarn generate-locales",
