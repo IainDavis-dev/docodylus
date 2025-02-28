@@ -1,5 +1,6 @@
-import { isNoWhitespaceString, NoWhitespaceString } from "@validation/types"
+import { isValidNamespace, ValidNamespace } from "@validation/types"
 import { Namespaced } from "./types"
+import { newInvalidNamespaceError } from "@error/DocodylusTypeError";
 
 /**
  * A utility type representing a function that prepends a namespace to the keys of an object.
@@ -18,19 +19,12 @@ type NamespacePrepender<NS extends string> = <T extends Record<string, unknown> 
  * @param namespace - The local namespace to prepend to all translation keys.
  * @returns {NamespacePrepender} A function that accepts translations and returns namespaced translations.
  */
-export const createNamespacePrepender = <NS extends NoWhitespaceString<string>>(namespace: NS): NamespacePrepender<NS> => {
-
-    if(!namespace || !isNoWhitespaceString(namespace)) {
-        // we expect Typescript to prevent this, but just in case somebody gets past the compile-time checks...
-        console.warn(new Error(`No namespace or invalid namespace ${namespace} provided. Must be non-empty and contain no whitespace`))
+export function createNamespacePrepender<NS extends string>(namespace: ValidNamespace<NS>): NamespacePrepender<NS> {
+    if (!isValidNamespace(namespace)) {
+        throw newInvalidNamespaceError(`No namespace or invalid namespace "${namespace}". Must be non-empty and contain no whitespace`);
     }
 
-    return (translations) => {
-        return Object.entries(translations).reduce<Namespaced<NS, typeof translations>>(
-            (mapped, [key, value]) => ({
-                ...mapped,
-                [`${namespace.toLowerCase()}.${key}`]: value
-            }),
-            {} as Namespaced<NS, typeof translations>
-        )}
+    return (obj) => {
+        return Object.fromEntries(Object.keys(obj).map((key) => [`${namespace}.${key}`, obj[key]])) as Namespaced<NS, typeof obj>;
+    };
 }
