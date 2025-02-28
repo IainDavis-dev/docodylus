@@ -1,5 +1,5 @@
-const EXPAND_PROMPT_KEY: keyof ExpandableLocalizedStrings = "iaindavis-dev.docodylus.layout.expandable.expandPrompt"
-const COLLAPSE_PROMPT_KEY: keyof ExpandableLocalizedStrings = "iaindavis-dev.docodylus.layout.expandable.collapsePrompt"
+const EXPAND_PROMPT_KEY: keyof ExpandableLocalizedStrings = "dev.iaindavis.docodylus.layout.expandable.expandPrompt"
+const COLLAPSE_PROMPT_KEY: keyof ExpandableLocalizedStrings = "dev.iaindavis.docodylus.layout.expandable.collapsePrompt"
 
 const DEFAULT_LANGUAGE_ONLY_EXPAND_PROMPT = "DEFAULT_LANGUAGE_ONLY_EXPAND_PROMPT";
 const DEFAULT_LANGUAGE_ONLY_COLLAPSE_PROMPT = "DEFAULT_LANGUAGE_ONLY_COLLAPSE_PROMPT";
