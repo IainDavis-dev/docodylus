@@ -18,7 +18,7 @@ type TWrapper<T> = (key: T | DefaultTranslationKey, options?: PolyglotOptions) =
  * {@link LocaleAwarePolyglot} before string localization is attempted.
  * 
  * @template T - Type representing the translation keys. Used only to provide
- * code-completion hints for the set of translations relevant to the compoenent
+ * code-completion hints for the set of translations relevant to the component
  *
  * @param {URL} translationsSrc - The URL of the translation file to load.
  * @returns {UseTranslationsResponse<T>} An object containing:
