@@ -12,7 +12,7 @@ const localizedStrings = Object.entries(
 import.meta.glob<Record<string, {default: LocalizedStrings}>>("../localization/*.txlns.ts", { eager: true })
 ).reduce<Record<ValidLocale, ExpandableLocalizedStrings>>(
     (txlns, [key, value]) => {
-        const transformedKey = key.match(/\.\.\/localization\/(?<locale>.*)\.txlns\.ts/)?.groups?.locale;
+        const transformedKey = key.match(/\.\.\/localization\/txlns\/(?<locale>.*)\.txlns\.ts/)?.groups?.locale;
         const { default: transformedValue } = value;
         if(!transformedKey || !transformedValue) return txlns
         else return {...txlns, [transformedKey]: transformedValue}
@@ -21,7 +21,6 @@ import.meta.glob<Record<string, {default: LocalizedStrings}>>("../localization/*
 
 const COLLAPSE_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'dev.iaindavis.docodylus.layout.expandable.collapsePrompt' as const;
 const EXPAND_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'dev.iaindavis.docodylus.layout.expandable.expandPrompt' as const ;
-const TXLNS_LOADING_KEY = 'dev.iaindavis.docodylus.i18n.txlns-loading' as keyof DocodylusLocalizedStrings;
 
 const {
     Default: DefaultStory,
