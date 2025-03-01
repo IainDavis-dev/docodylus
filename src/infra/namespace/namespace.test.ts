@@ -1,5 +1,5 @@
 import { describeUnitTest } from "@test-utils/testGroups";
-import { isValidNamespace } from "@validation/types";
+import { isValidNamespace } from "@namespace/isValidNamespace";
 
 describeUnitTest.each`
     input                       | isValid

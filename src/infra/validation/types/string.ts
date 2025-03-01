@@ -1,4 +1,4 @@
-type CharacterSet<T extends string> =
+export type CharacterSet<T extends string> =
   T extends `${infer First}${infer Rest}`
     ? First | CharacterSet<Rest>
     : never;

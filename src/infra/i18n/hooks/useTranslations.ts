@@ -71,7 +71,7 @@ const useTranslations = <T extends LocalizedStrings = never>(loaderMap: Localiza
 
     const tWrapper: TWrapper<keyof T> = useMemo(() =>
         (key, options) => {
-            return usePlaceholderText ? i18n.t(TXLNS_LOADING_KEY) : i18n.t(key as string, options);
+            return usePlaceholderText ? i18n.t(TXLNS_LOADING_KEY as string) : i18n.t(key as string, options);
         },
         [usePlaceholderText] // no need to continually re-create this function
     );

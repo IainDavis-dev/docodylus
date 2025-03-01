@@ -1,9 +1,9 @@
+import { describeUnitTest } from "@test-utils/testGroups";
 import I18nProvider from "@i18n/context/I18nProvider";
 import useTranslations from "@i18n/hooks/useTranslations";
 import { LocalizationFileLoaderMap, LocalizedStrings, ValidLocale } from "@i18n/types";
-import { defer } from "@test-utils/defer";
-import { describeUnitTest } from "@test-utils/testGroups";
 import { act, render, screen, waitFor} from "@testing-library/react";
+import { defer } from "@test-utils/defer";
 
 type TestLocalizedStrings = {
     "dev.iaindavis.test.unit.testProp1": string

@@ -19,6 +19,7 @@ export function DocodylusErrorBase<T extends new(...args: any[]) => Error>(Base:
             this.details = details;
 
             Object.setPrototypeOf(this, new.target.prototype)
+            Object.freeze(this);
         }
 
         toJSON() {

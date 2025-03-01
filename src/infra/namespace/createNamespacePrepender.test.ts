@@ -1,6 +1,6 @@
-import { DocodylusTypeError } from "@error/DocodylusTypeError";
-import { createNamespacePrepender } from "@shared-utils/createNamespacePrepender";
 import { describeUnitTest } from "@test-utils/testGroups";
+import { DocodylusTypeError } from "@error/DocodylusTypeError";
+import { createNamespacePrepender } from "@namespace/createNamespacePrepender";
 
 describeUnitTest("createNamespacePrepender", () => {
     it("should prepend a namespace to properties of an object", () => {

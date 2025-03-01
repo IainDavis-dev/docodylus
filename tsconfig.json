@@ -17,10 +17,11 @@
             "@i18n/*": ["src/infra/i18n/*"],
             "@validation/*": ["src/infra/validation/*"],
             "@docs/*": ["docs/*"],
-            "@test-utils/*": ["test/test-utils/*"],
+            "@test-utils/*": ["test/testUtils/*"],
             "@types/*": ["src/types/*"],
             "@shared-utils/*": ["src/infra/sharedUtils/*"],
             "@error/*": ["src/infra/error/*"],
+            "@namespace/*": ["src/infra/namespace/*"]
         },
         "types": [
             "react",
