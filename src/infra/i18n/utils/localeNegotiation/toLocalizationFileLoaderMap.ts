@@ -1,7 +1,7 @@
 import { LocalizationFileLoaderMap, ValidLocale } from "@i18n/types";
 import { FileLoaderMap } from "@shared-utils/types";
 
-const localeRegex = /\/\S*\/localization\/(\S+)\.txlns.ts$/i;
+const localeRegex = /\/\S*\/localization\/txlns\/(\S+)\.txlns.ts$/i;
 
 /**
  * Takes the return object from `import.meta.glob`, extracts the

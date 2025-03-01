@@ -8,5 +8,5 @@ import { ExpandableLocalizedStrings } from ".";
 export function getRawLoaders() {
     // cannot externalize this into a utility function: argument to import.meta.glob must be a string literal
     // see: https://vite.dev/guide/features#glob-import-caveats
-    return import.meta.glob<Partial<ExpandableLocalizedStrings>>("./*.txlns.ts", { import: 'default'});
+    return import.meta.glob<Partial<ExpandableLocalizedStrings>>("./txlns/*.txlns.ts", { import: 'default'});
 }

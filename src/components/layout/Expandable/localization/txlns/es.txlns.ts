@@ -1,4 +1,4 @@
-import { ExpandableLocalizedStrings, prependNamespace } from ".";
+import { ExpandableLocalizedStrings, prependNamespace } from "..";
 
 const translations: ExpandableLocalizedStrings = prependNamespace({
     expandPrompt: 'mostrar mas...',
