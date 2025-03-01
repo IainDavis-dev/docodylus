@@ -8,19 +8,19 @@ describeUnitTest("toLocalizationFileLoaderMap", () => {
         const enLoader = () => Promise.resolve({});
         const esLoader = () => Promise.resolve({});
         const input: FileLoaderMap<{}> = {
-            "https://mockurl.com/src/components/layout/Expandable/localization/en.txlns.ts": enLoader,
-            "https://mockurl.com/src/components/layout/Expandable/localization/es.txlns.ts": esLoader,
+            "https://mockurl.com/src/components/layout/Expandable/localization/txlns/en.txlns.ts": enLoader,
+            "https://mockurl.com/src/components/layout/Expandable/localization/txlns/es.txlns.ts": esLoader,
         }
 
         const actual = toLocalizationFileLoaderMap(input);
 
         expect(actual).toEqual({
             "en": {
-                cacheKey: "https://mockurl.com/src/components/layout/Expandable/localization/en.txlns.ts",
+                cacheKey: "https://mockurl.com/src/components/layout/Expandable/localization/txlns/en.txlns.ts",
                 loader: enLoader
             },
             "es": {
-                cacheKey: "https://mockurl.com/src/components/layout/Expandable/localization/es.txlns.ts",
+                cacheKey: "https://mockurl.com/src/components/layout/Expandable/localization/txlns/es.txlns.ts",
                 loader: esLoader
             }
         })
@@ -30,19 +30,19 @@ describeUnitTest("toLocalizationFileLoaderMap", () => {
         const enLoader = () => Promise.resolve({});
         const esLoader = () => Promise.resolve({});
         const input: FileLoaderMap<{}> = {
-            "https://mockurl.com/src/components/layout/Expandable/localization/en.txlns.ts": enLoader,
-            "https://mockurl.com/src/components/layout/Expandable/localization/es.txlns.ts": esLoader,
+            "https://mockurl.com/src/components/layout/Expandable/localization/txlns/en.txlns.ts": enLoader,
+            "https://mockurl.com/src/components/layout/Expandable/localization/txlns/es.txlns.ts": esLoader,
             "https://mockurl.com/src/components/layout/Expandable/wrongFileNameAndLocation.ts": () => Promise.resolve({}),
         }
 
         const actual = toLocalizationFileLoaderMap(input);
         expect(actual).toEqual({
             "en": {
-                cacheKey: "https://mockurl.com/src/components/layout/Expandable/localization/en.txlns.ts",
+                cacheKey: "https://mockurl.com/src/components/layout/Expandable/localization/txlns/en.txlns.ts",
                 loader: enLoader
             },
             "es": {
-                cacheKey: "https://mockurl.com/src/components/layout/Expandable/localization/es.txlns.ts",
+                cacheKey: "https://mockurl.com/src/components/layout/Expandable/localization/txlns/es.txlns.ts",
                 loader: esLoader
             }
         })

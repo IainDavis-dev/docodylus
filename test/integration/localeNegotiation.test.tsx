@@ -22,37 +22,37 @@ vi.mock("@components/layout/Expandable/localization/getRawLoaders", async () => 
         getRawLoaders: function(){
             return ({
                 // language only: en (English)
-                "./en.txlns.ts": () => Promise.resolve<ExpandableLocalizedStrings>({
+                "./txlns/en.txlns.ts": () => Promise.resolve<ExpandableLocalizedStrings>({
                     [EXPAND_PROMPT_KEY]: DEFAULT_LANGUAGE_ONLY_EXPAND_PROMPT,
                     [COLLAPSE_PROMPT_KEY]: DEFAULT_LANGUAGE_ONLY_COLLAPSE_PROMPT
                 }),
                 // language-only: zh (Chinese)
-                "./zh.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+                "./txlns/zh.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
                     [EXPAND_PROMPT_KEY]: LANGUAGE_ONLY_EXPAND_PROMPT,
                     [COLLAPSE_PROMPT_KEY]: LANGUAGE_ONLY_COLLAPSE_PROMPT
                 }),
                 // language-script: zh-Hant (Chinese, traditional Han script)
-                "./zh-Hant.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+                "./txlns/zh-Hant.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
                     [EXPAND_PROMPT_KEY]: LANGUAGE_AND_SCRIPT_EXPAND_PROMPT 
                 }),
                 // language-region: zh-TW (Taiwanese Chinese)
-                "./zh-TW.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+                "./txlns/zh-TW.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
                     [EXPAND_PROMPT_KEY]: LANGUAGE_AND_REGION_EXPAND_PROMPT 
                 }),
                 // language-script: sr-Cyrl (Serbian Cyrillic)
-                "./sr-Cyrl.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+                "./txlns/sr-Cyrl.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
                     [EXPAND_PROMPT_KEY]: LANGUAGE_AND_SCRIPT_EXPAND_PROMPT
                 }),
                 // language-script-region: sr-Cyrl-RS (Serbian Cyrillic, Serbia)
-                "./sr-Cyrl-RS.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+                "./txlns/sr-Cyrl-RS.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
                     [COLLAPSE_PROMPT_KEY]: LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT
                 }),
                 // language-script: az (Azerbaijani)
-                "./az-Latn.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+                "./txlns/az-Latn.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
                     [EXPAND_PROMPT_KEY]: LANGUAGE_ONLY_EXPAND_PROMPT
                 }),
                 // language-script-region: az-Latn-AZ (Azerbaijani, Latin script, Azerbaijan region)
-                "./az-Latn-AZ.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+                "./txlns/az-Latn-AZ.txlns.ts": () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
                     [COLLAPSE_PROMPT_KEY]: LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT
                 }),
             });

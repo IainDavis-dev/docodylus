@@ -9,10 +9,10 @@ import { ExpandableLocalizedStrings } from '../localization';
 import I18nProvider from '@i18n/context/I18nProvider';
 
 const localizedStrings = Object.entries(
-import.meta.glob<Record<string, {default: LocalizedStrings}>>("../localization/*.txlns.ts", { eager: true })
+import.meta.glob<Record<string, {default: LocalizedStrings}>>("../localization/txlns/*.txlns.ts", { eager: true })
 ).reduce<Record<ValidLocale, ExpandableLocalizedStrings>>(
     (txlns, [key, value]) => {
-        const transformedKey = key.match(/\.\.\/localization\/txlns\/(?<locale>.*)\.txlns\.ts/)?.groups?.locale;
+        const transformedKey = key.match(/\/localization\/txlns\/(?<locale>.*)\.txlns\.ts/)?.groups?.locale;
         const { default: transformedValue } = value;
         if(!transformedKey || !transformedValue) return txlns
         else return {...txlns, [transformedKey]: transformedValue}
