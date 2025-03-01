@@ -1,3 +1,10 @@
+import { describeIntegrationTest } from "@test-utils/testGroups";
+import { render, screen, waitFor } from "@testing-library/react";
+import { composeStories } from '@storybook/react';
+import { ExpandableLocalizedStrings } from "@components/layout/Expandable/localization";
+import I18nProvider from "@i18n/context/I18nProvider";
+import userEvent from "@testing-library/user-event";
+
 const EXPAND_PROMPT_KEY: keyof ExpandableLocalizedStrings = "dev.iaindavis.docodylus.layout.expandable.expandPrompt"
 const COLLAPSE_PROMPT_KEY: keyof ExpandableLocalizedStrings = "dev.iaindavis.docodylus.layout.expandable.collapsePrompt"
 
@@ -53,14 +60,8 @@ vi.mock("@components/layout/Expandable/localization/getRawLoaders", async () => 
     }
 });
 
-import { describeIntegrationTest } from "@test-utils/testGroups";
-import { render, screen, waitFor } from "@testing-library/react";
-import { composeStories } from '@storybook/react';
-import { ExpandableLocalizedStrings } from "@components/layout/Expandable/localization";
-import I18nProvider from "@i18n/context/I18nProvider";
-import userEvent from "@testing-library/user-event";
 
-import * as stories from '@components/layout/Expandable/storybook/Expandable.stories'
+import * as stories from '@components/layout/Expandable/storybook/Expandable.stories';
 const {
     PreExpanded: PreExpandedStory,
     Default: DefaultStory

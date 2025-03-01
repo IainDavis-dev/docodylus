@@ -1,8 +1,8 @@
 import { BASE_NAMESPACE } from "@i18n/consts";
 import { getRawLoaders } from "./getRawLoaders";
-import { createNamespacePrepender } from "@shared-utils/createNamespacePrepender";
-import { Namespaced } from "@shared-utils/types";
 import { toLocalizationFileLoaderMap } from "@i18n/utils/localeNegotiation";
+import type { Namespaced } from "@namespace/types";
+import { createNamespacePrepender } from "@namespace/createNamespacePrepender";
 
 export const ExpandableNamespace = `${BASE_NAMESPACE}.layout.expandable` as const;
 export const prependNamespace = createNamespacePrepender(ExpandableNamespace);

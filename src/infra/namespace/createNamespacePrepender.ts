@@ -1,6 +1,6 @@
-import { isValidNamespace, ValidNamespace } from "@validation/types"
-import { Namespaced } from "./types"
 import { newInvalidNamespaceError } from "@error/DocodylusTypeError";
+import { isValidNamespace } from "./isValidNamespace";
+import { Namespaced, ValidNamespace } from "./types";
 
 /**
  * A utility type representing a function that prepends a namespace to the keys of an object.

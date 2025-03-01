@@ -1,7 +1,7 @@
+import { describeUnitTest } from "@test-utils/testGroups";
 import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS, SUPPORTED_LOCALES } from "@i18n/consts";
 import LocaleAwarePolyglot from "@i18n/LocaleAwarePolyglot";
 import { ValidLocale } from "@i18n/types";
-import { describeUnitTest } from "@test-utils/testGroups";
 import Polyglot from "node-polyglot";
 
 describeUnitTest("LocaleAwarePolyglot", () => {

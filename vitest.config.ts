@@ -22,10 +22,10 @@ export default defineConfig(async () => {
                 reportsDirectory: 'static/reports/coverage',
                 all: true,
                 thresholds: {
-                    statements: 20,
-                    branches: 20,
-                    functions: 20,
-                    lines: 20,
+                    statements: 95,
+                    branches: 95,
+                    functions: 95,
+                    lines: 95,
                 },
                 exclude: [
                     "docs", // TODO: separate coverage metrics for docs
@@ -46,7 +46,7 @@ export default defineConfig(async () => {
                     // no need to test the test files themselves
                     "**/*.test.*",
                     "**/*.test-d.*",
-                    "test/test-utils",
+                    "test/testUtils",
                     "**/*.spec.*",
                     "**/*.stories.*",
                     "**/__mocks__",

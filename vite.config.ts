@@ -19,10 +19,11 @@ export default defineConfig({
             '@i18n': path.resolve(__dirname, './src/infra/i18n'),
             '@validation': path.resolve(__dirname, './src/infra/validation'),
             '@docs': path.resolve(__dirname, './docs'),
-            '@test-utils': path.resolve(__dirname, './test/test-utils'),
+            '@test-utils': path.resolve(__dirname, './test/testUtils'),
             '@types': path.resolve(__dirname, './src/types'),
             '@shared-utils': path.resolve(__dirname, './src/infra/sharedUtils'),
             '@error': path.resolve(__dirname, './src/infra/error'),
+            '@namespace': path.resolve(__dirname, './src/infra/namespace')
         }
     },
 })

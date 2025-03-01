@@ -1,4 +1,6 @@
-import { IsLowercase } from ".";
+export { Namespaced } from './namespace'
+
+import { IsLowercase } from "../../validation/types";
 
 type IsValidNamespace<T extends string> =
   T extends ""
@@ -14,11 +16,3 @@ type IsValidNamespace<T extends string> =
                 : false;
 
 export type ValidNamespace<T extends string> = IsValidNamespace<T> extends true ? T : never;
-
-
-const namespaceRegex = /^([a-z]+\.)*[a-z]+$/
-
-export function isValidNamespace(maybeNamespace: unknown) {
-    if(typeof maybeNamespace !== "string") return false;
-    return namespaceRegex.test(maybeNamespace);
-}

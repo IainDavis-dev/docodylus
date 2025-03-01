@@ -11,9 +11,10 @@ export class DocodylusTypeError extends DocodylusErrorBase(TypeError) {
         cause?: unknown,
         params?: DocodylusTypeErrorParams
     ) {
-        super(message, { cause })
-        if(params) Object.assign(this, params);
-        Object.freeze(this);
+        // @ts-expect-error: mixin pattern won't allow us to modify
+        // the constructor signature, but the base type does support
+        // this signature
+        super(message, { cause }, params)
     }
 }
 

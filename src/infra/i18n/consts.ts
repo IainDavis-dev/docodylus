@@ -1,6 +1,6 @@
-import { Namespaced } from "@shared-utils/types";
+import { createNamespacePrepender } from "../namespace/createNamespacePrepender";
+import { Namespaced } from "../namespace/types";
 import { LocalizedStrings, ValidLocale } from "./types";
-import { createNamespacePrepender } from "@shared-utils/createNamespacePrepender";
 
 export const BASE_NAMESPACE = "dev.iaindavis.docodylus";
 export const DEFAULT_LOCALE: ValidLocale = "en";
@@ -18,7 +18,6 @@ export const SUPPORTED_LOCALES: ValidLocale[] = [
  */
 const I18nNamespace = "dev.iaindavis.docodylus.internationalization" as const;
 const prependNamespace = createNamespacePrepender(I18nNamespace);
-
 
 type DefaultLocalizedStrings = Namespaced<typeof I18nNamespace, {
     "txlns-loading": string;

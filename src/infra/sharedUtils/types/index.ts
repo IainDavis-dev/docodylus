@@ -1,2 +1,1 @@
-export * from './namespace';
-export * from './fileLoaders';
+export { FileLoader, FileLoaderMap } from './fileLoaders';
