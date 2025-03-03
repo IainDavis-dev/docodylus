@@ -40,5 +40,12 @@
         "test/**/*.tsx",
         "index.d.ts",
         "index.test-d.ts",
+        "docs/**/*.ts",
+        "docs/**/*.tsx",
+        ".storybook/**/*.ts",
+        ".storybook/**/*.tsx",
+        "*.ts",
+        "*.tsx",
     ],
+    "exclude": [ "eslint.config.mjs"]
 }
