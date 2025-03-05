@@ -1,1 +1,1 @@
-export type * from "@i18n/types"
+export type * from '@i18n/types';

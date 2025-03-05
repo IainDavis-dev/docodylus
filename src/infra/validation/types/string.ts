@@ -6,7 +6,7 @@ export type CharacterSet<T extends string> =
 export type Alpha = CharacterSet<'abcdefghijklmnopqrstuvwxyz'>
 
 export type IsLowercase<T extends string> =
-    T extends ""
+    T extends ''
         ? true
         : T extends `${Alpha}${infer Rest}`
             ? IsLowercase<Rest>

@@ -1,10 +1,11 @@
 import localeCodes, { ILocale } from 'locale-codes';
-import { SUPPORTED_LOCALES } from '../../../src/infra/i18n/consts';
+import { SUPPORTED_LOCALES } from '@i18n/consts';
+import { ValidLocale } from '@i18n/types';
 
 const [supportedLocales, unsupportedLocales] = localeCodes.all
     .sort((a, b) => a.tag < b.tag ? -1 : 1)
     .reduce<[ILocale[], ILocale[]]>(
-        (parsed, locale) => SUPPORTED_LOCALES.includes(locale.tag)
+        (parsed, locale) => SUPPORTED_LOCALES.includes(locale.tag as ValidLocale)
         ? [[...parsed[0], locale], parsed[1]]
         : [parsed[0], [...parsed[1], locale]],
         [[], []]

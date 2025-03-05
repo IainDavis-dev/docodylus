@@ -1,13 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import Lorem from '@dummies/boilerplate/lorem_ipsum.mdx';
+import { JSX } from 'react';
 import Expandable from '../Expandable';
 import type { ExpandablePropsType } from '../Expandable';
-import Lorem from '@dummies/boilerplate/lorem_ipsum.mdx';
 
-const render = (args: ExpandablePropsType) => (
-    <Expandable {...args}>
-      <Lorem/>
+const render = (args: ExpandablePropsType): JSX.Element => {
+  const { startExpanded, expandPrompt, collapsePrompt } = args;
+  return (
+    <Expandable
+      startExpanded={startExpanded}
+      expandPrompt={expandPrompt}
+      collapsePrompt={collapsePrompt}
+    >
+      <Lorem />
     </Expandable>
-)
+  );
+};
 
 const meta: Meta<typeof Expandable> = {
   title: 'Custom Components/Expandable',
@@ -17,8 +25,8 @@ const meta: Meta<typeof Expandable> = {
       title: 'About Expandable',
       canvas: {
         sourceState: 'shown',
-      }
-    }
+      },
+    },
   },
   argTypes: {
     startExpanded: {
@@ -31,9 +39,9 @@ const meta: Meta<typeof Expandable> = {
       table: {
         defaultValue: {
           summary: '"show more..."',
-          detail: 'Determined by i18n, varies by locale'
-        }
-      }
+          detail: 'Determined by i18n, varies by locale',
+        },
+      },
     },
     collapsePrompt: {
       control: 'text',
@@ -41,12 +49,12 @@ const meta: Meta<typeof Expandable> = {
       table: {
         defaultValue: {
           summary: '"show less"',
-          detail: 'Determined by i18n, varies by locale'
-        }
-      }
-    }
+          detail: 'Determined by i18n, varies by locale',
+        },
+      },
+    },
   },
-  render
+  render,
 };
 
 export default meta;
@@ -58,31 +66,31 @@ export const Default: Story = {
 
 export const PreExpanded: Story = {
   args: {
-    startExpanded: true
+    startExpanded: true,
   },
 };
 
 export const CustomExpandCollapsePrompt: Story = {
-  name: "Customizable Expand/Collapse Prompts",
+  name: 'Customizable Expand/Collapse Prompts',
   args: {
     expandPrompt: 'Click for more details (customized expand prompt)',
     collapsePrompt: 'Hide details (customized collapse prompt)',
   },
-}
+};
 
 const nestedContentStyle = {
   color: 'orange',
   fontStyle: 'italic',
-  fontWeight: 900
+  fontWeight: 900,
 };
 export const Nested: Story = {
-  name: "Nested Expandable Sections",
-  render: (args, context) => (
+  name: 'Nested Expandable Sections',
+  render: () => (
+    <Expandable startExpanded>
+      <Lorem />
       <Expandable startExpanded>
-        <Lorem />
-        <Expandable startExpanded>
-           <span style={nestedContentStyle}>Nested expanded content</span>
-        </Expandable>
+        <span style={nestedContentStyle}>Nested expanded content</span>
       </Expandable>
-  )
-}
+    </Expandable>
+  ),
+};

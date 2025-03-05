@@ -1,3 +1,3 @@
-export * from "./validLocales";
-export * from "./localizedStrings";
-export * from "./context";
+export * from './validLocales.js';
+export * from './localizedStrings.js';
+export * from './context.js';

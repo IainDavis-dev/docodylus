@@ -1,5 +1,5 @@
-import LocaleAwarePolyglot from "@i18n/LocaleAwarePolyglot";
-import { ValidLocale } from "@i18n/types";
+import LocaleAwarePolyglot from '@i18n/LocaleAwarePolyglot';
+import { ValidLocale } from '@i18n/types';
 
 /**
  * Structure of the value provided by the {@link I18nContext}.

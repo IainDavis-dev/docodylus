@@ -1,2 +1,2 @@
-export const graphicalNo = "❌";
-export const graphicalYes = "✅";
+export const graphicalNo = '❌';
+export const graphicalYes = '✅';

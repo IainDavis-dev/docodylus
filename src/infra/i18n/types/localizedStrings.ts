@@ -1,5 +1,11 @@
-import { FileLoader } from "@shared-utils/types";
-import { ValidLocale } from "./validLocales"
+import { FileLoader } from '@shared-utils/types';
+import { ValidLocale } from './validLocales';
+
+/**
+ * merged interface for aggregating localization strings from all components
+ */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface DocodylusLocalizedStrings {}
 
 /**
  *  A map of translation keys to their corresponding localized strings
@@ -13,9 +19,9 @@ export type LocalizedStringsByLocale = {
     [L in ValidLocale]: LocalizedStrings
 }
 
-export type LocalizationFileLoaderMap<T> = Partial<Record<ValidLocale, {cacheKey: string, loader: FileLoader<T>}>>;
+interface FileLoaderWithCacheKey<T> {
+    cacheKey: string,
+    loader: FileLoader<T>
+}
 
-/**
- * merged interface for aggregating localization strings from all components
- */
-export interface DocodylusLocalizedStrings {}
+export type LocalizationFileLoaderMap<T> = Partial<Record<ValidLocale, FileLoaderWithCacheKey<T>>>;

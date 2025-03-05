@@ -1,19 +1,20 @@
-import { describeUnitTest } from "@test-utils/testGroups";
-import { isValidNamespace } from "@namespace/isValidNamespace";
+import { describeUnitTest } from '@test-utils/testGroups';
+import isValidNamespace from '@namespace/isValidNamespace';
 
+type TestCase = {input: unknown, isValid: boolean};
 describeUnitTest.each`
     input                       | isValid
-    ${"t"}                      | ${true}
-    ${"test"}                   | ${true}
-    ${"test.namespace"}         | ${true}
-    ${"longer.test.namespace"}  | ${true}
-    ${".invalid"}               | ${false}
-    ${"invalid."}               | ${false}
-    ${"invalid..invalid"}       | ${false}
-    ${"ABC"}                    | ${false}
-    ${"123"}                    | ${false}
-    ${"#$%"}                    | ${false}
-    ${"🚀✨💡"}                  | ${false}
+    ${'t'}                      | ${true}
+    ${'test'}                   | ${true}
+    ${'test.namespace'}         | ${true}
+    ${'longer.test.namespace'}  | ${true}
+    ${'.invalid'}               | ${false}
+    ${'invalid.'}               | ${false}
+    ${'invalid..invalid'}       | ${false}
+    ${'ABC'}                    | ${false}
+    ${'123'}                    | ${false}
+    ${'#$%'}                    | ${false}
+    ${'🚀✨💡'}                  | ${false}
     ${' '}                      | ${false}
     ${'\t'}                     | ${false}
     ${'\n'}                     | ${false}
@@ -35,8 +36,8 @@ describeUnitTest.each`
     ${[]}                       | ${false}
     ${{}}                       | ${false}
 
-`("isValidNamespace", ({input, isValid}) => {
-    it(`"${input}" is ${isValid ? 'a valid' : 'an invalid'} namespace`, () => {
-        expect(isValidNamespace(input)).toBe(isValid);
-    })
-})
+`('isValidNamespace', ({ input, isValid }: TestCase) => {
+  it(`"${String(input)}" is ${isValid ? 'a valid' : 'an invalid'} namespace`, () => {
+    expect(isValidNamespace(input)).toBe(isValid);
+  });
+});

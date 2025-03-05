@@ -1,16 +1,21 @@
-export { Namespaced } from './namespace'
+import { IsLowercase } from '../../validation/types';
 
-import { IsLowercase } from "../../validation/types";
+export { Namespaced } from './namespace';
 
 type IsValidNamespace<T extends string> =
-  T extends ""
-    ? false                                         // Reject empty string outright.
-    : T extends `${infer Segment}.${infer Rest}`    // segmented namespace
-        ? Segment extends "" 
-            ? false                                 // Reject empty segment (leading or double dots)
+  T extends ''
+    // Reject empty string outright.
+    ? false
+    // segmented namespace
+    : T extends `${infer Segment}.${infer Rest}`
+        ? Segment extends ''
+            // Reject empty segment (leading or double dots)
+            ? false
             : IsLowercase<Segment> extends true
-                ? IsValidNamespace<Rest>            // Recurse on the rest.
-                : false                             // reject if contains disallowed characters
+                // Recurse on the rest.
+                ? IsValidNamespace<Rest>
+                // reject if contains disallowed characters
+                : false
             : IsLowercase<T> extends true
                 ? true
                 : false;

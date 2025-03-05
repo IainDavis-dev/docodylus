@@ -3,11 +3,11 @@
         "jsx": "react-jsx",
         "lib": ["dom", "esnext"],
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "target": "esnext",
         "strict": true,
         "noImplicitAny": true,
-        "baseUrl": ".",
+        "baseUrl": "./",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "skipLibCheck": true,
@@ -46,6 +46,8 @@
         ".storybook/**/*.tsx",
         "*.ts",
         "*.tsx",
+        "config/**/*.ts",
+        "config/**/*.tsx", "config/eslint/typescriptSource.js", "config/eslint/testFiles.js", "config/eslint/nonRuntimeFiles.js", "config/eslint/javascriptSource.js", "config/eslint/index.js", "config/eslint/globalEslintConfig.js", "config/eslint/eslintignore.js", "config/eslint/consts.js",
     ],
     "exclude": [ "eslint.config.mjs"]
 }
