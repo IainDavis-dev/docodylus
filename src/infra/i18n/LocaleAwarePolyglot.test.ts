@@ -1,8 +1,12 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 import { describeUnitTest } from '@test-utils/testGroups';
-import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS, SUPPORTED_LOCALES } from '@i18n/consts';
+import {
+  DEFAULT_LOCALE,
+  DEFAULT_TRANSLATIONS,
+  SUPPORTED_LOCALES,
+  SupportedLocale,
+} from '@i18n/consts';
 import LocaleAwarePolyglot from '@i18n/LocaleAwarePolyglot';
-import { ValidLocale } from '@i18n/types';
 import Polyglot from 'node-polyglot';
 
 describeUnitTest('LocaleAwarePolyglot', () => {
@@ -40,7 +44,7 @@ describeUnitTest('LocaleAwarePolyglot', () => {
       expect(actual.getLocale()).toBe('fr-FR');
     });
 
-    it.each(SUPPORTED_LOCALES)('should initialize with a default minimal set of translations', (locale: ValidLocale) => {
+    it.each(SUPPORTED_LOCALES)('should initialize with a default minimal set of translations', (locale: SupportedLocale) => {
       const actual = new LocaleAwarePolyglot(polyglot);
       actual.setLocale(locale);
 

@@ -1,8 +1,14 @@
 import {
-  useId, JSX, useEffect, useState,
+  useId,
+  JSX,
+  useEffect,
+  useState,
 } from 'react';
 import {
-  Tab, TabList, TabPanel, Tabs,
+  Tab,
+  TabList,
+  TabPanel,
+  Tabs,
 } from 'react-tabs';
 
 interface TabData {

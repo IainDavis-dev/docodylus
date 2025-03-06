@@ -1,14 +1,15 @@
 import createNamespacePrepender from '../namespace/createNamespacePrepender';
 import { Namespaced } from '../namespace/types';
-import { ValidLocale } from './types';
 
-export const BASE_NAMESPACE = 'dev.iaindavis.docodylus';
-export const DEFAULT_LOCALE: ValidLocale = 'en';
-
-export const SUPPORTED_LOCALES: ValidLocale[] = [
+export const SUPPORTED_LOCALES = [
   'en',
   'es',
 ] as const;
+
+export type SupportedLocale = typeof SUPPORTED_LOCALES[number]
+
+export const BASE_NAMESPACE = 'dev.iaindavis.docodylus';
+export const DEFAULT_LOCALE: SupportedLocale = 'en';
 
 /**
  * Set of translations supported without explicitly being imported into LocaleAwarePolglot
@@ -22,13 +23,12 @@ const prependNamespace = createNamespacePrepender(I18nNamespace);
 type DefaultLocalizedStrings = Namespaced<typeof I18nNamespace, {
     'txlns-loading': string;
 }>
+export type DefaultTranslationKey = keyof DefaultLocalizedStrings
 
-export const DEFAULT_TRANSLATIONS: Record<'en' | 'es', DefaultLocalizedStrings> = {
+export const DEFAULT_TRANSLATIONS: Partial<Record<SupportedLocale, DefaultLocalizedStrings>> = {
   en: prependNamespace({ 'txlns-loading': 'translations loading...' }),
   es: prependNamespace({ 'txlns-loading': 'traducciones cargándose...' }),
 } as const;
-
-export const TXLNS_LOADING_KEY: keyof DefaultLocalizedStrings = 'dev.iaindavis.docodylus.internationalization.txlns-loading';
 
 // adds localized-string keys for this component to the master list so
 // it can be included in user overrides.

@@ -1,17 +1,20 @@
-import { DEFAULT_TRANSLATIONS, TXLNS_LOADING_KEY } from '@i18n/consts';
+import { DefaultTranslationKey } from '@i18n/consts';
 import I18nContext from '@i18n/context/I18nContext';
 import LocaleAwarePolyglot from '@i18n/LocaleAwarePolyglot';
 import { LocalizationFileLoaderMap, LocalizedStrings, ValidLocale } from '@i18n/types';
 import { negotiateLocales } from '@i18n/utils/localeNegotiation';
 import { PolyglotOptions } from 'node-polyglot';
 import {
-  useContext, useEffect, useMemo, useState,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
 } from 'react';
 
 // default instance serves DEFAULT_LOCALE in the absence of an explicit Provider
 let fallbackPolyglot: LocaleAwarePolyglot;
 
-type DefaultTranslationKey = keyof typeof DEFAULT_TRANSLATIONS['en'];
+const TXLNS_LOADING_KEY: DefaultTranslationKey = 'dev.iaindavis.docodylus.internationalization.txlns-loading';
 type LoadingState = 'not-loaded' | 'loading' | 'success' | 'error';
 type TWrapper<T> = (key: T | DefaultTranslationKey, options?: PolyglotOptions) => string;
 

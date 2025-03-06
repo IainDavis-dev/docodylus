@@ -3,7 +3,11 @@ import { describeUnitTest } from '@test-utils/testGroups';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { mockUseTranslations, MOCK_DEFAULT_EXPAND_PROMPT, MOCK_DEFAULT_COLLAPSE_PROMPT } from './__mocks__/useTranslations';
+import {
+  mockUseTranslations,
+  MOCK_DEFAULT_EXPAND_PROMPT,
+  MOCK_DEFAULT_COLLAPSE_PROMPT,
+} from './__mocks__/useTranslations';
 
 import Expandable from '../Expandable';
 

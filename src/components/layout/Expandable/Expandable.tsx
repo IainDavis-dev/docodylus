@@ -60,10 +60,12 @@ const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} aria-live="polite">
       <div
         ref={contentRef}
-        tabIndex={isExpanded ? 0 : 1}
+        // role="region"
+        // aria-labelledby={`expandable-toggle-${idDiscriminator}`}
+        tabIndex={-1}
         data-testid={`expandable-section-${idDiscriminator}`}
         id={`expandable-section-${idDiscriminator}`}
         className={styles.expandableBlock}
@@ -72,6 +74,9 @@ const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
         {children}
       </div>
       <button
+        id={`expandable-toggle-${idDiscriminator}`}
+        data-testid={`expandable-toggle-${idDiscriminator}`}
+        type="button"
         ref={buttonRef}
         tabIndex={0}
         className={styles.toggle}

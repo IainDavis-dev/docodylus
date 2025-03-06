@@ -11,3 +11,4 @@ export const BUILD_CONFIG_FILES = [
 export const BUILD_SCRIPTS = [
   'scripts/**',
 ];
+export const STORY_FILES = ['**/*.stories.{ts,tsx}'];

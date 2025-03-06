@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 // This file is auto-generated at build time. Do not edit manually.
 
 const validLocales = [
@@ -828,7 +829,7 @@ const validLocales = [
   'zh-SG',
   'zh-TW',
   'zu',
-  'zu-ZA',
+  'zu-ZA'
 ] as const;
 
 export { validLocales };

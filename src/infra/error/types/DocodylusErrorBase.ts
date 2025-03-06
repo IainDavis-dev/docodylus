@@ -37,7 +37,7 @@ function DocodylusErrorBase<T extends ErrorConstructor>(Base: T) {
         cause,
         {
           scope, subtype, reference, details,
-        },
+        } = {},
       ] = args as MixinArgs;
 
       super(message, { cause });

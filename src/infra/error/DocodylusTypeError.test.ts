@@ -2,7 +2,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import { describeUnitTest } from '@test-utils/testGroups';
 import {
-  DocodylusTypeError, newExpectedArrayError, newInvalidLocaleError, newInvalidNamespaceError,
+  DocodylusTypeError,
+  newExpectedArrayError,
+  newInvalidLocaleError,
+  newInvalidNamespaceError,
 } from './DocodylusTypeError';
 
 describeUnitTest('DocodylusTypeError', () => {

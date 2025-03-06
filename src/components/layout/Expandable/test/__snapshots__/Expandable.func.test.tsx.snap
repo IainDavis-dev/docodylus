@@ -6,17 +6,22 @@ exports[`Core functionality tests > Snapshots/Visual-Regression > should maintai
     class="_container_6cd2f2"
   >
     <div
+      aria-labelledby="expandable-toggle-:ra:"
       class="_expandableBlock_6cd2f2"
       data-testid="expandable-section-:ra:"
       hidden=""
       id="expandable-section-:ra:"
-      tabindex="1"
+      role="region"
+      tabindex="-1"
     />
     <button
       aria-controls="expandable-section-toggle-:ra:"
       aria-expanded="false"
       class="_toggle_6cd2f2"
+      data-testid="expandable-toggle-:ra:"
+      id="expandable-toggle-:ra:"
       tabindex="0"
+      type="button"
     >
       MOCK_COLLAPSE_PROMPT
     </button>
@@ -30,16 +35,21 @@ exports[`Core functionality tests > Snapshots/Visual-Regression > should maintai
     class="_container_6cd2f2"
   >
     <div
+      aria-labelledby="expandable-toggle-:ra:"
       class="_expandableBlock_6cd2f2"
       data-testid="expandable-section-:ra:"
       id="expandable-section-:ra:"
-      tabindex="0"
+      role="region"
+      tabindex="-1"
     />
     <button
       aria-controls="expandable-section-toggle-:ra:"
       aria-expanded="true"
       class="_toggle_6cd2f2"
+      data-testid="expandable-toggle-:ra:"
+      id="expandable-toggle-:ra:"
       tabindex="0"
+      type="button"
     >
       MOCK_EXPAND_PROMPT
     </button>
