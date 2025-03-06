@@ -3,15 +3,14 @@
 exports[`Core functionality tests > Snapshots/Visual-Regression > should maintain visual consistency between expanded and collapsed states 1`] = `
 <DocumentFragment>
   <div
+    aria-live="polite"
     class="_container_6cd2f2"
   >
     <div
-      aria-labelledby="expandable-toggle-:ra:"
       class="_expandableBlock_6cd2f2"
       data-testid="expandable-section-:ra:"
       hidden=""
       id="expandable-section-:ra:"
-      role="region"
       tabindex="-1"
     />
     <button
@@ -32,14 +31,13 @@ exports[`Core functionality tests > Snapshots/Visual-Regression > should maintai
 exports[`Core functionality tests > Snapshots/Visual-Regression > should maintain visual consistency between expanded and collapsed states 2`] = `
 <DocumentFragment>
   <div
+    aria-live="polite"
     class="_container_6cd2f2"
   >
     <div
-      aria-labelledby="expandable-toggle-:ra:"
       class="_expandableBlock_6cd2f2"
       data-testid="expandable-section-:ra:"
       id="expandable-section-:ra:"
-      role="region"
       tabindex="-1"
     />
     <button

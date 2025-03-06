@@ -94,15 +94,3 @@ export const Nested: Story = {
     </Expandable>
   ),
 };
-
-export const BrokenTest: Story = {
-  name: 'Broken Test Component',
-  render: () => (
-    <Expandable startExpanded expandPrompt="Show more" collapsePrompt="Show less">
-      <p>Outer expandable content</p>
-      <Expandable startExpanded expandPrompt="Show nested" collapsePrompt="Hide nested">
-        <p>Nested expandable content</p>
-      </Expandable>
-    </Expandable>
-  ),
-};

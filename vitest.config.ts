@@ -31,12 +31,14 @@ export default defineConfig({
         'scripts', // TODO: separate coverage metrics for scripts
         'build',
         'static',
+        'config',
         '.*', // no dot-files
 
         // typescript and javascript files in the root directory
         // tend to be config files
         '*.ts',
         '*.js',
+        '*.mjs',
 
         // I think I want to avoid testing all the markdown files.
         // May revisit later May just do snapshot tests on the

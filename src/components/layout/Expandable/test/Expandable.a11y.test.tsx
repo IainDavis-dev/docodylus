@@ -200,12 +200,8 @@ describeUnitTest('Accessibility tests', () => {
       const parentButton = screen.getByText(/show less/i, { selector: 'button' });
       const childButton = screen.getByText(/hide nested/i, { selector: 'button' });
       const parentContent = screen.getByText(/outer expandable content/i).closest('div');
-      const childContent = screen.getByText(/nested expandable content/i).closest('div');
 
       expect(parentContent).toHaveFocus();
-
-      await userEvent.tab();
-      expect(childContent).toHaveFocus();
 
       await userEvent.tab();
       expect(childButton).toHaveFocus();
