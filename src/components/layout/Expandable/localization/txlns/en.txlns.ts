@@ -1,6 +1,6 @@
 import { ExpandableLocalizedStrings, prependNamespace } from '..';
 
-const translations: ExpandableLocalizedStrings = prependNamespace({
+export const translations: ExpandableLocalizedStrings = prependNamespace({
   expandPrompt: 'show more...',
   collapsePrompt: 'show less',
 });

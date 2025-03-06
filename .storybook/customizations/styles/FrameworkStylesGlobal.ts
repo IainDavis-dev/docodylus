@@ -1,4 +1,4 @@
-const frameworkStyles = {
+export const frameworkStyles = {
     name: 'Framework Styles',
     description: 'Switch between styles of various frameworks',
     defaultValue: 'default',
@@ -10,5 +10,3 @@ const frameworkStyles = {
         dynamicTitle: true
     },
 }
-
-export default frameworkStyles;

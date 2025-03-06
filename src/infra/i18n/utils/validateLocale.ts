@@ -7,8 +7,6 @@ import { type ValidLocale, validLocales } from '@i18n/types/validLocales';
  * @param maybeLocale
  * @returns a boolean indicating whether maybeLocale is a valid BCP 47 locale
  */
-function isValidLocale(maybeLocale: unknown): maybeLocale is ValidLocale {
+export function isValidLocale(maybeLocale: unknown): maybeLocale is ValidLocale {
   return validLocales.some((locale) => locale === maybeLocale);
 }
-
-export default isValidLocale;

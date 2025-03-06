@@ -7,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import useTranslations from '@i18n/hooks/useTranslations';
+import { useTranslations } from '@i18n/hooks/useTranslations';
 import styles from './Expandable.module.css';
 
 import { ExpandableLocalizedStrings, getLocalizedStringLoaders, ExpandableNamespace as ns } from './localization';
@@ -18,7 +18,7 @@ export type ExpandablePropsType = {
     collapsePrompt?: string;
 }
 
-const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
+export const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
   startExpanded = false,
   expandPrompt,
   collapsePrompt,
@@ -90,5 +90,3 @@ const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
     </div>
   );
 };
-
-export default Expandable;

@@ -27,7 +27,7 @@ const applyStyleSheet = (stylesheetUrl: string | null) => {
     }
 }
 
-const frameworkStylesDecorator = (Story: () => JSX.Element, context: StoryContext) => {
+export const frameworkStylesDecorator = (Story: () => JSX.Element, context: StoryContext) => {
     const { frameworkStyles } = context.globals;
 
     useEffect(() => {
@@ -37,5 +37,3 @@ const frameworkStylesDecorator = (Story: () => JSX.Element, context: StoryContex
     
     return <Story />
 };
-
-export default frameworkStylesDecorator;

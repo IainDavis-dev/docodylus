@@ -7,6 +7,4 @@ import { createContext } from 'react';
  * This context exposes the {@link LocaleAwarePolyglot} instance and the current locale
  * to be consumed across the application.
  */
-const I18nContext = createContext<I18nContextValue | null>(null);
-
-export default I18nContext;
+export const I18nContext = createContext<I18nContextValue | null>(null);

@@ -9,7 +9,7 @@ import {
   MOCK_DEFAULT_COLLAPSE_PROMPT,
 } from './__mocks__/useTranslations';
 
-import Expandable from '../Expandable';
+import { Expandable } from '../Expandable';
 
 vi.mock('import.meta.glob', () => Promise.resolve({})); // no-op
 vi.mock('@i18n/hooks/useTranslations', () => ({ default: mockUseTranslations }));

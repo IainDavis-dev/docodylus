@@ -24,7 +24,7 @@ const javascriptRuleOverrides = {
 
 // the compat object needs to be created in the `eslint.config.mjs`
 // file so it can reference the root directly correctly
-function javascriptSourceConfigFactory(compat) {
+export function javascriptSourceConfigFactory(compat) {
   const airbnbJavascriptConfigs = compat.extends('eslint-config-airbnb')
     .map((config) => ({ ...config, files: SOURCE_FILES }));
 
@@ -34,5 +34,3 @@ function javascriptSourceConfigFactory(compat) {
     javascriptRuleOverrides,
   ];
 }
-
-export default javascriptSourceConfigFactory;

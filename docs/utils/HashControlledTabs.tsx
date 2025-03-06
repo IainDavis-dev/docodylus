@@ -17,7 +17,7 @@ interface TabData {
     content: JSX.Element
 }
 
-const HashControlledTabs = ({
+export const HashControlledTabs = ({
   tabs = [],
   defaultKey = '',
 }: {
@@ -67,5 +67,3 @@ const HashControlledTabs = ({
     </div>
   );
 };
-
-export default HashControlledTabs;

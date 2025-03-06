@@ -1,8 +1,13 @@
-import { BUILD_CONFIG_FILES, BUILD_SCRIPTS, TEST_FILES } from './consts.js';
+import {
+  BUILD_CONFIG_FILES,
+  BUILD_SCRIPTS,
+  TEST_FILES,
+  STORY_FILES,
+} from './consts.js';
 
 /* Config to stop eslint complaining about devDependencies in files
  * where devDependencies are fine */
-const nonRuntimeConfig = {
+export const nonRuntimeFilesConfig = {
   settings: {
     // for whatever reason, eslint treats this dependency as a violation of rule
     // `import/no-extraneous-dependencies`, if it appears in `devDependencies`, while permitting
@@ -14,6 +19,7 @@ const nonRuntimeConfig = {
     ...TEST_FILES,
     ...BUILD_CONFIG_FILES,
     ...BUILD_SCRIPTS,
+    ...STORY_FILES,
   ],
   rules: {
     'import/no-extraneous-dependencies': [
@@ -28,8 +34,6 @@ const nonRuntimeConfig = {
       'warn',
       { js: 'always' },
     ],
-
+    'import/no-default-export': 'off',
   },
 };
-
-export default nonRuntimeConfig;

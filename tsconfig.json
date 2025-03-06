@@ -47,7 +47,7 @@
         "*.ts",
         "*.tsx",
         "config/**/*.ts",
-        "config/**/*.tsx", "config/eslint/typescriptSource.js", "config/eslint/testFiles.js", "config/eslint/nonRuntimeFiles.js", "config/eslint/javascriptSource.js", "config/eslint/index.js", "config/eslint/globalEslintConfig.js", "config/eslint/eslintignore.js", "config/eslint/consts.js",
+        "config/**/*.tsx", "config/eslint/typescriptSource.js", "config/eslint/testFiles.js", "config/eslint/nonRuntimeFiles.js", "config/eslint/javascriptSource.js", "config/eslint/index.js", "config/eslint/globalEslintConfig.js", "config/eslint/eslintignore.js", "config/eslint/consts.js", "config/eslint/typeDeclarations.js",
     ],
     "exclude": [ "eslint.config.mjs"]
 }

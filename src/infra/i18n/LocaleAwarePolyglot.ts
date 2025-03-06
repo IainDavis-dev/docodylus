@@ -31,7 +31,7 @@ interface LocaleAwarePolyglotOptions {
  * @param {LocaleAwarePolyglotOptions} [options] - Configuration options for the instance. See
  *          {@link LocaleAwarePolyglotOptions}.
  */
-class LocaleAwarePolyglot {
+export class LocaleAwarePolyglot {
   private readonly polyglot: Polyglot;
 
   private translationsCache: Partial<LocalizedStringsByLocale>;
@@ -117,5 +117,3 @@ class LocaleAwarePolyglot {
     });
   }
 }
-
-export default LocaleAwarePolyglot;

@@ -1,10 +1,10 @@
 import { describeUnitTest } from '@test-utils/testGroups';
 import { render, screen } from '@testing-library/react';
-import I18nProvider from '@i18n/context/I18nProvider';
-import LocaleAwarePolyglot from '@i18n/LocaleAwarePolyglot';
+import { I18nProvider } from '@i18n/context/I18nProvider';
+import { LocaleAwarePolyglot } from '@i18n/LocaleAwarePolyglot';
 import { DocodylusTypeError } from '@error/DocodylusTypeError';
 import { useContext } from 'react';
-import I18nContext from '@i18n/context/I18nContext';
+import { I18nContext } from '@i18n/context/I18nContext';
 import { DEFAULT_LOCALE } from '@i18n/consts';
 import { ValidLocale } from '@i18n/types';
 

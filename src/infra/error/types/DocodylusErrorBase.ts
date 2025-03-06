@@ -17,7 +17,7 @@ type ErrorConstructor = new(...args: any[]) => Error;
 
 // deducing the appropriate return type of this function is not trivial
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function DocodylusErrorBase<T extends ErrorConstructor>(Base: T) {
+export function DocodylusErrorBase<T extends ErrorConstructor>(Base: T) {
   return class extends Base implements DocodylusErrorLike {
     isDocodylusError = true as const;
 
@@ -72,5 +72,3 @@ function DocodylusErrorBase<T extends ErrorConstructor>(Base: T) {
     }
   };
 }
-
-export default DocodylusErrorBase;

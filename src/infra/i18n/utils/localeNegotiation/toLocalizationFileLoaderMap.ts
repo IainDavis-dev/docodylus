@@ -14,7 +14,7 @@ const localeRegex = /\/\S*\/localization\/txlns\/(\S+)\.txlns.ts$/i;
  * @param fileLoaders a {@link FileLoaderMap } for loading localization files @returns a map from
  * {@link ValidLocale} to {@link LocalizationFileLoaderMap}
  */
-function toLocalizationFileLoaderMap<T>(
+export function toLocalizationFileLoaderMap<T>(
   fileLoaders: FileLoaderMap<T>,
 ): LocalizationFileLoaderMap<T> {
   if (fileLoaders == null || typeof fileLoaders !== 'object' || Array.isArray(fileLoaders)) throw new Error('Invalid FileLoaderMap');
@@ -38,5 +38,3 @@ function toLocalizationFileLoaderMap<T>(
         {} as LocalizationFileLoaderMap<T>,
   );
 }
-
-export default toLocalizationFileLoaderMap;

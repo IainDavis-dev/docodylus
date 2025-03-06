@@ -4,7 +4,7 @@ import { composeStories } from '@storybook/react';
 
 import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS, SupportedLocale } from '@i18n/consts';
 import { ValidLocale, LocalizedStrings, DocodylusLocalizedStrings } from '@i18n/types';
-import I18nProvider from '@i18n/context/I18nProvider';
+import { I18nProvider } from '@i18n/context/I18nProvider';
 import { ExpandableLocalizedStrings } from '../localization';
 import * as stories from '../storybook/Expandable.stories';
 

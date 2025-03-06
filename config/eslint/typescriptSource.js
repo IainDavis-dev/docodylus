@@ -1,7 +1,7 @@
 import tseslint from 'typescript-eslint';
 import { TYPESCRIPT_FILES } from './consts.js';
 
-function typescriptSourceConfigFactory(dirname) {
+export function typescriptSourceConfigFactory(dirname) {
   /** @type {import('eslint').Linter.Config[]} */
   return [
     ...tseslint.configs.recommended.map((config) => ({ ...config, files: TYPESCRIPT_FILES })),
@@ -55,5 +55,3 @@ function typescriptSourceConfigFactory(dirname) {
     },
   ];
 }
-
-export default typescriptSourceConfigFactory;

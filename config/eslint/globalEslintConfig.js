@@ -1,4 +1,4 @@
-function globalConfigFactory(dirname) {
+export function globalConfigFactory(dirname) {
   return {
     settings: {
       'import/resolver': {
@@ -34,5 +34,3 @@ function globalConfigFactory(dirname) {
     },
   };
 }
-
-export default globalConfigFactory;

@@ -1,5 +1,5 @@
 import { newInvalidNamespaceError } from '@error/DocodylusTypeError';
-import isValidNamespace from './isValidNamespace';
+import { isValidNamespace } from './isValidNamespace';
 import { Namespaced, ValidNamespace } from './types';
 
 /**
@@ -21,7 +21,7 @@ type NamespacePrepender<NS extends string> =
  * @returns {NamespacePrepender} A function that accepts translations
  *      and returns namespaced translations.
  */
-function createNamespacePrepender<NS extends string>(
+export function createNamespacePrepender<NS extends string>(
   namespace: ValidNamespace<NS>,
 ): NamespacePrepender<NS> {
   if (!isValidNamespace(namespace)) {
@@ -30,5 +30,3 @@ function createNamespacePrepender<NS extends string>(
 
   return (obj) => Object.fromEntries(Object.keys(obj).map((key) => [`${namespace}.${key}`, obj[key]])) as Namespaced<NS, typeof obj>;
 }
-
-export default createNamespacePrepender;

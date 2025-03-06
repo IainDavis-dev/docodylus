@@ -1,6 +1,6 @@
 import { DefaultTranslationKey } from '@i18n/consts';
-import I18nContext from '@i18n/context/I18nContext';
-import LocaleAwarePolyglot from '@i18n/LocaleAwarePolyglot';
+import { I18nContext } from '@i18n/context/I18nContext';
+import { LocaleAwarePolyglot } from '@i18n/LocaleAwarePolyglot';
 import { LocalizationFileLoaderMap, LocalizedStrings, ValidLocale } from '@i18n/types';
 import { negotiateLocales } from '@i18n/utils/localeNegotiation';
 import { PolyglotOptions } from 'node-polyglot';
@@ -30,7 +30,7 @@ type TWrapper<T> = (key: T | DefaultTranslationKey, options?: PolyglotOptions) =
  * - `t`: A function to retrieve translated strings by key.
  * - `isLoading`: A boolean indicating whether translations are currently being loaded.
  */
-function useTranslations<T extends LocalizedStrings = never>(
+export function useTranslations<T extends LocalizedStrings = never>(
   loaderMap: LocalizationFileLoaderMap<T>,
 ): TWrapper<keyof T> {
   // if no context
@@ -75,33 +75,6 @@ function useTranslations<T extends LocalizedStrings = never>(
     void Promise.all(loadersToRun);
   });
 
-  /*
-  useEffect(() => {
-    Object.entries(negotiatedLoaders)
-      .filter(([, { cacheKey }]) => {
-        const currentState: LoadingState = loadingStates[cacheKey] ?? 'not-loaded';
-        return !['loading', 'success', 'error'].includes(currentState);
-        // map here rather than forEach, to ensure loaders run in parallel, if possible
-      }).forEach(([loc, { cacheKey, loader }]) => {
-        const wrappedLoader = async (): Promise<void> => {
-          setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'loading' }));
-          // assuming locale has been pre-validated by `I18nProvider`.  If another avenue into this
-          // code is added in future, we'll need validation here.
-          try {
-            const localizedStrings = (await loader()) as unknown as T;
-            setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'success' }));
-            i18n.extend(loc as ValidLocale, localizedStrings);
-          } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(`Failed to load translations from ${cacheKey}:`, error);
-            setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'error' }));
-          }
-        };
-        wrappedLoader();
-      });
-  }, [locale, loaderMap]);
-  */
-
   const usePlaceholderText = Object.values(negotiatedLoaders).length > 0 && Object.values(negotiatedLoaders).some(({ cacheKey }) => ['not-loaded', 'loading'].includes(loadingStates[cacheKey] ?? 'not-loaded'));
 
   const tWrapper: TWrapper<keyof T> = useMemo(
@@ -115,5 +88,3 @@ function useTranslations<T extends LocalizedStrings = never>(
 
   return tWrapper;
 }
-
-export default useTranslations;

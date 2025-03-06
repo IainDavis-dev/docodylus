@@ -1,2 +1,2 @@
-export { default as negotiateLocales } from './negotiateLocales';
-export { default as toLocalizationFileLoaderMap } from './toLocalizationFileLoaderMap';
+export { negotiateLocales } from './negotiateLocales';
+export { toLocalizationFileLoaderMap } from './toLocalizationFileLoaderMap';

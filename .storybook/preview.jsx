@@ -1,6 +1,6 @@
 /** @type { import('@storybook/react').Preview } */
-import frameworkStyles from './customizations/styles/FrameworkStylesGlobal'
-import frameworkStylesDecorator from './customizations/styles/FrameworkStylesDecorator';
+import { frameworkStyles } from './customizations/styles/FrameworkStylesGlobal'
+import { frameworkStylesDecorator } from './customizations/styles/FrameworkStylesDecorator';
 
 import locale from './customizations/locales/LocaleGlobal';
 import localeDecorator from './customizations/locales/localeDecorator';

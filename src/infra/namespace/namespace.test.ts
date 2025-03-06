@@ -1,5 +1,5 @@
 import { describeUnitTest } from '@test-utils/testGroups';
-import isValidNamespace from '@namespace/isValidNamespace';
+import { isValidNamespace } from '@namespace/isValidNamespace';
 
 type TestCase = {input: unknown, isValid: boolean};
 describeUnitTest.each`

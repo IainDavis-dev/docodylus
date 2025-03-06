@@ -1,4 +1,4 @@
-const ignoredFilesConfig = {
+export const ignoredFilesConfig = {
   ignores: [
     '**/.*',
     'node_modules',
@@ -8,5 +8,3 @@ const ignoredFilesConfig = {
     '.local',
   ],
 };
-
-export default ignoredFilesConfig;

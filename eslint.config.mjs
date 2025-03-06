@@ -1,11 +1,13 @@
 import { FlatCompat } from '@eslint/eslintrc';
-import globalConfigFactory from './config/eslint/globalEslintConfig.js';
-import javascriptSourceConfigFactory from './config/eslint/javascriptSource.js';
-import typescriptSourceConfigFactory from './config/eslint/typescriptSource.js';
-import nonRuntimeFilesConfig from './config/eslint/nonRuntimeFiles.js';
-import testFilesConfig from './config/eslint/testFiles.js';
-import ignoredFilesConfig from './config/eslint/eslintignore.js';
-import ruleOverrides from './config/eslint/ruleOverrides.js';
+import { globalConfigFactory } from './config/eslint/globalEslintConfig.js';
+import { javascriptSourceConfigFactory } from './config/eslint/javascriptSource.js';
+import { typescriptSourceConfigFactory } from './config/eslint/typescriptSource.js';
+import { nonRuntimeFilesConfig } from './config/eslint/nonRuntimeFiles.js';
+import { testFilesConfig } from './config/eslint/testFiles.js';
+import { ignoredFilesConfig } from './config/eslint/eslintignore.js';
+import { ruleOverrides } from './config/eslint/ruleOverrides.js';
+import { dynamicallyLoadedFilesConfig } from './config/eslint/dynamicallyLoaded.js';
+import { typeDeclarationFilesConfig } from './config/eslint/typeDeclarations.js';
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -26,6 +28,8 @@ export default [
   ...javascriptSourceConfigFactory(compat),
   ...typescriptSourceConfigFactory(import.meta.dirname),
   ruleOverrides,
+  typeDeclarationFilesConfig,
+  dynamicallyLoadedFilesConfig,
   nonRuntimeFilesConfig,
   testFilesConfig,
   // this has to be last, apparently, or eslint will override the

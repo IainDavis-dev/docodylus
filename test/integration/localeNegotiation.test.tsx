@@ -2,7 +2,7 @@ import { describeIntegrationTest } from '@test-utils/testGroups';
 import { render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
 import { ExpandableLocalizedStrings } from '@components/layout/Expandable/localization';
-import I18nProvider from '@i18n/context/I18nProvider';
+import { I18nProvider } from '@i18n/context/I18nProvider';
 import userEvent from '@testing-library/user-event';
 
 import * as stories from '@components/layout/Expandable/storybook/Expandable.stories';

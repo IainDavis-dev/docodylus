@@ -1,4 +1,4 @@
-import createNamespacePrepender from '../namespace/createNamespacePrepender';
+import { createNamespacePrepender } from '../namespace/createNamespacePrepender';
 import { Namespaced } from '../namespace/types';
 
 export const SUPPORTED_LOCALES = [

@@ -6,7 +6,7 @@ import {
   SUPPORTED_LOCALES,
   SupportedLocale,
 } from '@i18n/consts';
-import LocaleAwarePolyglot from '@i18n/LocaleAwarePolyglot';
+import { LocaleAwarePolyglot } from '@i18n/LocaleAwarePolyglot';
 import Polyglot from 'node-polyglot';
 
 describeUnitTest('LocaleAwarePolyglot', () => {
