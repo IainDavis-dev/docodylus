@@ -13,15 +13,16 @@
         "skipLibCheck": true,
         "paths": {
             "@components/*": ["src/components/*"],
-            "@dummies/*": ["src/dummies/*"],
             "@i18n/*": ["src/common/i18n/*"],
             "@validation/*": ["src/common/validation/*"],
-            "@docs/*": ["docs/*"],
-            "@test-utils/*": ["test/testUtils/*"],
             "@types/*": ["src/types/*"],
+            "@dummies/*": ["src/dummies/*"],
+            "@docs/*": ["docs/*"],
             "@shared-utils/*": ["src/common/sharedUtils/*"],
             "@error/*": ["src/common/error/*"],
             "@namespace/*": ["src/common/namespace/*"],
+            "@test-utils/*": ["infra/testUtils/*"],
+            "@storybook-customizations/*": ["infra/storybook/customizations/*"],
         },
         "types": [
             "react",
@@ -46,8 +47,8 @@
         ".storybook/**/*.tsx",
         "*.ts",
         "*.tsx",
-        "infra/config/**/*.ts",
-        "infra/config/**/*.tsx", "infra/config/eslint/typescriptSource.js", "infra/config/eslint/testFiles.js", "infra/config/eslint/nonRuntimeFiles.js", "infra/config/eslint/javascriptSource.js", "infra/config/eslint/index.js", "infra/config/eslint/globalEslintConfig.js", "infra/config/eslint/eslintignore.js", "infra/config/eslint/consts.js", "infra/config/eslint/typeDeclarations.js",
+        "infra/**/*.ts",
+        "infra/**/*.tsx", "infra/config/eslint/typescriptSource.js", "infra/config/eslint/testFiles.js", "infra/config/eslint/nonRuntimeFiles.js", "infra/config/eslint/javascriptSource.js", "infra/config/eslint/index.js", "infra/config/eslint/globalEslintConfig.js", "infra/config/eslint/eslintignore.js", "infra/config/eslint/consts.js", "infra/config/eslint/typeDeclarations.js",
     ],
     "exclude": [ "eslint.config.mjs"]
 }

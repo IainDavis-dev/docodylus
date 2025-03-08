@@ -1,4 +1,4 @@
-import { describeTypeTest } from '@test-utils/testGroups';
+import { describeTypeTest } from 'infra/testUtils/testGroups';
 import { ValidNamespace } from '@namespace/types';
 
 describeTypeTest('type ValidNamespace', () => {
