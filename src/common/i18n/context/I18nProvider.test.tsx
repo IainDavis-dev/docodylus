@@ -9,7 +9,7 @@ import { DEFAULT_LOCALE } from '@i18n/consts';
 import { ValidLocale } from '@i18n/types';
 
 vi.mock('@i18n/LocaleAwarePolyglot', () => ({
-  default: vi.fn().mockImplementation(() => {
+  LocaleAwarePolyglot: vi.fn().mockImplementation(() => {
     let mockedLocale: ValidLocale = DEFAULT_LOCALE;
     return ({
       setLocale: vi.fn((locale: ValidLocale) => {

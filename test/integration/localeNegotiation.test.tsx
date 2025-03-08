@@ -22,7 +22,7 @@ const LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT = 'LANGUAGE_SCRIPT_REGION_COLLAPSE_
 type MockRawLoaders = Record<string, () => Promise<Partial<ExpandableLocalizedStrings>>>
 
 vi.mock('@components/layout/Expandable/localization/getRawLoaders', () => ({
-  default: function getRawLoaders(): MockRawLoaders {
+  getRawLoaders: function getRawLoaders(): MockRawLoaders {
     return ({
       // language only: en (English)
       './txlns/en.txlns.ts': () => Promise.resolve<ExpandableLocalizedStrings>({

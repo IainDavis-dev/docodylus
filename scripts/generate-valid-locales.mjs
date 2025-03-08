@@ -11,4 +11,4 @@ export { validLocales };
 export type ValidLocale = typeof validLocales[number];
 `;
 
-await writeFile('src/infra/i18n/types/validLocales.ts', output);
+await writeFile('src/common/i18n/types/validLocales.ts', output);

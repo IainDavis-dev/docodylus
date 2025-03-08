@@ -14,14 +14,14 @@
         "paths": {
             "@components/*": ["src/components/*"],
             "@dummies/*": ["src/dummies/*"],
-            "@i18n/*": ["src/infra/i18n/*"],
-            "@validation/*": ["src/infra/validation/*"],
+            "@i18n/*": ["src/common/i18n/*"],
+            "@validation/*": ["src/common/validation/*"],
             "@docs/*": ["docs/*"],
             "@test-utils/*": ["test/testUtils/*"],
             "@types/*": ["src/types/*"],
-            "@shared-utils/*": ["src/infra/sharedUtils/*"],
-            "@error/*": ["src/infra/error/*"],
-            "@namespace/*": ["src/infra/namespace/*"]
+            "@shared-utils/*": ["src/common/sharedUtils/*"],
+            "@error/*": ["src/common/error/*"],
+            "@namespace/*": ["src/common/namespace/*"]
         },
         "types": [
             "react",

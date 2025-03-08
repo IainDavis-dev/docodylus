@@ -1,5 +1,5 @@
 import { describeTypeTest } from '@test-utils/testGroups';
-import { ValidNamespace } from 'src/infra/namespace/types';
+import { ValidNamespace } from '@namespace/types';
 
 describeTypeTest('type ValidNamespace', () => {
   describe('valid namespace strings', () => {

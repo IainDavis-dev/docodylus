@@ -9,7 +9,7 @@ import {
 import { Expandable } from '../Expandable';
 
 vi.mock('import.meta.glob', () => Promise.resolve({})); // no-op
-vi.mock('@i18n/hooks/useTranslations', () => ({ default: mockUseTranslations }));
+vi.mock('@i18n/hooks/useTranslations', () => ({ useTranslations: mockUseTranslations }));
 
 describeUnitTest('Core functionality tests', () => {
   describe('Initial state', () => {
