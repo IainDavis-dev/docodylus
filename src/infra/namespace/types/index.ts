@@ -1,4 +1,4 @@
-import { IsLowercase } from '../../validation/types';
+import { IsLowercase } from '@validation/types';
 
 export { Namespaced } from './namespace';
 

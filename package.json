@@ -8,6 +8,7 @@
   "author": "Iain Davis <iain@iaindavis.dev>",
   "license": "Apache-2.0",
   "types": "index.d.ts",
+  "sideEffects": false,
   "engines": {
     "node": "20.x"
   },
