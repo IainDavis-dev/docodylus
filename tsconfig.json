@@ -21,7 +21,7 @@
             "@types/*": ["src/types/*"],
             "@shared-utils/*": ["src/common/sharedUtils/*"],
             "@error/*": ["src/common/error/*"],
-            "@namespace/*": ["src/common/namespace/*"]
+            "@namespace/*": ["src/common/namespace/*"],
         },
         "types": [
             "react",
@@ -46,8 +46,8 @@
         ".storybook/**/*.tsx",
         "*.ts",
         "*.tsx",
-        "config/**/*.ts",
-        "config/**/*.tsx", "config/eslint/typescriptSource.js", "config/eslint/testFiles.js", "config/eslint/nonRuntimeFiles.js", "config/eslint/javascriptSource.js", "config/eslint/index.js", "config/eslint/globalEslintConfig.js", "config/eslint/eslintignore.js", "config/eslint/consts.js", "config/eslint/typeDeclarations.js",
+        "infra/config/**/*.ts",
+        "infra/config/**/*.tsx", "infra/config/eslint/typescriptSource.js", "infra/config/eslint/testFiles.js", "infra/config/eslint/nonRuntimeFiles.js", "infra/config/eslint/javascriptSource.js", "infra/config/eslint/index.js", "infra/config/eslint/globalEslintConfig.js", "infra/config/eslint/eslintignore.js", "infra/config/eslint/consts.js", "infra/config/eslint/typeDeclarations.js",
     ],
     "exclude": [ "eslint.config.mjs"]
 }

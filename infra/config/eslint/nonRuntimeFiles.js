@@ -1,5 +1,5 @@
 import {
-  BUILD_CONFIG_FILES,
+  INFRA_FILES,
   BUILD_SCRIPTS,
   TEST_FILES,
   STORY_FILES,
@@ -17,7 +17,7 @@ export const nonRuntimeFilesConfig = {
   },
   files: [
     ...TEST_FILES,
-    ...BUILD_CONFIG_FILES,
+    ...INFRA_FILES,
     ...BUILD_SCRIPTS,
     ...STORY_FILES,
   ],

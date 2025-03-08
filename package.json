@@ -73,7 +73,7 @@
     "test:unit": "TEST_GROUP=UNIT,TYPE vitest --typecheck",
     "test:types": "TEST_GROUP=TYPE vitest --typecheck",
     "test:integration": "TEST_GROUP=INTEGRATION vitest",
-    "generate-locales": "node scripts/generate-valid-locales.mjs",
+    "generate-locales": "node infra/build/scripts/generate-valid-locales.mjs",
     "postinstall": "yarn generate-locales",
     "prepare": "yarn postinstall",
     "lint": "eslint .",
