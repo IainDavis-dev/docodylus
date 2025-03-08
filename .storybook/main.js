@@ -39,11 +39,6 @@ const config = {
   viteFinal: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@components': path.resolve(__dirname, '../src/components'),
-      '@dummies': path.resolve(__dirname, '../src/dummies'),
-      '@i18n': path.resolve(__dirname, '../src/infra/i18n'),
-      '@validation': path.resolve(__dirname, '../src/infra/validation'),
-      '@docs': path.resolve(__dirname, '../docs'),
     }
 
     return config;
