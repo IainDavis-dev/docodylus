@@ -27,4 +27,4 @@ jobs:
             - name: Run Semantic Release
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: pwd && yarn semantic-release --extends ./infra/build/release/semantic-release.config.js
+              run: yarn semantic-release --extends ./infra/build/release/semantic-release.config.js
