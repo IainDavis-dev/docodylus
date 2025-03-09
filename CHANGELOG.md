@@ -1,3 +1,10 @@
+## [0.0.1-prerelease.2](https://github.com/IainDavis-dev/docusaurus-extensions/compare/v0.0.1-prerelease.1...v0.0.1-prerelease.2) (2025-03-09)
+
+
+### Bug Fixes
+
+* update release automation configs ([dfce688](https://github.com/IainDavis-dev/docusaurus-extensions/commit/dfce688af7b25c91862aa87e8c4049a10781c684))
+
 ## [0.0.1-prerelease.1](https://github.com/IainDavis-dev/docusaurus-extensions/compare/v0.0.0...v0.0.1-prerelease.1) (2025-03-09)
 
 
