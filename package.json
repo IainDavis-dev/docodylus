@@ -83,6 +83,7 @@
     "postinstall": "yarn generate-locales",
     "prepare": "yarn postinstall",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "bump-version": "semantic-release --extends ./infra/build/release/semantic-release.config.js"
   }
 }

@@ -17,7 +17,6 @@ const getNpmPluginConfigs = () => {
     '@semantic-release/npm',
     { npmPublish: false, pkgRoot: dirPath },
   ]);
-  console.log(npmPluginConfigs);
 
   return npmPluginConfigs;
 };
