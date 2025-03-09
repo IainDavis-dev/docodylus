@@ -6,7 +6,7 @@ import {
   newExpectedArrayError,
   newInvalidLocaleError,
   newInvalidNamespaceError,
-} from './DocodylusTypeError';
+} from '@error/types/DocodylusTypeError';
 
 describeUnitTest('DocodylusTypeError', () => {
   it('should be an instance of TypeError', () => {

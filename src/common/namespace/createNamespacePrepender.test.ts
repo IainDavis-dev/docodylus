@@ -1,4 +1,4 @@
-import { DocodylusTypeError } from '@error/DocodylusTypeError';
+import { DocodylusTypeError } from '@error/types/DocodylusTypeError';
 import { createNamespacePrepender } from '@namespace/createNamespacePrepender';
 import { describeUnitTest } from '@test-utils/testGroups';
 

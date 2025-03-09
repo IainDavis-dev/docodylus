@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
+import { DocodylusTypeError } from '@error/types/DocodylusTypeError';
 import { describeUnitTest } from '@test-utils/testGroups';
-import { DocodylusTypeError } from './DocodylusTypeError';
 
 describeUnitTest.each`
         className               | ErrorClass               | subtype

@@ -1,0 +1,21 @@
+{
+    "name": "@docodylus/Expandable",
+    "version": "0.0.0-alpha000",
+    "description": "A component whose children are contained in a region that is concealable or revealable with the use of a toggle",
+    "type": "module",
+    "exports": {
+        "import": "./dist/Expandable.mjs",
+        "require": "./dist/Expandable.cjs"
+    },
+    "main": "./dist/Expandable.cjs",
+    "module": "./distExpandable.mjs",
+    "types": "./dist/Expandable.d.ts",
+    "sideEffects": false,
+    "peerDependencies": {
+        "react": "^19.0.0"
+    },
+    "devDependencies": {
+        "react": "^19.0.0",
+        "typescript": "^5.7.2"
+    }
+}

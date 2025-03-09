@@ -1,5 +1,5 @@
 import { describeUnitTest } from '@test-utils/testGroups';
-import { DocodylusTypeError } from '@error/DocodylusTypeError';
+import { DocodylusTypeError } from '@error/types/DocodylusTypeError';
 import { DEFAULT_LOCALE } from '@i18n/consts';
 import { ValidLocale } from '@i18n/types';
 import { negotiateLocales } from '@i18n/utils/localeNegotiation';
