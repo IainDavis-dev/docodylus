@@ -1,3 +1,10 @@
+## [0.0.1-prerelease.3](https://github.com/IainDavis-dev/docusaurus-extensions/compare/v0.0.1-prerelease.2...v0.0.1-prerelease.3) (2025-03-09)
+
+
+### Bug Fixes
+
+* **infra:** support dynamic location of 'package.json' files for  modules ([a809b36](https://github.com/IainDavis-dev/docusaurus-extensions/commit/a809b367b388a43ae5dbe95f264827a3ada0f9f4))
+
 ## [0.0.1-prerelease.2](https://github.com/IainDavis-dev/docusaurus-extensions/compare/v0.0.1-prerelease.1...v0.0.1-prerelease.2) (2025-03-09)
 
 

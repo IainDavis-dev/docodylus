@@ -1,6 +1,6 @@
 {
     "name": "@docodylus/Expandable",
-    "version": "0.0.0",
+    "version": "0.0.1-prerelease.3",
     "description": "A component whose children are contained in a region that is concealable or revealable with the use of a toggle",
     "type": "module",
     "exports": {
