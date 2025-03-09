@@ -1,6 +1,6 @@
 {
   "name": "docodylus",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "A library of extensions for Docusaurus and other React-based documentation frameworks",
   "main": "index.js",
   "type": "module",
