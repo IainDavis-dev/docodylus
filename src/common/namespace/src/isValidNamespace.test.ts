@@ -1,7 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { describeUnitTest } from '@test-utils/testGroups';
 import { isValidNamespace } from '@namespace/isValidNamespace';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { expect, it } from 'vitest';
 
 type TestCase = {input: unknown, isValid: boolean};

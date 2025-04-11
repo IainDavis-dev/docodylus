@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import { DocodylusTypeError } from '@error/types/DocodylusTypeError';
 import { describeUnitTest } from '@test-utils/testGroups';
+import { describe, expect, it } from 'vitest';
 
 describeUnitTest.each`
         className               | ErrorClass               | subtype

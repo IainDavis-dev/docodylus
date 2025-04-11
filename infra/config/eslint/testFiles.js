@@ -15,5 +15,6 @@ export const testFilesConfig = {
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'import/no-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };

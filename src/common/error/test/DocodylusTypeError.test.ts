@@ -7,6 +7,7 @@ import {
   newInvalidLocaleError,
   newInvalidNamespaceError,
 } from '@error/types/DocodylusTypeError';
+import { describe, expect, it } from 'vitest';
 
 describeUnitTest('DocodylusTypeError', () => {
   it('should be an instance of TypeError', () => {

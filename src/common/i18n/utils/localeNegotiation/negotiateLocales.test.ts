@@ -3,6 +3,7 @@ import { DocodylusTypeError } from '@error/types/DocodylusTypeError';
 import { DEFAULT_LOCALE } from '@i18n/consts';
 import { ValidLocale } from '@i18n/types';
 import { negotiateLocales } from '@i18n/utils/localeNegotiation';
+import { assert, describe, expect, it } from 'vitest';
 
 describeUnitTest('negotiateLocales', () => {
   const availableLocales = ['bs', 'bs-Latn-BA', 'bs-Latn', 'bs-Cyrl', 'fr', 'fr-FR'] as ValidLocale[];

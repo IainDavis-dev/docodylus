@@ -1,6 +1,7 @@
 import { toLocalizationFileLoaderMap } from '@i18n/utils/localeNegotiation';
 import { FileLoaderMap } from '@shared-utils/types';
 import { describeUnitTest } from '@test-utils/testGroups';
+import { describe, expect, it } from 'vitest';
 
 describeUnitTest('toLocalizationFileLoaderMap', () => {
   it('should transform the FileLoaderMap to the correct output shape', () => {
