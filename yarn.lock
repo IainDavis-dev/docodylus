@@ -309,6 +309,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@docodylus/shared-utils@workspace:src/common/shared-utils":
+  version: 0.0.0-use.local
+  resolution: "@docodylus/shared-utils@workspace:src/common/shared-utils"
+  languageName: unknown
+  linkType: soft
+
 "@docodylus/validation@npm:0.0.1-prerelease.3, @docodylus/validation@workspace:src/common/validation":
   version: 0.0.0-use.local
   resolution: "@docodylus/validation@workspace:src/common/validation"
