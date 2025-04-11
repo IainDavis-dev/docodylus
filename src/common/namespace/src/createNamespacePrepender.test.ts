@@ -1,5 +1,13 @@
-import { DocodylusTypeError } from '@error/types/DocodylusTypeError';
+import { DocodylusTypeError } from '@docodylus/error';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { describeUnitTest } from '@test-utils/testGroups';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import {
+  assert,
+  describe,
+  expect,
+  it,
+} from 'vitest';
 import { createNamespacePrepender } from './createNamespacePrepender';
 
 describeUnitTest('createNamespacePrepender', () => {

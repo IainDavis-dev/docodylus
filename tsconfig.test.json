@@ -9,6 +9,13 @@
             "node-polyglot"
         ]
     },
-    "include": ["test/**/*", "**/*.test.ts", "**/*.test.tsx"]
+    "include": [
+        "test/**/*",
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "test/**/*.ts",
+        "test/**/*.tsx",
+        "index.test-d.ts",
+    ]
   }
   

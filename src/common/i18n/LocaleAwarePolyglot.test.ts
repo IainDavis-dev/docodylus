@@ -8,6 +8,13 @@ import {
 } from '@i18n/consts';
 import { LocaleAwarePolyglot } from '@i18n/LocaleAwarePolyglot';
 import Polyglot from 'node-polyglot';
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 
 describeUnitTest('LocaleAwarePolyglot', () => {
   let polyglot: Polyglot;
