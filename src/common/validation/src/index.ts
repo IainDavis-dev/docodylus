@@ -1,1 +1,1 @@
-export { } from './types/string';
+export { IsLowercase, Alpha, CharacterSet } from './types/string';

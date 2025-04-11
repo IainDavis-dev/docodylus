@@ -1,6 +1,7 @@
 {
     "name": "@docodylus/validation",
     "version": "0.0.1-prerelease.3",
+    "license": "Apache-2.0",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
