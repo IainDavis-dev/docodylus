@@ -1,0 +1,24 @@
+{
+    "name": "@docodylus/namespace",
+    "version": "0.0.1-prerelease.3",
+    "main": "dist/index.js",
+    "types":  "dist/index.d.ts",
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist"
+    ],
+    "sideEffects": false,
+    "scripts": {
+        "build:esm": "tsc -p tsconfig.build.esm.json",
+        "build:cjs": "tsc -p tsconfig.build.cjs.json",
+        "build": "yarn build:esm && yarn build:cjs"
+    }
+}

@@ -1,2 +1,2 @@
 export { Namespaced } from './namespace';
-export { ValidNamespace } from './ValidNamespace'
+export { ValidNamespace } from './ValidNamespace';

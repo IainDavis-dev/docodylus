@@ -1,0 +1,17 @@
+{
+    "extends": "../../../tsconfig.json",
+    "license": "Apache-2.0",
+    "compilerOptions": {
+      "rootDir": ".",
+      "outDir": "../../dist/common/namespace",
+      "composite": true,
+      "declaration": true,
+      "declarationMap": true,
+      "emitDeclarationOnly": false
+    },
+    "include": ["src/**/*", "index.ts"],
+    "exclude": ["**/*.test.ts", "**/*.test-d.ts", "**/__snapshots__/**"],
+    "references": [
+      { "path": "../validation" }
+    ]
+  }
