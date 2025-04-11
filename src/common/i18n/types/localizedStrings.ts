@@ -1,4 +1,4 @@
-import { FileLoader } from '@shared-utils/src/types';
+import { FileLoader } from 'src/common/shared-utils/src/types';
 import { ValidLocale } from './validLocales';
 
 /**

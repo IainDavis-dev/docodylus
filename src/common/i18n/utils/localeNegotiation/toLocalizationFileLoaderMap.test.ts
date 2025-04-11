@@ -1,5 +1,5 @@
 import { toLocalizationFileLoaderMap } from '@i18n/utils/localeNegotiation';
-import { FileLoaderMap } from '@shared-utils/src/types';
+import { FileLoaderMap } from 'src/common/shared-utils/src/types';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { describe, expect, it } from 'vitest';
 

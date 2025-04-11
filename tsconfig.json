@@ -19,7 +19,7 @@
             "@types/*": ["src/types/*"],
             "@dummies/*": ["infra/dummies/*"],
             "@docs/*": ["docs/*"],
-            "@shared-utils/*": ["src/common/sharedUtils/*"],
+            "@shared-utils/*": ["src/common/shared-utils/*"],
             "@test-utils/*": ["infra/testUtils/*"],
             "@storybook-customizations/*": ["infra/storybook/customizations/*"],
         },
