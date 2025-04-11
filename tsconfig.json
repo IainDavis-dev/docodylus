@@ -22,6 +22,10 @@
             "@shared-utils/*": ["src/common/sharedUtils/*"],
             "@test-utils/*": ["infra/testUtils/*"],
             "@storybook-customizations/*": ["infra/storybook/customizations/*"],
+            // to satisfy eslint for internal-module imports
+            "@docodylus/error": ["src/common/error/src"],
+            "@docodylus/validation": ["src/common/validation/src"],
+            "@docodylus/namespace": ["src/common/namespace/src"],
         },
         "types": [
             "react",
