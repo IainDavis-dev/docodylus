@@ -15,5 +15,6 @@ tsconfig.vitest-temp.json
 .vscode
 
 # Local Environment
+.DS_Store
 .local
 site
