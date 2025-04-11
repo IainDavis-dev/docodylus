@@ -22,6 +22,7 @@ export const nonRuntimeFilesConfig = {
     ...STORY_FILES,
   ],
   rules: {
+    'no-console': 'off',
     'import/no-extraneous-dependencies': [
       'warn',
       {
