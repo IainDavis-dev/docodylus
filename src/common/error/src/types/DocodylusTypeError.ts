@@ -1,5 +1,5 @@
-import { DocodylusErrorBase } from '@error/types/DocodylusErrorBase';
-import { DocodylusErrorParams, DocodylusTypeErrorSubtype } from '@error/types/DocodylusErrorLike';
+import { DocodylusErrorBase } from './DocodylusErrorBase';
+import { DocodylusErrorParams, DocodylusTypeErrorSubtype } from './DocodylusErrorLike';
 
 interface DocodylusTypeErrorParams extends DocodylusErrorParams {
     subtype?: DocodylusTypeErrorSubtype
