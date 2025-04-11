@@ -12,7 +12,7 @@ export default defineConfig({
     include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}', 'test/**/*.{test,spec}.{js,ts,jsx,tsx}'],
     root: '.',
     typecheck: {
-      tsconfig: './tsconfig.json',
+      tsconfig: './tsconfig.test.json',
       exclude: ['./node_modules', './dist', './build', './static'],
     },
     coverage: {

@@ -4,13 +4,12 @@
         "lib": ["dom", "esnext"],
         "module": "esnext",
         "moduleResolution": "bundler",
-        "target": "esnext",
+        "typeRoots": ["node_modules/@types"], "target": "esnext",
         "strict": true,
         "noImplicitAny": true,
         "baseUrl": "./",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true,
         "paths": {
             "@components/*": ["src/components/*"],
             "@error/*": ["src/common/error/*"],
@@ -27,8 +26,6 @@
         "types": [
             "react",
             "react-dom",
-            "vitest/globals",
-            "@testing-library/jest-dom",
             "node-polyglot"
         ]
     },

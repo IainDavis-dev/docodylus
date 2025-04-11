@@ -1,0 +1,14 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "types": [
+            "react",
+            "react-dom",
+            "vitest/globals",
+            "@testing-library/jest-dom",
+            "node-polyglot"
+        ]
+    },
+    "include": ["test/**/*", "**/*.test.ts", "**/*.test.tsx"]
+  }
+  
