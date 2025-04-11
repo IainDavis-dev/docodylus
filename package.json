@@ -90,5 +90,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "bump-version": "semantic-release --extends ./infra/build/release/semantic-release.config.js"
-  }
+  },
+  "packageManager": "yarn@4.9.1"
 }

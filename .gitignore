@@ -1,5 +1,6 @@
 # dependencies
 node_modules
+.yarn/cache
 
 # built files
 static
