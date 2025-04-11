@@ -28,7 +28,7 @@ export default defineConfig({
       },
       exclude: [
         'docs', // TODO: separate coverage metrics for docs
-        'scripts', // TODO: separate coverage metrics for scripts
+        'infra', // TODO: separate coverage metrics for scripts
         'build',
         'static',
         'config',
@@ -55,6 +55,9 @@ export default defineConfig({
         '**/*.stories.*',
         '**/__mocks__',
         '**/__snapshots__',
+
+        // build artifacts
+        '**/dist',
       ],
       // something of a desperation move using 'unknown' here... VS Code is complaining about the
       // perfectly-valid `provider: 'istanbul'` property. The actual type is deprecated in favor of
