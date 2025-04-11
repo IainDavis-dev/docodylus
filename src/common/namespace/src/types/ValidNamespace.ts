@@ -1,4 +1,4 @@
-import { IsLowercase } from '@validation/src/index';
+import type { IsLowercase } from '@docodylus/validation';
 
 type IsValidNamespace<T extends string> =
   T extends ''

@@ -1,6 +1,7 @@
 {
     "name": "@docodylus/namespace",
     "version": "0.0.1-prerelease.3",
+    "license": "Apache-2.0",
     "main": "dist/index.js",
     "types":  "dist/index.d.ts",
     "type": "module",
@@ -15,10 +16,15 @@
     "files": [
         "dist"
     ],
+    "dependencies": {
+        "@docodylus/error": "0.0.1-prerelease.3",
+        "@docodylus/validation": "0.0.1-prerelease.3"
+    },
     "sideEffects": false,
     "scripts": {
         "build:esm": "tsc -p tsconfig.build.esm.json",
         "build:cjs": "tsc -p tsconfig.build.cjs.json",
+        "postbuild": "node ../../../infra/build/scripts/rename-extensions.mjs",
         "build": "yarn build:esm && yarn build:cjs"
     }
 }
