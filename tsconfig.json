@@ -15,7 +15,7 @@
             "@components/*": ["src/components/*"],
             "@error/*": ["src/common/error/*"],
             "@i18n/*": ["src/common/i18n/*"],
-            "@namespace/*": ["src/common/namespace/*"],
+            "@namespace/*": ["src/common/namespace/src/*"],
             "@validation/*": ["src/common/validation/*"],
             "@types/*": ["src/types/*"],
             "@dummies/*": ["infra/dummies/*"],
