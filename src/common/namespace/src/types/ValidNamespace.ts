@@ -1,4 +1,4 @@
-import { IsLowercase } from '@validation/src';
+import { IsLowercase } from '@validation/src/index';
 
 type IsValidNamespace<T extends string> =
   T extends ''

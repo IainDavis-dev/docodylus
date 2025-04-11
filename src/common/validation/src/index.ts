@@ -1,1 +1,1 @@
-export * from '../types/string';
+export { } from './types/string';
