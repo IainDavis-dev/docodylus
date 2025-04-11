@@ -1,5 +1,5 @@
 import { LocalizationFileLoaderMap } from '@i18n/types';
-import { FileLoaderMap } from '@shared-utils/types';
+import { FileLoaderMap } from '@shared-utils/src/types';
 
 const localeRegex = /\/\S*\/localization\/txlns\/(\S+)\.txlns.ts$/i;
 
