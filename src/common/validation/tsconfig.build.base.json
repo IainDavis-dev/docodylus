@@ -1,11 +1,11 @@
 {
-    "extends": "../../tsconfig.json",
+    "extends": "../../../tsconfig.json",
     "compilerOptions": {
       "rootDir": "./src",
       "composite": true,
       "declaration": true,
       "declarationMap": true,
-      "emitDeclarationOnly": false
+      "emitDeclarationOnly": false,
     },
     "include": ["src/**/*"],
     "exclude": ["**/*.test.ts", "**/*.test-d.ts", "**/__snapshots__/**"]
