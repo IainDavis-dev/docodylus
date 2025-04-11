@@ -16,6 +16,7 @@
     "scripts": {
       "build:esm": "tsc -p tsconfig.build.esm.json",
       "build:cjs": "tsc -p tsconfig.build.cjs.json",
-      "build": "yarn build:esm && yarn build:cjs"
+      "postbuild": "node ../../../infra/build/scripts/rename-extensions.mjs",
+      "build": "yarn build:esm && yarn build:cjs && yarn postbuild"
     }
   }
