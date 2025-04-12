@@ -9,6 +9,12 @@ import {
   waitFor,
 } from '@testing-library/react';
 import defer from '@test-utils/defer';
+import {
+  beforeEach,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 
 type TestLocalizedStrings = Partial<{
     'dev.iaindavis.test.unit.testProp1': string

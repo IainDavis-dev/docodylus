@@ -7,6 +7,13 @@ import { useContext } from 'react';
 import { I18nContext } from '@i18n/context/I18nContext';
 import { DEFAULT_LOCALE } from '@i18n/consts';
 import { ValidLocale } from '@i18n/types';
+import {
+  vi,
+  afterEach,
+  it,
+  expect,
+  assert,
+} from 'vitest';
 
 vi.mock('@i18n/LocaleAwarePolyglot', () => ({
   LocaleAwarePolyglot: vi.fn().mockImplementation(() => {

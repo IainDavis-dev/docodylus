@@ -1,6 +1,7 @@
 import { isValidLocale } from '@i18n/utils/validateLocale';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { all } from 'locale-codes';
+import { expect, it } from 'vitest';
 
 const locales = all.map(({ tag }) => tag);
 const invalidLocales = [
