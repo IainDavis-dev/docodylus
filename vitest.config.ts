@@ -50,7 +50,7 @@ export default defineConfig({
         // no need to test the test files themselves
         '**/*.test.*',
         '**/*.test-d.*',
-        'test/testUtils',
+        'infra/testUtils',
         '**/*.spec.*',
         '**/*.stories.*',
         '**/__mocks__',
