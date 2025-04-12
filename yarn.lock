@@ -294,13 +294,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docodylus/error@npm:0.0.1-prerelease.3, @docodylus/error@workspace:src/common/error":
+"@docodylus/error@npm:0.0.1-prerelease.3, @docodylus/error@workspace:*, @docodylus/error@workspace:src/common/error":
   version: 0.0.0-use.local
   resolution: "@docodylus/error@workspace:src/common/error"
   languageName: unknown
   linkType: soft
 
-"@docodylus/namespace@workspace:src/common/namespace":
+"@docodylus/i18n@workspace:src/common/i18n":
+  version: 0.0.0-use.local
+  resolution: "@docodylus/i18n@workspace:src/common/i18n"
+  dependencies:
+    "@docodylus/error": "workspace:*"
+    "@docodylus/namespace": "workspace:*"
+    node-polyglot: "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@docodylus/namespace@workspace:*, @docodylus/namespace@workspace:src/common/namespace":
   version: 0.0.0-use.local
   resolution: "@docodylus/namespace@workspace:src/common/namespace"
   dependencies:
@@ -8453,7 +8463,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-polyglot@npm:^2.6.0":
+"node-polyglot@npm:*, node-polyglot@npm:^2.6.0":
   version: 2.6.0
   resolution: "node-polyglot@npm:2.6.0"
   dependencies:

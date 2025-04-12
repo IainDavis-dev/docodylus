@@ -6,25 +6,25 @@
     "module": "./dist/esm/index.mjs",
     "types": "./dist/esm/index.d.ts",
     "exports": {
-      ".": {
-        "import": "./dist/esm/index.mjs",
-        "require": "./dist/cjs/index.cjs",
-        "types": "./dist/esm/index.d.ts"
-      }
+        ".": {
+            "import": "./dist/esm/index.mjs",
+            "require": "./dist/cjs/index.cjs",
+            "types": "./dist/esm/index.d.ts"
+        }
     },
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "sideEffects": false,
     "scripts": {
-      "build:esm": "tsc -p tsconfig.build.esm.json",
-      "build:cjs": "tsc -p tsconfig.build.cjs.json",
-      "postbuild": "node ../../../infra/build/scripts/rename-extensions.mjs",
-      "build": "yarn build:esm && yarn build:cjs && yarn postbuild"
+        "build:esm": "tsc -p tsconfig.build.esm.json",
+        "build:cjs": "tsc -p tsconfig.build.cjs.json",
+        "postbuild": "node ../../../infra/build/scripts/rename-extensions.mjs",
+        "build": "yarn build:esm && yarn build:cjs && yarn postbuild"
     },
     "dependencies": {
-      "@docodylus/namespace": "workspace:*",
-      "@docodylus/validation": "workspace:*",
-      "@docodylus/error": "workspace:*",
-      "node-polyglot": "workspace:*"
+        "@docodylus/error": "workspace:*",
+        "@docodylus/namespace": "workspace:*",
+        "node-polyglot": "*"
     }
-  }
-  
+}
