@@ -1,5 +1,5 @@
-import { createNamespacePrepender } from '@namespace/createNamespacePrepender';
-import { Namespaced } from '@namespace/types';
+import { createNamespacePrepender } from '@docodylus/namespace';
+import { Namespaced } from '@docodylus/namespace';
 
 export const SUPPORTED_LOCALES = [
   'en',

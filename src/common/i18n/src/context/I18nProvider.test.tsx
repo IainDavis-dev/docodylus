@@ -2,7 +2,7 @@ import { describeUnitTest } from '@test-utils/testGroups';
 import { render, screen } from '@testing-library/react';
 import { I18nProvider } from '@i18n/context/I18nProvider';
 import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
-import { DocodylusTypeError } from '@error/types/DocodylusTypeError';
+import { DocodylusTypeError } from '@docodylus/error';
 import { useContext } from 'react';
 import { I18nContext } from '@i18n/context/I18nContext';
 import { DEFAULT_LOCALE } from '@i18n/consts';

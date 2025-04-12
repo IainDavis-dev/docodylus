@@ -25,6 +25,7 @@
     "dependencies": {
         "@docodylus/error": "workspace:*",
         "@docodylus/namespace": "workspace:*",
+        "@docodylus/shared-utils": "workspace:*",
         "node-polyglot": "*"
     }
 }

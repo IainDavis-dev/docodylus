@@ -3,8 +3,8 @@ import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
 import { I18nContextValue, ValidLocale } from '@i18n/types';
 import { PropsWithChildren, useMemo } from 'react';
 import { isValidLocale } from '@i18n/utils/validateLocale';
-import { newInvalidLocaleError } from '@error/types/DocodylusTypeError';
-import { I18nContext } from './I18nContext';
+import { newInvalidLocaleError } from '@docodylus/error';
+import { I18nContext } from '@i18n/context/I18nContext'
 
 type I18nProviderProps = PropsWithChildren<{
     locale?: ValidLocale
