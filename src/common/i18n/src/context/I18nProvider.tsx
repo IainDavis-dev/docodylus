@@ -1,5 +1,5 @@
 import { DEFAULT_LOCALE } from '@i18n/consts';
-import { LocaleAwarePolyglot } from '@i18n/LocaleAwarePolyglot';
+import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
 import { I18nContextValue, ValidLocale } from '@i18n/types';
 import { PropsWithChildren, useMemo } from 'react';
 import { isValidLocale } from '@i18n/utils/validateLocale';

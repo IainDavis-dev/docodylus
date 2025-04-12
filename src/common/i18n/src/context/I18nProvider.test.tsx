@@ -1,7 +1,7 @@
 import { describeUnitTest } from '@test-utils/testGroups';
 import { render, screen } from '@testing-library/react';
 import { I18nProvider } from '@i18n/context/I18nProvider';
-import { LocaleAwarePolyglot } from '@i18n/LocaleAwarePolyglot';
+import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
 import { DocodylusTypeError } from '@error/types/DocodylusTypeError';
 import { useContext } from 'react';
 import { I18nContext } from '@i18n/context/I18nContext';
@@ -15,7 +15,7 @@ import {
   assert,
 } from 'vitest';
 
-vi.mock('@i18n/LocaleAwarePolyglot', () => ({
+vi.mock('@i18n/polyglot/LocaleAwarePolyglot', () => ({
   LocaleAwarePolyglot: vi.fn().mockImplementation(() => {
     let mockedLocale: ValidLocale = DEFAULT_LOCALE;
     return ({

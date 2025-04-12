@@ -16,7 +16,7 @@ export default defineConfig({
     alias: {
       '@components': path.resolve(__dirname, './src/components'),
       '@dummies': path.resolve(__dirname, './infra/dummies'),
-      '@i18n': path.resolve(__dirname, './src/common/i18n'),
+      '@i18n': path.resolve(__dirname, './src/common/i18n/src'),
       '@validation': path.resolve(__dirname, './src/common/validation/src'),
       '@docs': path.resolve(__dirname, './docs'),
       '@test-utils': path.resolve(__dirname, './infra/testUtils'),

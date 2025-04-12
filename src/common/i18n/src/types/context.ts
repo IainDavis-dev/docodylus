@@ -1,4 +1,4 @@
-import { LocaleAwarePolyglot } from '@i18n/LocaleAwarePolyglot';
+import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
 import { ValidLocale } from '@i18n/types';
 
 /**

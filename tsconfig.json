@@ -13,7 +13,7 @@
         "paths": {
             "@components/*": ["src/components/*"],
             "@error/*": ["src/common/error/src/*"],
-            "@i18n/*": ["src/common/i18n/*"],
+            "@i18n/*": ["src/common/i18n/src/*"],
             "@namespace/*": ["src/common/namespace/src/*"],
             "@validation/*": ["src/common/validation/src/*"],
             "@types/*": ["src/types/*"],

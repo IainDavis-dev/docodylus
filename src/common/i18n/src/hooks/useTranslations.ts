@@ -1,6 +1,6 @@
 import { DefaultTranslationKey } from '@i18n/consts';
 import { I18nContext } from '@i18n/context/I18nContext';
-import { LocaleAwarePolyglot } from '@i18n/LocaleAwarePolyglot';
+import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
 import { LocalizationFileLoaderMap, LocalizedStrings, ValidLocale } from '@i18n/types';
 import { negotiateLocales } from '@i18n/utils/localeNegotiation';
 import { PolyglotOptions } from 'node-polyglot';

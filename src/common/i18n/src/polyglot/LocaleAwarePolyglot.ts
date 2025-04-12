@@ -1,7 +1,7 @@
 import Polyglot from 'node-polyglot';
 import { negotiateLocales } from '@i18n/utils/localeNegotiation';
-import type { LocalizedStringsByLocale, ValidLocale, LocalizedStrings } from './types';
-import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS } from './consts';
+import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS } from '@i18n/consts';
+import type { LocalizedStringsByLocale, ValidLocale, LocalizedStrings } from '@i18n/types';
 
 /**
  * Options for configuring the {@link LocaleAwarePolyglot} instance.
