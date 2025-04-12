@@ -4,7 +4,7 @@
     "license": "Apache-2.0",
     "main": "dist/cjs/index.cjs",
     "module": "dist/esm/index.mjs",
-    "types":  "dist/esm/index.d.ts",
+    "types": "dist/esm/index.d.ts",
     "type": "module",
     "exports": {
         ".": {
