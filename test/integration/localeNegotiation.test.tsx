@@ -1,11 +1,12 @@
 import { describeIntegrationTest } from '@test-utils/testGroups';
 import { render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
-import { ExpandableLocalizedStrings } from '@components/layout/Expandable/localization';
+import { type ExpandableLocalizedStrings } from '@components/layout/Expandable/src/localization';
 import { I18nProvider } from '@i18n/context/I18nProvider';
 import userEvent from '@testing-library/user-event';
 
-import * as stories from '@components/layout/Expandable/storybook/Expandable.stories';
+import * as stories from '@components/layout/Expandable/src/storybook/Expandable.stories';
+import { expect, it, vi } from 'vitest';
 
 const EXPAND_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'dev.iaindavis.docodylus.layout.expandable.expandPrompt';
 const COLLAPSE_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'dev.iaindavis.docodylus.layout.expandable.collapsePrompt';
@@ -21,7 +22,7 @@ const LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT = 'LANGUAGE_SCRIPT_REGION_COLLAPSE_
 
 type MockRawLoaders = Record<string, () => Promise<Partial<ExpandableLocalizedStrings>>>
 
-vi.mock('@components/layout/Expandable/localization/getRawLoaders', () => ({
+vi.mock('@components/layout/Expandable/src/localization/getRawLoaders', () => ({
   getRawLoaders: function getRawLoaders(): MockRawLoaders {
     return ({
       // language only: en (English)
