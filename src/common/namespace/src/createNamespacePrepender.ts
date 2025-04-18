@@ -1,5 +1,5 @@
 import { newInvalidNamespaceError } from '@docodylus/error';
-import { isValidNamespace } from '@namespace/isValidNamespace';
+import { isValidNamespace } from '@docodylus/namespace';
 import { Namespaced, ValidNamespace } from './types';
 
 /**
