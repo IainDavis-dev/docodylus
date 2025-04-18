@@ -10,7 +10,8 @@ import React, {
 import { useTranslations } from '@i18n/hooks/useTranslations';
 import styles from './Expandable.module.css';
 
-import { ExpandableLocalizedStrings, getLocalizedStringLoaders, ExpandableNamespace as ns } from './localization';
+import { ExpandableLocalizedStrings, ExpandableNamespace as ns } from './localization';
+import { createLocalizationStringLoaders } from '@docodylus/i18n';
 
 export type ExpandablePropsType = {
     startExpanded?: boolean;
@@ -24,7 +25,8 @@ export const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
   collapsePrompt,
   children,
 }) => {
-  const t = useTranslations<ExpandableLocalizedStrings>(getLocalizedStringLoaders());
+  const newStrings = createLocalizationStringLoaders<ExpandableLocalizedStrings>(new URL(import.meta.url));
+  const t = useTranslations<ExpandableLocalizedStrings>(newStrings);
 
   const idDiscriminator = useId();
 
