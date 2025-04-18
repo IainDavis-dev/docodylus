@@ -1,5 +1,5 @@
 import { LocalizationFileLoaderMap } from '@i18n/types';
-import { FileLoaderMap } from '@docodylus/shared-utils';
+import { FileLoaderMap, type LazyLoaders } from '@docodylus/shared-utils';
 
 const localeRegex = /\/\S*\/localization\/txlns\/(\S+)\.txlns.ts$/i;
 
@@ -15,7 +15,7 @@ const localeRegex = /\/\S*\/localization\/txlns\/(\S+)\.txlns.ts$/i;
  * {@link ValidLocale} to {@link LocalizationFileLoaderMap}
  */
 export function toLocalizationFileLoaderMap<T>(
-  fileLoaders: FileLoaderMap<T>,
+  fileLoaders: LazyLoaders<T>,
 ): LocalizationFileLoaderMap<T> {
   if (fileLoaders == null || typeof fileLoaders !== 'object' || Array.isArray(fileLoaders)) throw new Error('Invalid FileLoaderMap');
   return Object.entries(fileLoaders).reduce(

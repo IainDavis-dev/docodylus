@@ -1,13 +1,13 @@
 import { toLocalizationFileLoaderMap } from '@i18n/utils/localeNegotiation';
-import { FileLoaderMap } from '@docodylus/shared-utils';
+import { LazyLoaders } from '@docodylus/shared-utils';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { describe, expect, it } from 'vitest';
 
 describeUnitTest('toLocalizationFileLoaderMap', () => {
   it('should transform the FileLoaderMap to the correct output shape', () => {
-    const enLoader = (): Promise<object> => Promise.resolve({});
-    const esLoader = (): Promise<object> => Promise.resolve({});
-    const input: FileLoaderMap<object> = {
+    const enLoader = (): Promise<{ default: object }> => Promise.resolve({ default: {}});
+    const esLoader = (): Promise<{ default: object}> => Promise.resolve({ default: {}});
+    const input: LazyLoaders<object> = {
       'https://mockurl.com/src/components/layout/Expandable/localization/txlns/en.txlns.ts': enLoader,
       'https://mockurl.com/src/components/layout/Expandable/localization/txlns/es.txlns.ts': esLoader,
     };
@@ -27,12 +27,12 @@ describeUnitTest('toLocalizationFileLoaderMap', () => {
   });
 
   it('should ignore FileLoaderMap properties whose key does not include a locale-like string in the expected location', () => {
-    const enLoader = (): Promise<object> => Promise.resolve({});
-    const esLoader = (): Promise<object> => Promise.resolve({});
-    const input: FileLoaderMap<object> = {
+    const enLoader = (): Promise<{ default: object }> => Promise.resolve({ default: {} });
+    const esLoader = (): Promise<{ default: object }> => Promise.resolve({ default: {} });
+    const input: LazyLoaders<object> = {
       'https://mockurl.com/src/components/layout/Expandable/localization/txlns/en.txlns.ts': enLoader,
       'https://mockurl.com/src/components/layout/Expandable/localization/txlns/es.txlns.ts': esLoader,
-      'https://mockurl.com/src/components/layout/Expandable/wrongFileNameAndLocation.ts': () => Promise.resolve({}),
+      'https://mockurl.com/src/components/layout/Expandable/wrongFileNameAndLocation.ts': () => Promise.resolve({ default: {}}),
     };
 
     const actual = toLocalizationFileLoaderMap(input);

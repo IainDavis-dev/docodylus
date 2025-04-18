@@ -1,2 +1,2 @@
 export { negotiateLocales } from './negotiateLocales';
-export { toLocalizationFileLoaderMap } from './toLocalizationFileLoaderMap';
+export { toLocalizationFileLoaderMap } from '../../loaders/toLocalizationFileLoaderMap';
