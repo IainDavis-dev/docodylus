@@ -78,12 +78,12 @@ describeUnitTest('createRawLoaders', () => {
 });
 
 describeIntegrationTest('createLoaders (integration)', () => {
-  const realEn = new URL('../../../../components/layout/Expandable/src/localization/txlns/en.txlns.ts', import.meta.url)
-  const realEs = new URL('../../../../components/layout/Expandable/src/localization/txlns/es.txlns.ts', import.meta.url)
+  const realEn = new URL('../../../../../components/layout/Expandable/src/localization/txlns/en.txlns.ts', import.meta.url)
+  const realEs = new URL('../../../../../components/layout/Expandable/src/localization/txlns/es.txlns.ts', import.meta.url)
 
   it('invokes a loader and resolves a module', async () => {
     const dummyUrl = new URL('./__mocks__/dummy1.ts', import.meta.url);
-    const loaders = createLazyLoaders([dummyUrl]);
+    const loaders = createLazyLoaders<{ default: ExpandableLocalizedStrings }>([dummyUrl]);
 
     const result = await loaders[dummyUrl.toString()]();
     expect(result).toHaveProperty('default');
@@ -91,7 +91,7 @@ describeIntegrationTest('createLoaders (integration)', () => {
   });
 
   it('creates working dynamic imports for each URL', async () => {
-    const loaders = createLazyLoaders<ExpandableLocalizedStrings>([realEn, realEs]);
+    const loaders = createLazyLoaders<{ default: ExpandableLocalizedStrings }>([realEn, realEs]);
 
     const enModule = await loaders[realEn.toString()]();
     const esModule = await loaders[realEs.toString()]();
