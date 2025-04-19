@@ -1,4 +1,4 @@
-import { FileLoader } from '@docodylus/shared-utils';
+import { FileLoader } from '@shared-utils/dist/internal/src';
 import { ValidLocale } from './validLocales';
 
 /**

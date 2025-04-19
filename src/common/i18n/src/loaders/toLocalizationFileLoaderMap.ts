@@ -1,5 +1,5 @@
 import { LocalizationFileLoaderMap } from '@i18n/types';
-import { FileLoaderMap, type LazyLoaders } from '@docodylus/shared-utils';
+import { FileLoaderMap, type LazyLoaders } from '@shared-utils/dist/internal/src';
 
 const localeRegex = /\/\S*\/localization\/txlns\/(\S+)\.txlns.ts$/i;
 

@@ -1,7 +1,7 @@
 import { SUPPORTED_LOCALES } from "@i18n/consts";
 import { LocalizationFileLoaderMap, LocalizedStrings } from "@i18n/types";
 import { toLocalizationFileLoaderMap } from "@i18n/utils/localeNegotiation";
-import { createLazyLoaders } from "@docodylus/shared-utils";
+import { createLazyLoaders } from "@shared-utils/internal/src";
 
 type TxlnsModuleType<T extends LocalizedStrings> = { default: T }
 
