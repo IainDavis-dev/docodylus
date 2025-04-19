@@ -75,13 +75,18 @@ const defaultMockFileLoaders = {
   },
 };
 
+let mockLoaderMap: Partial<typeof defaultMockFileLoaders> = defaultMockFileLoaders;
+vi.mock('@i18n/loaders/createLocalizationStringLoaders', () => ({
+  createLocalizationStringLoaders: vi.fn(() => mockLoaderMap)
+}))
+
 interface TestComponentProps {
     fileLoaders: Partial<LocalizationFileLoaderMap<TestLocalizedStrings>>
 }
 
 // eslint-disable-next-line react/prop-types
 const TestComponent: React.FC<TestComponentProps> = ({ fileLoaders }) => {
-  const t = useTranslations<Partial<TestLocalizedStrings>>(fileLoaders);
+  const t = useTranslations<Partial<TestLocalizedStrings>>(new URL(import.meta.url));
   return (
     <>
       <div data-testid="prop1">{t('dev.iaindavis.test.unit.testProp1')}</div>
@@ -324,6 +329,12 @@ describeUnitTest('useTranslations hook', () => {
     const enDefer = defer<Partial<TestLocalizedStrings>>();
     const frDefer = defer<Partial<TestLocalizedStrings>>();
 
+    mockLoaderMap = {
+          ...defaultMockFileLoaders,
+          en: { cacheKey: localeToCacheKey('en'), loader: () => enDefer.promise },
+          fr: { cacheKey: localeToCacheKey('fr'), loader: () => frDefer.promise },
+    }
+
     render(
       <I18nProvider locale="fr">
         <TestComponent fileLoaders={{
@@ -362,6 +373,12 @@ describeUnitTest('useTranslations hook', () => {
   it('should indicate a loading state until all file loads have completed (with error)', async () => {
     const enDefer = defer<Partial<TestLocalizedStrings>>();
     const frDefer = defer<Partial<TestLocalizedStrings>>();
+
+    mockLoaderMap = {
+          ...defaultMockFileLoaders,
+          en: { cacheKey: localeToCacheKey('en'), loader: () => enDefer.promise },
+          fr: { cacheKey: localeToCacheKey('fr'), loader: () => frDefer.promise },
+    }
 
     render(
       <I18nProvider locale="fr">

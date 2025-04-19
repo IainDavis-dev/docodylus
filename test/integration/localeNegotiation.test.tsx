@@ -22,9 +22,7 @@ const LANGUAGE_AND_REGION_EXPAND_PROMPT = 'LANGUAGE_AND_REGION_EXPAND_PROMPT';
 const LANGUAGE_AND_SCRIPT_EXPAND_PROMPT = 'LANGUAGE_AND_SCRIPT_EXPAND_PROMPT';
 const LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT = 'LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT';
 
-type MockRawLoaders = Record<string, () => Promise<Partial<ExpandableLocalizedStrings>>>
-
-vi.mock('@docodylus/i18n', () => ({
+vi.mock('@i18n/loaders/createLocalizationStringLoaders', () => ({
   createLocalizationStringLoaders: function createLocalizationStringLoadersMock(): LocalizationStringLoaders<Partial<ExpandableLocalizedStrings>> {
     return {
       en: {

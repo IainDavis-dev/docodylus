@@ -1,5 +1,6 @@
 import { DefaultTranslationKey } from '@i18n/consts';
 import { I18nContext } from '@i18n/context/I18nContext';
+import { createLocalizationStringLoaders } from '@i18n/loaders/createLocalizationStringLoaders';
 import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
 import { LocalizationFileLoaderMap, LocalizedStrings, ValidLocale } from '@i18n/types';
 import { negotiateLocales } from '@i18n/utils/localeNegotiation';
@@ -18,21 +19,11 @@ const TXLNS_LOADING_KEY: DefaultTranslationKey = 'dev.iaindavis.docodylus.intern
 type LoadingState = 'not-loaded' | 'loading' | 'success' | 'error';
 type TWrapper<T> = (key: T | DefaultTranslationKey, options?: PolyglotOptions) => string;
 
-/**
- * A React hook that ensures localized strings are loaded into
- * {@link LocaleAwarePolyglot} before string localization is attempted.
- *
- * @template T - Type representing the translation keys. Used only to provide
- * code-completion hints for the set of translations relevant to the component
- *
- * @param {URL} translationsSrc - The URL of the translation file to load.
- * @returns {UseTranslationsResponse<T>} An object containing:
- * - `t`: A function to retrieve translated strings by key.
- * - `isLoading`: A boolean indicating whether translations are currently being loaded.
- */
 export function useTranslations<T extends LocalizedStrings = never>(
-  loaderMap: LocalizationFileLoaderMap<T>,
+  componentFileUrl: URL,
 ): TWrapper<keyof T> {
+
+  const loaderMap = createLocalizationStringLoaders<T>(componentFileUrl);
   // if no context
   const { i18n } = useContext(I18nContext) ?? {
     // check for a default Polyglot instance and create it if it doesn't exist yet
