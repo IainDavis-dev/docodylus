@@ -1,4 +1,4 @@
-import { DocodylusTypeError } from '@docodylus/error'
+import { DocodylusTypeError } from '@docodylus/error-internal'
 export type LazyLoader<T = unknown> = () => Promise<T>;
 export type LazyLoaders<T = unknown> = Record<string, LazyLoader<T>>;
 

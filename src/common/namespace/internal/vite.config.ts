@@ -1,2 +1,9 @@
-import { createInternalViteConfig} from '../../../../infra/build/packages/vite.config.base';
-export default createInternalViteConfig('docodylusValidationInternal');
+import { viteConfigFor} from '../../../../infra/build/packages/viteConfigFactory';
+
+export default viteConfigFor('docodylusNamespaceInternal')({
+    build: {
+        rollupOptions: {
+            external: ['@docodylus/validation-internal', '@docodylus/error-internal' ],
+        }
+    }
+});

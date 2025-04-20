@@ -30,7 +30,7 @@
     "dependencies": {
         "@docodylus/error": "workspace:*",
         "@docodylus/loadable-internal": "workspace:*",
-        "@docodylus/namespace": "workspace:*",
+        "@docodylus/namespace-internal": "workspace:*",
         "node-polyglot": "*"
     }
 }

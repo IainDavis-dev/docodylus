@@ -13,10 +13,10 @@
         "allowSyntheticDefaultImports": true,
         "paths": {
             "@components/*": ["src/components/*"],
-            "@error/*": ["src/common/error/src/*"],
+            "@error/*": ["src/common/error/internal/src/*"],
             "@i18n/*": ["src/common/i18n/src/*"],
             "@namespace/*": ["src/common/namespace/src/*"],
-            "@validation/*": ["src/common/validation/src/*"],
+            "@validation/*": ["src/common/validation/internal/src/*"],
             "@types/*": ["src/types/*"],
             "@dummies/*": ["infra/dummies/*"],
             "@docs/*": ["docs/*"],

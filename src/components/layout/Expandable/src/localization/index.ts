@@ -1,6 +1,6 @@
 import { BASE_NAMESPACE } from '@i18n/consts';
-import { createNamespacePrepender } from '@namespace/createNamespacePrepender';
-import { Namespaced } from '@namespace/types';
+import { createNamespacePrepender } from '@docodylus/namespace-internal';
+import { Namespaced } from '@docodylus/namespace-internal';
 
 export const ExpandableNamespace = `${BASE_NAMESPACE}.layout.expandable` as const;
 export const prependNamespace = createNamespacePrepender(ExpandableNamespace);

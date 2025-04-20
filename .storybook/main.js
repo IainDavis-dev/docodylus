@@ -41,6 +41,8 @@ const config = {
       ...config.resolve.alias,
     }
 
+    config.build.rollupOptions.external = ['@docodylus/loadable-internal']
+
     return config;
   },
 

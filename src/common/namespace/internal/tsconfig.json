@@ -5,10 +5,9 @@
     },
     "include": ["index.ts", "src", "tsconfig.test.json"],
     "exclude": [
+      "node_modules",
       "dist",
-      "build",
-      "**/*.test.ts",
-      "**/*.test.tsx",
-      "**/*.test-d.ts",
+      "**/*.test.*",
+      "**/*.test-d.ts"
     ],
 }

@@ -1,4 +1,4 @@
-import { DocodylusTypeError } from '@docodylus/error';
+import { DocodylusTypeError } from '@docodylus/error-internal';
 import { describeUnitTest } from '@test-utils/testGroups';
 import {
   assert,

@@ -1,5 +1,5 @@
 import { toLocalizationFileLoaderMap } from '@i18n/utils/localeNegotiation';
-import { LazyLoaders } from '@shared-utils/dist/internal/src';
+import { LazyLoaders } from '@docodylus/loadable-internal';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { describe, expect, it } from 'vitest';
 

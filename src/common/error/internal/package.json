@@ -1,14 +1,14 @@
 {
-    "name": "@docodylus/namespace-internal",
+    "name": "@docodylus/error-internal",
     "version": "0.0.1-prerelease.3",
     "license": "Apache-2.0",
     "type": "module",
     "sideEffects": false,
     "exports": {
         ".": {
+            "types": "./dist/index.d.ts",
             "import": "./dist/esm/index.mjs",
-            "require": "./dist/cjs/index.cjs",
-            "types": "./dist/index.d.ts"
+            "require": "./dist/cjs/index.cjs"
         }
     },
     "files": [
@@ -20,11 +20,7 @@
         "build": "../../../../node_modules/.bin/vite build",
         "clean": "rm -rf dist",
         "lint": "eslint . --ext .ts",
-        "test:unit": "TEST_GROUP=UNIT ../../../../node_modules/.bin/vitest run",
+        "test:unit": "TEST_GROUP=UNIT,TYPE ../../../../node_modules/.bin/vitest run",
         "test:integration": "TEST_GROUP=INTEGRATION ../../../../node_modules/.bin/vitest run"
-    },
-    "dependencies": {
-        "@docodylus/error-internal": "workspace:*",
-        "@docodylus/validation-internal": "workspace:*"
     }
 }

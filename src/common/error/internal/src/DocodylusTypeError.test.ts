@@ -4,9 +4,7 @@ import { describeUnitTest } from '@test-utils/testGroups';
 import {
   DocodylusTypeError,
   newExpectedArrayError,
-  newInvalidLocaleError,
-  newInvalidNamespaceError,
-} from '@error/types/DocodylusTypeError';
+} from './DocodylusTypeError';
 import { describe, expect, it } from 'vitest';
 
 describeUnitTest('DocodylusTypeError', () => {
@@ -17,8 +15,6 @@ describeUnitTest('DocodylusTypeError', () => {
 
   describe.each`
         funcName                        | purpose                               | factoryFunc                   |  args                         | message                | details                  |  subtype              | scope             | reference
-        ${'newInvalidLocaleError'}      | ${'reports an invalid locale'}        | ${newInvalidLocaleError}      | ${['xx-XX']}                |  ${expect.any(String)} | ${expect.any(String)}    | ${'InvalidLocale'}    | ${'i18n'}         | ${new URL('https://www.npmjs.com/package/locale-codes')}
-        ${'newInvalidNamespaceError'}   | ${'reports an invalid namespace'}     | ${newInvalidNamespaceError}   | ${['b0gus-n@mespace']}        |  ${expect.any(String)} | ${expect.any(String)}    |${'InvalidNamespace'}  | ${'namespace'}    | ${undefined}
         ${'newExpectedArrayError'}      | ${'reports an invalid non-array arg'} | ${newExpectedArrayError}      | ${['mockParam', 'mockFunc']}  |  ${expect.any(String)} | ${undefined}             | ${'InvalidArgument'}  | ${undefined}      | ${undefined}
     `('Concrete Error Factories', ({
     funcName, purpose,

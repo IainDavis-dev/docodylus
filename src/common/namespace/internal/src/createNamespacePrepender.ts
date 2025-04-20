@@ -1,4 +1,4 @@
-import { newInvalidNamespaceError } from '@docodylus/error';
+import { newInvalidNamespaceError } from './error/newInvalidNamespaceError';
 import { isValidNamespace } from './isValidNamespace';
 import { ValidNamespace } from './isValidNamespace'
 

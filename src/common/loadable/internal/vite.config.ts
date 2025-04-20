@@ -1,2 +1,9 @@
-import { createInternalViteConfig} from '../../../../infra/build/packages/vite.config.base';
-export default createInternalViteConfig('docodylusLoadableInternal')
+import { viteConfigFor  } from '../../../../infra/build/packages/viteConfigFactory';
+
+export default viteConfigFor('docodylusLoadableInternal')({
+    build: {
+        rollupOptions: {
+            external: ['@docodylus/error-internal' ],
+        }
+    }
+})

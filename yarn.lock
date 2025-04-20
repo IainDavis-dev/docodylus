@@ -315,9 +315,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docodylus/error@npm:0.0.1-prerelease.3, @docodylus/error@workspace:*, @docodylus/error@workspace:src/common/error":
+"@docodylus/error-internal@workspace:*, @docodylus/error-internal@workspace:src/common/error/internal":
+  version: 0.0.0-use.local
+  resolution: "@docodylus/error-internal@workspace:src/common/error/internal"
+  languageName: unknown
+  linkType: soft
+
+"@docodylus/error@workspace:*, @docodylus/error@workspace:src/common/error":
   version: 0.0.0-use.local
   resolution: "@docodylus/error@workspace:src/common/error"
+  dependencies:
+    "@docodylus/error-internal": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -327,7 +335,7 @@ __metadata:
   dependencies:
     "@docodylus/error": "workspace:*"
     "@docodylus/loadable-internal": "workspace:*"
-    "@docodylus/namespace": "workspace:*"
+    "@docodylus/namespace-internal": "workspace:*"
     node-polyglot: "npm:*"
   languageName: unknown
   linkType: soft
@@ -335,21 +343,23 @@ __metadata:
 "@docodylus/loadable-internal@workspace:*, @docodylus/loadable-internal@workspace:src/common/loadable/internal":
   version: 0.0.0-use.local
   resolution: "@docodylus/loadable-internal@workspace:src/common/loadable/internal"
-  languageName: unknown
-  linkType: soft
-
-"@docodylus/namespace@workspace:*, @docodylus/namespace@workspace:src/common/namespace":
-  version: 0.0.0-use.local
-  resolution: "@docodylus/namespace@workspace:src/common/namespace"
   dependencies:
-    "@docodylus/error": "npm:0.0.1-prerelease.3"
-    "@docodylus/validation": "npm:0.0.1-prerelease.3"
+    "@docodylus/error-internal": "workspace:*"
   languageName: unknown
   linkType: soft
 
-"@docodylus/validation@npm:0.0.1-prerelease.3, @docodylus/validation@workspace:src/common/validation":
+"@docodylus/namespace-internal@workspace:*, @docodylus/namespace-internal@workspace:src/common/namespace/internal":
   version: 0.0.0-use.local
-  resolution: "@docodylus/validation@workspace:src/common/validation"
+  resolution: "@docodylus/namespace-internal@workspace:src/common/namespace/internal"
+  dependencies:
+    "@docodylus/error-internal": "workspace:*"
+    "@docodylus/validation-internal": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@docodylus/validation-internal@workspace:*, @docodylus/validation-internal@workspace:src/common/validation/internal":
+  version: 0.0.0-use.local
+  resolution: "@docodylus/validation-internal@workspace:src/common/validation/internal"
   languageName: unknown
   linkType: soft
 

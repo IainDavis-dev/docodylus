@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import { DocodylusTypeError } from '@error/types/DocodylusTypeError';
+import { DocodylusTypeError } from './DocodylusTypeError';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { describe, expect, it } from 'vitest';
 

@@ -1,6 +1,7 @@
 import { DEFAULT_LOCALE } from '@i18n/consts';
 import { ValidLocale } from '@i18n/types';
-import { newExpectedArrayError, newInvalidLocaleError } from '@docodylus/error';
+import { newInvalidLocaleError } from '../../error/newInvalidLocaleError';
+import { newExpectedArrayError } from '@docodylus/error-internal';
 import { isValidLocale } from '../validateLocale';
 
 type LocaleSort =
