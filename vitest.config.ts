@@ -33,6 +33,7 @@ export default defineConfig({
         'static',
         'config',
         '.*', // no dot-files
+        '**/vite.config.ts',
 
         // typescript and javascript files in the root directory
         // tend to be config files
