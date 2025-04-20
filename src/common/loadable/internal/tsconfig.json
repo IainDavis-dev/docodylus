@@ -1,7 +1,6 @@
 {
-    "extends": "../../../../tsconfig.base.json",
+    "extends": "../../../../infra/build/packages/tsconfig.base.json",
     "compilerOptions": {
-      "outDir": "dist-throwaway",
       "baseUrl": ".",
     },
     "include": ["index.ts", "src"],
