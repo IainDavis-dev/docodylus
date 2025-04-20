@@ -4,7 +4,6 @@
     "license": "Apache-2.0",
     "main": "dist/cjs/index.cjs",
     "module": "dist/esm/index.mjs",
-    "types": "dist/esm/index.d.ts",
     "type": "module",
     "exports": {
         ".": {
@@ -19,7 +18,7 @@
     ],
     "dependencies": {
         "@docodylus/error": "0.0.1-prerelease.3",
-        "@docodylus/validation": "0.0.1-prerelease.3"
+        "@docodylus/validation-internal": "0.0.1-prerelease.3"
     },
     "sideEffects": false,
     "scripts": {

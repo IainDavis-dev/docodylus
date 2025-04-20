@@ -1,6 +1,10 @@
 import { newInvalidNamespaceError } from '@docodylus/error';
-import { isValidNamespace } from '@docodylus/namespace';
-import { Namespaced, ValidNamespace } from './types';
+import { isValidNamespace } from './isValidNamespace';
+import { ValidNamespace } from './isValidNamespace'
+
+export type Namespaced<NS extends string, T extends Record<string, unknown>> = {
+    [K in keyof T as `${NS}.${string & K}`]: T[K]
+}
 
 /**
  * A utility type representing a function that prepends a namespace to the keys of an object.

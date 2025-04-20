@@ -1,4 +1,6 @@
-import type { IsLowercase } from '@docodylus/validation';
+import type { IsLowercase } from '@docodylus/validation-internal';
+
+const namespaceRegex = /^([a-z]+\.)*[a-z]+$/;
 
 type IsValidNamespace<T extends string> =
   T extends ''
@@ -19,3 +21,8 @@ type IsValidNamespace<T extends string> =
                 : false;
 
 export type ValidNamespace<T extends string> = IsValidNamespace<T> extends true ? T : never;
+
+export function isValidNamespace(maybeNamespace: unknown): boolean {
+  if (typeof maybeNamespace !== 'string') return false;
+  return namespaceRegex.test(maybeNamespace);
+}

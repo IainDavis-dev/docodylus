@@ -1,0 +1,14 @@
+{
+    "extends": "../../../../infra/build/packages/tsconfig.base.json",
+    "compilerOptions": {
+      "baseUrl": ".",
+    },
+    "include": ["index.ts", "src", "tsconfig.test.json"],
+    "exclude": [
+      "dist",
+      "build",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+      "**/*.test-d.ts",
+    ],
+}
