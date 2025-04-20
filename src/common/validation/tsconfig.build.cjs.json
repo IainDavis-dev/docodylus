@@ -1,9 +1,0 @@
-{
-    "extends": "./tsconfig.build.base.json",
-    "compilerOptions": {
-        "moduleResolution": "node",
-        "module": "CommonJS",
-        "outDir": "./dist/cjs"
-    }
-  }
-  
