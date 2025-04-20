@@ -1,6 +1,7 @@
 // common compilerOptions shared among all packages and the library itself
 {
     "compilerOptions": {
+        "composite": true,
         "jsx": "react-jsx",
         "lib": ["dom", "esnext"],
         "module": "esnext",
@@ -30,6 +31,10 @@
             "node-polyglot"
         ],
     },
+    "references": [
+        { "path": "src/common/shared-utils"},
+        { "path": "src/common/shared-utils/internal"},
+    ],
     "exclude": [
         "**/*.test.ts",
         "**/*.test.tsx",

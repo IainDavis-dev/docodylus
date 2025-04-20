@@ -22,6 +22,7 @@ export default defineConfig({
       '@test-utils': path.resolve(__dirname, './infra/testUtils'),
       '@types': path.resolve(__dirname, './src/types'),
       '@shared-utils': path.resolve(__dirname, './src/common/shared-utils'),
+      '@loadable-internal': path.resolve(__dirname, "src/common/loadable/src"),
       '@error': path.resolve(__dirname, './src/common/error/src'),
       '@namespace': path.resolve(__dirname, './src/common/namespace/src'),
       '@storybook-customizations': path.resolve(__dirname, './infra/storybook/customizations'),

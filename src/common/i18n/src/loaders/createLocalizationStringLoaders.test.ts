@@ -40,7 +40,6 @@ describe('createLocalizationStringLoaders (unit)', () => {
       for (let locale of SUPPORTED_LOCALES) {
         const result = await map[locale]?.loader();
         expect(result).toHaveProperty('greeting');
-        // @ts-expect-error - mock module does not conform to actual localizable string keys
         expect(typeof result?.greeting).toBe('string');
       }
     });

@@ -331,8 +331,8 @@ describeUnitTest('useTranslations hook', () => {
 
     mockLoaderMap = {
           ...defaultMockFileLoaders,
-          en: { cacheKey: localeToCacheKey('en'), loader: () => enDefer.promise },
-          fr: { cacheKey: localeToCacheKey('fr'), loader: () => frDefer.promise },
+          en: { cacheKey: localeToCacheKey('en'), loader: vi.fn(() => enDefer.promise) },
+          fr: { cacheKey: localeToCacheKey('fr'), loader: vi.fn(() => frDefer.promise) },
     }
 
     render(
@@ -376,8 +376,8 @@ describeUnitTest('useTranslations hook', () => {
 
     mockLoaderMap = {
           ...defaultMockFileLoaders,
-          en: { cacheKey: localeToCacheKey('en'), loader: () => enDefer.promise },
-          fr: { cacheKey: localeToCacheKey('fr'), loader: () => frDefer.promise },
+          en: { cacheKey: localeToCacheKey('en'), loader: vi.fn(() => enDefer.promise) },
+          fr: { cacheKey: localeToCacheKey('fr'), loader: vi.fn(() => frDefer.promise) },
     }
 
     render(

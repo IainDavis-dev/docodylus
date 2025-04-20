@@ -22,10 +22,15 @@
         "postbuild": "node ../../../infra/build/scripts/rename-extensions.mjs",
         "build": "yarn build:esm && yarn build:cjs && yarn postbuild"
     },
+    "references": [
+        {
+            "path": "../shared-utils-internal"
+        }
+    ],
     "dependencies": {
         "@docodylus/error": "workspace:*",
+        "@docodylus/loadable-internal": "workspace:*",
         "@docodylus/namespace": "workspace:*",
-        "@docodylus/shared-utils": "workspace:*",
         "node-polyglot": "*"
     }
 }
