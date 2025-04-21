@@ -1,6 +1,2 @@
 # leave the map files out of the bundle... we'll host these on github eventually
 dist/**/*.map
-
-# because we're using a composite project, Typescript will _insist_ on emitting types in a hierarchy that mirrors the source folder structure
-# we want to remove those declarations from the published artifact
-dist/src
