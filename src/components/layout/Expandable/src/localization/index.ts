@@ -1,4 +1,4 @@
-import { BASE_NAMESPACE } from '@i18n/consts';
+import { BASE_NAMESPACE } from '@docodylus/consts-internal';
 import { createNamespacePrepender } from '@docodylus/namespace-internal';
 import { Namespaced } from '@docodylus/namespace-internal';
 

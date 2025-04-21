@@ -3,7 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
 import { type ExpandableLocalizedStrings } from '@components/layout/Expandable/src/localization';
 import { I18nProvider } from '@i18n/context/I18nProvider';
-import { LocalizationStringLoaders } from '@docodylus/i18n';
+import { LocalizationStringLoaders } from '@docodylus/i18n-internal';
 
 import userEvent from '@testing-library/user-event';
 

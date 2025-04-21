@@ -1,13 +1,17 @@
 import { describeIntegrationTest } from '@test-utils/testGroups';
 import { render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
+import { LocalizedStrings } from '@i18n/types'
 
-import { DEFAULT_LOCALE, DEFAULT_TRANSLATIONS, SupportedLocale } from '@i18n/consts';
-import { ValidLocale, LocalizedStrings, DocodylusLocalizedStrings } from '@i18n/types';
+import { SupportedLocale } from '@i18n/consts';
+import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
+import { DEFAULT_TRANSLATIONS } from '@i18n/localization';
 import { I18nProvider } from '@i18n/context/I18nProvider';
 import { ExpandableLocalizedStrings } from '../localization';
 import * as stories from '../storybook/Expandable.stories';
 import { assert, describe, expect, it } from 'vitest';
+import { ValidLocale } from '@i18n/_generated/validLocales';
+import { DocodylusLocalizedStrings } from '@docodylus/i18n-extend';
 
 const localizedStrings = Object.entries(
   import.meta.glob<Record<string, {default: LocalizedStrings}>>('../localization/txlns/*.txlns.ts', { eager: true }),

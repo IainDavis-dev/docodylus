@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import { defineConfig, UserConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -59,4 +60,10 @@ export const viteConfigFor = (libName: string) => (overrides: Partial<UserConfig
     }),
     ...(overrides.plugins || []),
   ],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: [resolve(__dirname, '../../../vitest.setup.ts')],
+    ...overrides.test
+  }
 });

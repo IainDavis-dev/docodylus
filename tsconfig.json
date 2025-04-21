@@ -14,7 +14,7 @@
         "paths": {
             "@components/*": ["src/components/*"],
             "@error/*": ["src/common/error/internal/src/*"],
-            "@i18n/*": ["src/common/i18n/src/*"],
+            "@i18n/*": ["src/common/i18n/internal/src/*"],
             "@namespace/*": ["src/common/namespace/src/*"],
             "@validation/*": ["src/common/validation/internal/src/*"],
             "@types/*": ["src/types/*"],
@@ -23,6 +23,7 @@
             "@loadable/*": ["src/common/loadable/src*"],
             "@test-utils/*": ["infra/testUtils/*"],
             "@storybook-customizations/*": ["infra/storybook/customizations/*"],
+            "@packages/*": ["infra/build/packages/*"]
         },
         "types": [
             "react",

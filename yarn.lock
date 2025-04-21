@@ -315,13 +315,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@docodylus/consts-internal@workspace:src/common/consts/internal":
+  version: 0.0.0-use.local
+  resolution: "@docodylus/consts-internal@workspace:src/common/consts/internal"
+  languageName: unknown
+  linkType: soft
+
 "@docodylus/error-internal@workspace:*, @docodylus/error-internal@workspace:src/common/error/internal":
   version: 0.0.0-use.local
   resolution: "@docodylus/error-internal@workspace:src/common/error/internal"
   languageName: unknown
   linkType: soft
 
-"@docodylus/error@workspace:*, @docodylus/error@workspace:src/common/error":
+"@docodylus/error@workspace:src/common/error":
   version: 0.0.0-use.local
   resolution: "@docodylus/error@workspace:src/common/error"
   dependencies:
@@ -329,14 +335,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@docodylus/i18n-extend@workspace:*, @docodylus/i18n-extend@workspace:src/common/i18n/extend":
+  version: 0.0.0-use.local
+  resolution: "@docodylus/i18n-extend@workspace:src/common/i18n/extend"
+  languageName: unknown
+  linkType: soft
+
+"@docodylus/i18n-internal@workspace:*, @docodylus/i18n-internal@workspace:src/common/i18n/internal":
+  version: 0.0.0-use.local
+  resolution: "@docodylus/i18n-internal@workspace:src/common/i18n/internal"
+  dependencies:
+    "@docodylus/error-internal": "workspace:*"
+    "@docodylus/i18n-extend": "workspace:*"
+    "@docodylus/loadable-internal": "workspace:*"
+    "@docodylus/namespace-internal": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@docodylus/i18n@workspace:src/common/i18n":
   version: 0.0.0-use.local
   resolution: "@docodylus/i18n@workspace:src/common/i18n"
   dependencies:
-    "@docodylus/error": "workspace:*"
-    "@docodylus/loadable-internal": "workspace:*"
-    "@docodylus/namespace-internal": "workspace:*"
-    node-polyglot: "npm:*"
+    "@docodylus/i18n-internal": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -9095,7 +9115,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-polyglot@npm:*, node-polyglot@npm:^2.6.0":
+"node-polyglot@npm:^2.6.0":
   version: 2.6.0
   resolution: "node-polyglot@npm:2.6.0"
   dependencies:
