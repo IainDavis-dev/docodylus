@@ -23,7 +23,6 @@
             "@loadable/*": ["src/common/loadable/src*"],
             "@test-utils/*": ["infra/testUtils/*"],
             "@storybook-customizations/*": ["infra/storybook/customizations/*"],
-            "@packages/*": ["infra/build/packages/*"]
         },
         "types": [
             "react",

@@ -1,3 +1,3 @@
-import { viteConfigFor } from '@packages/viteConfigFactory';
+import { viteConfigFor } from '../../../../infra/build/packages/viteConfigFactory';
 
 export default viteConfigFor('docodylusErrorInternal')();
