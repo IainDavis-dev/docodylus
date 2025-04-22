@@ -1,0 +1,2 @@
+# leave the map files out of the bundle... we'll host these on github eventually
+dist/**/*.map

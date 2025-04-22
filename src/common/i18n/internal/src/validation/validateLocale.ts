@@ -1,4 +1,4 @@
-import { type ValidLocale, validLocales } from '@i18n/validation';
+import { type ValidLocale, validLocales } from '../validation';
 
 /**
  * User-defined type guard validates a given string against

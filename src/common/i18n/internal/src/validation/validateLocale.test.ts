@@ -1,4 +1,4 @@
-import { isValidLocale } from '@i18n/validation';
+import { isValidLocale } from '../validation';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { all } from 'locale-codes';
 import { expect, it } from 'vitest';

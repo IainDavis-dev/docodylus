@@ -1,6 +1,7 @@
 import { BASE_NAMESPACE } from '@docodylus/consts-internal';
 import { createNamespacePrepender } from '@docodylus/namespace-internal';
 import { Namespaced } from '@docodylus/namespace-internal';
+import {} from '@docodylus/i18n-extend'
 
 export const ExpandableNamespace = `${BASE_NAMESPACE}.layout.expandable` as const;
 export const prependNamespace = createNamespacePrepender(ExpandableNamespace);
@@ -10,9 +11,6 @@ export type ExpandableLocalizedStrings = Namespaced<typeof ExpandableNamespace, 
     collapsePrompt: string
 }>
 
-declare module '@i18n/types' {
-    // this statement aggregates the localized strings type defined in this file
-    // with the global list.
-    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+declare module '@docodylus/i18n-extend' {
     export interface DocodylusLocalizedStrings extends ExpandableLocalizedStrings {}
 }

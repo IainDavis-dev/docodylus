@@ -1,5 +1,5 @@
-import { SUPPORTED_LOCALES } from "@i18n/consts";
-import { LocalizedStrings } from "@i18n/types";
+import { SUPPORTED_LOCALES } from "../consts";
+import { LocalizedStrings } from "../types";
 import { toLocalizationFileLoaderMap } from ".";
 import { createLazyLoaders } from "@docodylus/loadable-internal"; 
 

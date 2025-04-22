@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { createLocalizationStringLoaders } from '.';
-import { SUPPORTED_LOCALES } from '@i18n/consts';
+import { SUPPORTED_LOCALES } from '../consts';
 import type { ExpandableLocalizedStrings } from '@components/layout/Expandable/src/localization';
 
 describe('createLocalizationStringLoaders (unit)', () => {

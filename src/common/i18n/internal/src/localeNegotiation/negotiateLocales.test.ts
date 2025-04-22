@@ -1,7 +1,7 @@
 import { describeUnitTest } from '@test-utils/testGroups';
 import { DocodylusTypeError } from '@docodylus/error-internal';
 import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
-import { ValidLocale } from '@i18n/validation';
+import { ValidLocale } from '../validation';
 import { negotiateLocales } from '.';
 import {
   assert,

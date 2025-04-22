@@ -1,7 +1,7 @@
 import { describeUnitTest } from '@test-utils/testGroups';
-import { I18nProvider } from '@i18n/context';
-import { useTranslations } from '@i18n/hooks/useTranslations';
-import { LocalizationFileLoaderMap } from '@i18n/loaders';
+import { I18nProvider } from '../context';
+import { useTranslations } from '../hooks/useTranslations';
+import { LocalizationFileLoaderMap } from '../loaders';
 import {
   act,
   render,

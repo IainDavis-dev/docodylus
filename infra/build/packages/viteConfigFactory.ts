@@ -24,7 +24,7 @@ export const createInternalViteConfig = (libName: string) =>
     plugins: [
       tsconfigPaths(),
       dts({
-        rollupTypes: true,
+        rollupTypes: false,
       }),
     ],
   });
@@ -65,5 +65,13 @@ export const viteConfigFor = (libName: string) => (overrides: Partial<UserConfig
     globals: true,
     setupFiles: [resolve(__dirname, '../../../vitest.setup.ts')],
     ...overrides.test
-  }
+  },
+  css: {
+    modules: {
+      scopeBehaviour: 'local',
+      generateScopedName: '[name]__[local]__[hash:base64:5]',
+      ...overrides.css?.modules
+    },
+    ...overrides.css
+  },
 });

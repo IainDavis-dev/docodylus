@@ -1,16 +1,15 @@
 import { describeIntegrationTest } from '@test-utils/testGroups';
 import { render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
-import { LocalizedStrings } from '@i18n/types'
+import { LocalizedStrings } from '@docodylus/i18n-internal'
 
-import { SupportedLocale } from '@i18n/consts';
+import { I18nProvider, SupportedLocale } from '@docodylus/i18n-internal';
 import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
-import { DEFAULT_TRANSLATIONS } from '@i18n/localization';
-import { I18nProvider } from '@i18n/context/I18nProvider';
+import { DEFAULT_TRANSLATIONS } from '@docodylus/i18n-internal';
 import { ExpandableLocalizedStrings } from '../localization';
 import * as stories from '../storybook/Expandable.stories';
 import { assert, describe, expect, it } from 'vitest';
-import { ValidLocale } from '@i18n/_generated/validLocales';
+import { type ValidLocale } from '@docodylus/i18n-internal';
 import { DocodylusLocalizedStrings } from '@docodylus/i18n-extend';
 
 const localizedStrings = Object.entries(

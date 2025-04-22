@@ -1,5 +1,5 @@
 import { Namespaced } from '@docodylus/namespace-internal';
-import { I18nNamespace, prependNamespace, SupportedLocale } from '@i18n/consts';
+import { I18nNamespace, prependNamespace, SupportedLocale } from '../consts';
 
 export type DefaultLocalizedStrings = Namespaced<typeof I18nNamespace, {
   'txlns-loading': string;

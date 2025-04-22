@@ -85,12 +85,10 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build:all": "yarn workspaces foreach -Apt --topological-dev run build",
     "test:unit": "TEST_GROUP=UNIT,TYPE vitest --typecheck",
     "test:types": "TEST_GROUP=TYPE vitest --typecheck",
     "test:integration": "TEST_GROUP=INTEGRATION vitest",
-    "generate-locales": "node infra/build/scripts/generate-valid-locales.mjs",
-    "postinstall": "yarn generate-locales",
-    "prepare": "yarn postinstall",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "bump-version": "semantic-release --extends ./infra/build/release/semantic-release.config.js"

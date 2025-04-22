@@ -1,5 +1,5 @@
 import { DocodylusLocalizableStrings } from '@docodylus/i18n-extend';
-import { ValidLocale } from '@i18n/validation';
+import { ValidLocale } from './validation';
 
 /**
  *  A map of translation keys to their corresponding localized strings

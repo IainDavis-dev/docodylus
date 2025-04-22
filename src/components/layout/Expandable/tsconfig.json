@@ -1,0 +1,21 @@
+{
+    "extends": "../../../../infra/build/packages/tsconfig.base.json",
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@expandable/*": ["./src/*"],
+      }
+    },
+    "include": [
+      "index.ts",
+      "src",
+      "../../../../infra/types/css-modules.d.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "dist",
+      "**/*.test.*",
+      "**/*.test-d.ts",
+      "**/*.stories.*",
+    ],
+}

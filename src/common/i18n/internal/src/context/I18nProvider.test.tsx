@@ -1,11 +1,11 @@
 import { describeUnitTest } from '@test-utils/testGroups';
 import { render, screen } from '@testing-library/react';
-import { I18nProvider, I18nContext } from '@i18n/context';
-import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
+import { I18nProvider, I18nContext } from '../context';
+import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
 import { DocodylusTypeError } from '@docodylus/error-internal';
 import { useContext } from 'react';
 import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
-import { ValidLocale } from '@i18n/validation';
+import { ValidLocale } from '../validation';
 import {
   vi,
   afterEach,

@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
-import type { ValidLocale } from '@i18n/validation';
+import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
+import type { ValidLocale } from '../validation';
 
 export interface I18nContextValue {
     i18n: LocaleAwarePolyglot;

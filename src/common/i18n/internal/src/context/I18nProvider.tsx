@@ -1,9 +1,9 @@
 import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
-import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
-import { I18nContext,  I18nContextValue } from '@i18n/context'
+import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
+import { I18nContext,  I18nContextValue } from '../context'
 import { PropsWithChildren, useMemo } from 'react';
-import { isValidLocale, type ValidLocale } from '@i18n/validation';
-import { newInvalidLocaleError } from '@i18n/error';
+import { isValidLocale, type ValidLocale } from '../validation';
+import { newInvalidLocaleError } from '../error';
 
 type I18nProviderProps = PropsWithChildren<{
     locale?: ValidLocale

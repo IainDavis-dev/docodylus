@@ -3,12 +3,12 @@ import { describeUnitTest } from '@test-utils/testGroups';
 import {
   SUPPORTED_LOCALES,
   type SupportedLocale,
-} from '@i18n/consts';
+} from '../consts';
 import {
   DEFAULT_LOCALE
 } from '@docodylus/consts-internal'
-import { DEFAULT_TRANSLATIONS } from '@i18n/localization';
-import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
+import { DEFAULT_TRANSLATIONS } from '../localization';
+import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
 import Polyglot from 'node-polyglot';
 import {
   beforeEach,

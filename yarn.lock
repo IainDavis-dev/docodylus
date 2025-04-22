@@ -315,7 +315,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docodylus/consts-internal@workspace:src/common/consts/internal":
+"@docodylus/consts-internal@workspace:*, @docodylus/consts-internal@workspace:src/common/consts/internal":
   version: 0.0.0-use.local
   resolution: "@docodylus/consts-internal@workspace:src/common/consts/internal"
   languageName: unknown
@@ -332,6 +332,17 @@ __metadata:
   resolution: "@docodylus/error@workspace:src/common/error"
   dependencies:
     "@docodylus/error-internal": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@docodylus/expandable@workspace:src/components/layout/Expandable":
+  version: 0.0.0-use.local
+  resolution: "@docodylus/expandable@workspace:src/components/layout/Expandable"
+  dependencies:
+    "@docodylus/consts-internal": "workspace:*"
+    "@docodylus/i18n-extend": "workspace:*"
+    "@docodylus/i18n-internal": "workspace:*"
+    "@docodylus/namespace-internal": "workspace:*"
   languageName: unknown
   linkType: soft
 

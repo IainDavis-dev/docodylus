@@ -1,9 +1,9 @@
 import Polyglot from 'node-polyglot';
-import { negotiateLocales } from '@i18n/localeNegotiation';
+import { negotiateLocales } from '../localeNegotiation';
 import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
-import { DEFAULT_TRANSLATIONS } from '@i18n/localization';
-import type { LocalizedStringsByLocale, LocalizedStrings } from '@i18n/types';
-import type { ValidLocale } from '@i18n/validation'
+import { DEFAULT_TRANSLATIONS } from '../localization';
+import type { LocalizedStringsByLocale, LocalizedStrings } from '../types';
+import type { ValidLocale } from '../validation'
 
 /**
  * Options for configuring the {@link LocaleAwarePolyglot} instance.
