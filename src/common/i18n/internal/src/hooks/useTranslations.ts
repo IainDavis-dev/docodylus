@@ -2,7 +2,7 @@ import { DefaultTranslationKey } from '@i18n/localization';
 import { I18nContext } from '@i18n/context';
 import { createLocalizationStringLoaders } from '@i18n/loaders/createLocalizationStringLoaders';
 import { LocaleAwarePolyglot } from '@i18n/polyglot/LocaleAwarePolyglot';
-import { LocalizationFileLoaderMap, LocalizedStrings } from '@i18n/types';
+import { LocalizedStrings } from '@i18n/types';
 import { ValidLocale } from '@i18n/validation'
 import { negotiateLocales } from '@i18n/localeNegotiation';
 import { PolyglotOptions } from 'node-polyglot';
@@ -12,6 +12,7 @@ import {
   useMemo,
   useState,
 } from 'react';
+import { LocalizationFileLoaderMap } from '@i18n/loaders';
 
 // default instance serves DEFAULT_LOCALE in the absence of an explicit Provider
 let fallbackPolyglot: LocaleAwarePolyglot;
