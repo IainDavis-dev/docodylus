@@ -6,7 +6,7 @@ import {
 } from '../consts';
 import {
   DEFAULT_LOCALE
-} from '@docodylus/consts-internal'
+} from '@consts'
 import { DEFAULT_TRANSLATIONS } from '../localization';
 import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
 import Polyglot from 'node-polyglot';
