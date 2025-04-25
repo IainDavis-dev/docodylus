@@ -12,15 +12,15 @@ exports[`DocodylusErrorBase mixin > subclass | DocodylusTypeError > should seria
   "scope": "I18n",
   "stack": "TypeError: Test Message
     at /Users/iain/Projects/Developer/docodylus/src/common/error/internal/src/DocodylusErrorBase.test.ts:51:19
-    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:61:24
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:103:11
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:596:26
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:879:20
     at new Promise (<anonymous>)
-    at runWithTimeout (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1291:15)",
+    at runWithTimeout (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:852:10)
+    at runTest (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1360:12)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)",
   "subtype": "InvalidLocale",
   "type": "TypeError",
 }
@@ -31,15 +31,15 @@ exports[`DocodylusErrorBase mixin > subclass | DocodylusTypeError > should seria
   "message": "Test Message",
   "stack": "TypeError: Test Message
     at /Users/iain/Projects/Developer/docodylus/src/common/error/internal/src/DocodylusErrorBase.test.ts:66:19
-    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:174:14
-    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:558:28
-    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:61:24
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:103:11
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:596:26
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:879:20
     at new Promise (<anonymous>)
-    at runWithTimeout (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:41:12)
-    at runTest (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1137:17)
-    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1291:15)
-    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1291:15)",
+    at runWithTimeout (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:852:10)
+    at runTest (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1360:12)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)",
   "type": "TypeError",
 }
 `;
