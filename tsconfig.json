@@ -1,6 +1,6 @@
 {
-    "extends": "./tsconfig.base.json",
     "compilerOptions": {
+        "composite": true,
         "jsx": "react-jsx",
         "lib": ["dom", "esnext"],
         "module": "esnext",
@@ -11,40 +11,33 @@
         "baseUrl": "./",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "paths": {
-            "@components/*": ["src/components/*"],
-            "@error/*": ["src/common/error/internal/src/*"],
-            "@i18n/*": ["src/common/i18n/internal/src/*"],
-            "@namespace/*": ["src/common/namespace/src/*"],
-            "@validation/*": ["src/common/validation/internal/src/*"],
-            "@types/*": ["src/types/*"],
-            "@dummies/*": ["infra/dummies/*"],
-            "@docs/*": ["docs/*"],
-            "@loadable/*": ["src/common/loadable/src*"],
-            "@test-utils/*": ["infra/testUtils/*"],
-            "@storybook-customizations/*": ["infra/storybook/customizations/*"],
-        },
         "types": [
             "react",
             "react-dom",
-            "node-polyglot"
-        ]
+            "node-polyglot",
+            "vite/client",
+        ],
+        "paths": {
+            // infra, docs, & test stuff
+            "@docs/*": ["docs/*"],
+            "@dummies/*": ["infra/dummies/*"],
+            "@storybook-customizations/*": ["infra/storybook/customizations/*"],
+            "@test-utils/*": ["infra/testUtils/*"],
+
+            // library components
+            "@components/*": ["src/components/*"],
+
+            // cross-cutting modules
+            "@consts": ["src/common/consts/internal"],
+            "@error": ["src/common/error/internal"],
+            "@i18n": ["src/common/i18n/internal"],
+            "@i18n-extend": ["src/common/i18n/extend"],
+            "@loadable": ["src/common/loadable/internal"],
+            "@namespace/*": ["src/common/namespace/internal"],
+            "@validation/*": ["src/common/validation/internal"],
+        },
     },
     "include": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "src/**/*.mdx",
-        "vite-env.d.ts",
-        "index.d.ts",
-        "docs/**/*.ts",
-        "docs/**/*.tsx",
-        ".storybook/**/*.ts",
-        ".storybook/**/*.tsx",
-        "*.ts",
-        "*.tsx",
-        "infra/**/*.ts",
-        "infra/**/*.tsx", "infra/config/eslint/typescriptSource.js", "infra/config/eslint/testFiles.js", "infra/config/eslint/nonRuntimeFiles.js", "infra/config/eslint/javascriptSource.js", "infra/config/eslint/index.js", "infra/config/eslint/globalEslintConfig.js", "infra/config/eslint/eslintignore.js", "infra/config/eslint/consts.js", "infra/config/eslint/typeDeclarations.js",
-        "test/**/*"
+        "**/*",
     ],
-    "exclude": [ "eslint.config.mjs"]
 }
