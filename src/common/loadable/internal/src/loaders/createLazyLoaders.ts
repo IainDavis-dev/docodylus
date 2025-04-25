@@ -23,7 +23,7 @@ export function createLazyLoaders<T = unknown, R = T> (
         return Object.fromEntries( (urls ?? []).map((url) => [
             url.toString(),
             async () => {
-                const mod = await import( /* vite-ignore */ url.pathname)
+                const mod = await import( url.pathname /* vite-ignore */)
                 const result = transform ? transform(mod) : mod;
                 return result
             }
