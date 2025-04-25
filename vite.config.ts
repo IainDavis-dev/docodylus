@@ -14,18 +14,22 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@components': path.resolve(__dirname, './src/components'),
-      '@dummies': path.resolve(__dirname, './infra/dummies'),
-      '@i18n': path.resolve(__dirname, './src/common/i18n/internal/src'),
-      '@validation': path.resolve(__dirname, './src/common/validation/src'),
-      '@docs': path.resolve(__dirname, './docs'),
-      '@test-utils': path.resolve(__dirname, './infra/testUtils'),
-      '@types': path.resolve(__dirname, './src/types'),
-      '@shared-utils': path.resolve(__dirname, './src/common/shared-utils'),
-      '@loadable-internal': path.resolve(__dirname, "src/common/loadable/src"),
-      '@error': path.resolve(__dirname, './src/common/error/src'),
-      '@namespace': path.resolve(__dirname, './src/common/namespace/src'),
-      '@storybook-customizations': path.resolve(__dirname, './infra/storybook/customizations'),
+      // infra, docs, & test stuff
+      '@docs': path.resolve(__dirname, 'docs'),
+      '@dummies': path.resolve(__dirname, 'infra/dummies'),
+      '@storybook-customizations': path.resolve(__dirname, 'infra/storybook/customizations'),
+      '@test-utils': path.resolve(__dirname, 'infra/testUtils'),
+
+      // library components
+      '@components': path.resolve(__dirname, 'src/components'),
+
+      // cross-cutting modules
+      '@consts': path.resolve(__dirname, 'src/common/consts/internal'),
+      '@error': path.resolve(__dirname, '/src/common/error/internal'),
+      '@i18n': path.resolve(__dirname, 'src/common/i18n/internal'),
+      '@loadable': path.resolve(__dirname, "src/common/loadable/internal"),
+      '@namespace': path.resolve(__dirname, 'src/common/namespace/internal'),
+      '@validation': path.resolve(__dirname, 'src/common/validation/internal'),
     },
   },
 });
