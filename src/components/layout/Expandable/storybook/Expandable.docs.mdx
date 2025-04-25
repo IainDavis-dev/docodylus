@@ -1,0 +1,33 @@
+import { Meta, Canvas } from '@storybook/addon-docs';
+import * as ExpandableStories from './Expandable.stories.tsx';
+import { Title, Subtitle, ArgTypes } from '@storybook/blocks';
+
+import { HashControlledTabs } from '/docs/utils/HashControlledTabs';
+import {Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import 'react-tabs/style/react-tabs.css';
+
+import ComponentBehavior from './fragments/componentBehavior.mdx'
+import Playground from './fragments/playground.mdx'
+import Internationalization from './fragments/internationalization.mdx'
+import Rationale from './fragments/rationale.mdx'
+
+
+<Meta of={ExpandableStories} title="Custom Components/Expandable/About Expandable"/>
+
+<Title>Expandable</Title>
+<Subtitle>Collapsible Document Region</Subtitle>
+
+The 'Expandable' component wraps a block of content, making it
+optionally shown (expanded) or hidden (collapsed). When expanded, it
+provides a visual indication of the extent of the expandable block.
+
+## Component Properties
+<ArgTypes/>
+<HashControlledTabs
+    tabs={[
+        { key: 'component-behavior', header: 'Component Behavior', content: <ComponentBehavior/>},
+        { key: 'playground', header: 'Playground', content: <Playground /> },
+        { key: 'i18n', header: 'Internationalization', content: <Internationalization/> },
+        { key: 'rationale', header: 'Rationale', content: <Rationale/>}
+    ] /* TODO: add Theming and Accessibility tabs */ }
+/>

@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs';
+import * as ExpandableStories from '../Expandable.stories.tsx'
+
+**Expandable** renders the expandable content in an opt-in manner, by default
+<Canvas of={ExpandableStories.Default} />
+
+Supply the 'startExpanded' attribute for 'opt-out' behavior
+<Canvas of={ExpandableStories.PreExpanded} />
+
+The text prompts for the Expand/Collapse prompts are customizable
+<Canvas of={ExpandableStories.CustomExpandCollapsePrompt} />
+
+An **Expandable** block can be nested within another **Expandable** block
+<Canvas of={ExpandableStories.Nested} />
