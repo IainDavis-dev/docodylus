@@ -2,8 +2,7 @@ import { describeIntegrationTest } from '@test-utils/testGroups';
 import { render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
 import { type ExpandableLocalizedStrings } from '@components/layout/Expandable/src/localization';
-import { I18nProvider } from '@i18n/context/I18nProvider';
-import { LocalizationStringLoaders } from '@docodylus/i18n-internal';
+import { I18nProvider, LocalizationStringLoaders } from '@i18n'
 
 import userEvent from '@testing-library/user-event';
 
@@ -22,7 +21,7 @@ const LANGUAGE_AND_REGION_EXPAND_PROMPT = 'LANGUAGE_AND_REGION_EXPAND_PROMPT';
 const LANGUAGE_AND_SCRIPT_EXPAND_PROMPT = 'LANGUAGE_AND_SCRIPT_EXPAND_PROMPT';
 const LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT = 'LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT';
 
-vi.mock('@i18n/loaders/createLocalizationStringLoaders', () => ({
+vi.mock('../../src/common/i18n/internal/src/loaders/createLocalizationStringLoaders', () => ({
   createLocalizationStringLoaders: function createLocalizationStringLoadersMock(): LocalizationStringLoaders<Partial<ExpandableLocalizedStrings>> {
     return {
       en: {
