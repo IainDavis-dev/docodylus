@@ -11,10 +11,6 @@ export default defineConfig({
     setupFiles: './vitest.setup.ts',
     include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}', 'test/**/*.{test,spec}.{js,ts,jsx,tsx}'],
     root: '.',
-    typecheck: {
-      tsconfig: './tsconfig.test.json',
-      exclude: ['./node_modules', './dist', './build', './static'],
-    },
     coverage: {
       provider: 'istanbul',
       reporter: ['html', 'text', 'lcov'],
