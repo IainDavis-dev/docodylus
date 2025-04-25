@@ -1,4 +1,4 @@
-import { DocodylusTypeError } from '@docodylus/error-internal';
+import { DocodylusTypeError } from '@docodylus/error-internal'
 
 export function newInvalidNamespaceError(namespace: string): DocodylusTypeError {
     // TODO: add documentation page we can link to in this error

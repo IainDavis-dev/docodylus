@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { DocodylusTypeError } from '@docodylus/error-internal';
+import { expect, it } from "vitest";
+import { DocodylusTypeError } from '@error';
 import { newInvalidNamespaceError } from "./newInvalidNamespaceError";
 import { describeUnitTest } from "@test-utils/testGroups";
 
