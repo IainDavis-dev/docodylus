@@ -1,5 +1,7 @@
 import remarkGfm from 'remark-gfm';
 import remarkGitmoji from 'remark-gemoji';
+import { mergeConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import path from 'path';
 
 /** @type { import('@storybook/react-vite').StorybookConfig } */
@@ -22,7 +24,6 @@ const config = {
             remarkPlugins: [remarkGfm, remarkGitmoji]
           }
         }
-
       }
     }
   ],
@@ -37,17 +38,16 @@ const config = {
   },
 
   viteFinal: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-    }
+    process.env.NODE_OPTIONS = '--conditions development';
+    return mergeConfig(
+      config,
+      {
+        resolve: {
+          conditions: ['development', 'import', 'require'],
+        },
 
-    // config.build?.rollupOptions?.external = ['@docodylus/loadable-internal']
-
-    return config;
-  },
-
-  typescript: {
-    reactDocgen: 'react-docgen-typescript'
+      }
+    );
   }
 };
 export default config;
