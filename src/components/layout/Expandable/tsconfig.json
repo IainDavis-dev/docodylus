@@ -2,14 +2,12 @@
     "extends": "../../../../infra/build/packages/tsconfig.base.json",
     "compilerOptions": {
       "baseUrl": ".",
-      "paths": {
-        "@expandable/*": ["./src/*"],
-      }
     },
     "include": [
       "index.ts",
       "src",
-      "../../../../infra/types/css-modules.d.ts"
+      "../../../../infra/types/css-modules.d.ts",
+      "../../../../infra/types/mdx.d.ts"
     ],
     "exclude": [
       "node_modules",
@@ -17,5 +15,6 @@
       "**/*.test.*",
       "**/*.test-d.ts",
       "**/*.stories.*",
+      "**/*.docs.*"
     ],
 }

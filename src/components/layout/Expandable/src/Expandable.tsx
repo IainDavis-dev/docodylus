@@ -1,16 +1,13 @@
-import React, {
-  KeyboardEventHandler,
-  MouseEventHandler,
-  PropsWithChildren,
+import {
   useEffect,
   useId,
   useRef,
   useState,
 } from 'react';
 import { useTranslations } from '@docodylus/i18n-internal';
-import styles from '@expandable/Expandable.module.css';
+import styles from './Expandable.module.css';
 
-import { ExpandableLocalizedStrings, ExpandableNamespace as ns } from '@expandable/localization';
+import { ExpandableLocalizedStrings, ExpandableNamespace as ns } from './localization';
 
 export type ExpandablePropsType = {
     startExpanded?: boolean;
@@ -18,7 +15,7 @@ export type ExpandablePropsType = {
     collapsePrompt?: string;
 }
 
-export const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
+export const Expandable: React.FC<React.PropsWithChildren<ExpandablePropsType>> = ({
   startExpanded = false,
   expandPrompt,
   collapsePrompt,
@@ -48,11 +45,11 @@ export const Expandable: React.FC<PropsWithChildren<ExpandablePropsType>> = ({
 
   const toggleExpanded = (): void => setExpanded((prevExpanded) => !prevExpanded);
 
-  const handleClick: MouseEventHandler = () => {
+  const handleClick: React.MouseEventHandler = () => {
     toggleExpanded();
   };
 
-  const handleKeyDown: KeyboardEventHandler = (e) => {
+  const handleKeyDown: React.KeyboardEventHandler = (e) => {
     if (['Enter', ' '].includes(e.key)) {
       e.preventDefault();
       toggleExpanded();

@@ -10,6 +10,6 @@ export const MOCK_DEFAULT_COLLAPSE_PROMPT = mockTranslations['dev.iaindavis.doco
 
 export function mockUseTranslations() {
   return function mockT(k: keyof ExpandableLocalizedStrings): string {
-    return mockTranslations[k] || `MISSING_TRANSLATION:${k}`;
+    return mockTranslations[k] || `MISSING_TRANSLATION:${String(k)}`;
   };
 }

@@ -1,5 +1,4 @@
-import { viteConfigFor } from "../../../../infra/build/packages/viteConfigFactory";
-import tsconfigPaths from 'vite-tsconfig-paths'
+import { viteConfigFor } from "../../../../infra/build/packages/viteConfigFor";
 
 export default viteConfigFor('docodylusI18n')({
     build: {
@@ -7,13 +6,11 @@ export default viteConfigFor('docodylusI18n')({
             external: [
                 '@docodylus/namespace-internal',
                 '@docodylus/i18n-internal',
-                '@docodylus/i18n-extend'
+                '@docodylus/i18n-extend',
+                'react'
             ],
         }
     },
-    plugins: [
-        tsconfigPaths({ projects: ['./tsconfig.json']}),
-    ],
     css: {
         modules: {
         scopeBehaviour: 'local',

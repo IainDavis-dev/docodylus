@@ -1,16 +1,14 @@
 import { describeIntegrationTest } from '@test-utils/testGroups';
 import { render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
-import { LocalizedStrings } from '@docodylus/i18n-internal'
 
-import { I18nProvider, SupportedLocale } from '@docodylus/i18n-internal';
-import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
-import { DEFAULT_TRANSLATIONS } from '@docodylus/i18n-internal';
+import { DEFAULT_LOCALE } from '@consts';
 import { ExpandableLocalizedStrings } from '../localization';
 import * as stories from '../storybook/Expandable.stories';
 import { assert, describe, expect, it } from 'vitest';
-import { type ValidLocale } from '@docodylus/i18n-internal';
-import { DocodylusLocalizedStrings } from '@docodylus/i18n-extend';
+import { DEFAULT_TRANSLATIONS, I18nProvider, LocalizedStrings } from '@i18n';
+import type { SupportedLocale, ValidLocale } from '@i18n';
+import type { DocodylusLocalizableStrings } from '@i18n-extend'
 
 const localizedStrings = Object.entries(
   import.meta.glob<Record<string, {default: LocalizedStrings}>>('../localization/txlns/*.txlns.ts', { eager: true }),
@@ -38,7 +36,7 @@ describeIntegrationTest('i18n Integration Tests (storybook)', () => {
       it('should notify the user when the translations are still loading in the default language (en)', () => {
         render(<PreExpandedStory />);
         const TXLNS_LOADING_MSG = DEFAULT_TRANSLATIONS?.[DEFAULT_LOCALE]?.['dev.iaindavis.docodylus.internationalization.txlns-loading'];
-        const loadingMsg = screen.getByText(TXLNS_LOADING_MSG as keyof DocodylusLocalizedStrings);
+        const loadingMsg = screen.getByText(TXLNS_LOADING_MSG as keyof DocodylusLocalizableStrings);
         expect(loadingMsg).toBeVisible();
       });
 
