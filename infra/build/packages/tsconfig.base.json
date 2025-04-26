@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "jsx": "react-jsx",
+      "declaration": true,
+      "outDir": "dist",
+      "moduleResolution": "bundler",
+      "esModuleInterop": true,
+      "strict": true,
+      "composite": true,
+      "types": ["vite/client", "vitest/globals"]
+    },
+    "exclude": [
+      "**/dist",
+      "**/*.test-d.*",
+      "**/*.test.*",
+      "**/__mocks__",
+      "**/__snapshots__",
+      "**/*.md",
+      "**/*.mdx"
+    ]
+  }

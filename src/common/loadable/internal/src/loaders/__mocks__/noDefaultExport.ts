@@ -1,0 +1,1 @@
+export const noDefault = { name: 'dummy1' };

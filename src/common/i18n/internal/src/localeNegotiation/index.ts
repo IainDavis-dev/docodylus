@@ -1,0 +1,1 @@
+export { negotiateLocales } from './negotiateLocales';

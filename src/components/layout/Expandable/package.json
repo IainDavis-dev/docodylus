@@ -1,21 +1,33 @@
 {
-    "name": "@docodylus/Expandable",
+    "name": "@docodylus/expandable",
     "version": "0.0.1-prerelease.3",
-    "description": "A component whose children are contained in a region that is concealable or revealable with the use of a toggle",
+    "license": "Apache-2.0",
     "type": "module",
-    "exports": {
-        "import": "./dist/Expandable.mjs",
-        "require": "./dist/Expandable.cjs"
-    },
-    "main": "./dist/Expandable.cjs",
-    "module": "./distExpandable.mjs",
-    "types": "./dist/Expandable.d.ts",
     "sideEffects": false,
-    "peerDependencies": {
-        "react": "^19.0.0"
+    "exports": {
+        ".": {
+            "development":  "./index.ts",
+            "import": "./dist/esm/index.mjs",
+            "require": "./dist/cjs/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
     },
-    "devDependencies": {
-        "react": "^19.0.0",
-        "typescript": "^5.7.2"
+    "files": [
+        "dist/esm",
+        "dist/cjs",
+        "dist/index.d.ts"
+    ],
+    "dependencies": {
+        "@docodylus/consts-internal": "workspace:*",
+        "@docodylus/i18n-extend": "workspace:*",
+        "@docodylus/i18n-internal": "workspace:*",
+        "@docodylus/namespace-internal": "workspace:*"
+    },
+    "scripts": {
+        "build": "../../../../node_modules/.bin/vite build",
+        "clean": "rm -rf dist",
+        "lint": "eslint . --ext .ts",
+        "test:unit": "TEST_GROUP=UNIT ../../../../node_modules/.bin/vitest run",
+        "test:integration": "NODE_OPTIONS='--conditions development' TEST_GROUP=INTEGRATION ../../../../node_modules/.bin/vitest run"
     }
 }

@@ -4,6 +4,9 @@ import { TEST_FILES } from './consts.js';
 /** @type {import('eslint').Linter.Config} */
 export const testFilesConfig = {
   files: TEST_FILES,
+  parserOptions: {
+    project: './tsconfig.test.json'
+  },
   languageOptions: {
     globals: {
       ...globals.vitest,
@@ -15,5 +18,6 @@ export const testFilesConfig = {
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'import/no-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };

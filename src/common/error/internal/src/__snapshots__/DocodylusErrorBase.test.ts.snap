@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DocodylusErrorBase mixin > subclass | DocodylusTypeError > should format correctly with \`toString()\` with all params 1`] = `"Test Message [Subtype: InvalidLocale] [Scope: I18n] [Reference: https://www.example.com/] [Details: Some details]"`;
+
+exports[`DocodylusErrorBase mixin > subclass | DocodylusTypeError > should format correctly with \`toString()\` with no optional params 1`] = `"Test Message"`;
+
+exports[`DocodylusErrorBase mixin > subclass | DocodylusTypeError > should serialize correctly to JSON with all optional params 1`] = `
+{
+  "details": "Some details",
+  "message": "Test Message",
+  "reference": "https://www.example.com/",
+  "scope": "I18n",
+  "stack": "TypeError: Test Message
+    at /Users/iain/Projects/Developer/docodylus/src/common/error/internal/src/DocodylusErrorBase.test.ts:51:19
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:103:11
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:596:26
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:879:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:852:10)
+    at runTest (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1360:12)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)",
+  "subtype": "InvalidLocale",
+  "type": "TypeError",
+}
+`;
+
+exports[`DocodylusErrorBase mixin > subclass | DocodylusTypeError > should serialize correctly to JSON with no optional params 1`] = `
+{
+  "message": "Test Message",
+  "stack": "TypeError: Test Message
+    at /Users/iain/Projects/Developer/docodylus/src/common/error/internal/src/DocodylusErrorBase.test.ts:66:19
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:103:11
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:596:26
+    at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:879:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:852:10)
+    at runTest (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1360:12)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)
+    at runSuite (file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:1507:8)",
+  "type": "TypeError",
+}
+`;

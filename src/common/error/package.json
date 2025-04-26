@@ -1,0 +1,29 @@
+{
+    "name": "@docodylus/error",
+    "version": "0.0.1-prerelease.3",
+    "license": "Apache-2.0",
+    "type": "module",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "import": "./dist/esm/index.mjs",
+            "require": "./dist/cjs/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist/esm",
+        "dist/cjs",
+        "dist/index.d.ts"
+    ],
+    "dependencies": {
+        "@docodylus/error-internal": "workspace:*"
+    },
+    "scripts": {
+        "build": "../../../node_modules/.bin/vite build",
+        "clean": "rm -rf dist",
+        "lint": "eslint . --ext .ts",
+        "test:unit": "TEST_GROUP=UNIT,TYPE ../../../node_modules/.bin/vitest run",
+        "test:integration": "TEST_GROUP=INTEGRATION ../../../node_modules/.bin/vitest run"
+    }
+}

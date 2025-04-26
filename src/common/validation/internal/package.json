@@ -1,0 +1,26 @@
+{
+    "name": "@docodylus/validation-internal",
+    "version": "0.0.1-prerelease.3",
+    "license": "Apache-2.0",
+    "type": "module",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "development":  "./index.ts",
+            "import": "./dist/esm/index.mjs",
+            "require": "./dist/cjs/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist/esm",
+        "dist/cjs",
+        "dist/index.d.ts"
+    ],
+    "scripts": {
+        "build": "../../../../node_modules/.bin/vite build",
+        "clean": "rm -rf dist",
+        "lint": "eslint . --ext .ts",
+        "test:unit": "TEST_GROUP=UNIT,TYPE ../../../../node_modules/.bin/vitest run"
+    }
+}

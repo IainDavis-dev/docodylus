@@ -51,6 +51,13 @@ export function typescriptSourceConfigFactory(dirname) {
           ],
         }],
         '@typescript-eslint/restrict-template-expressions': 'off',
+        'import/no-extraneous-dependencies': [
+          'error',
+          {
+            // tell ESLint where to find globally-defined dependencies
+            packageDir: ['../../../'],
+          },
+        ],
       },
     },
   ];

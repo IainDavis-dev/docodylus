@@ -11,10 +11,6 @@ export default defineConfig({
     setupFiles: './vitest.setup.ts',
     include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}', 'test/**/*.{test,spec}.{js,ts,jsx,tsx}'],
     root: '.',
-    typecheck: {
-      tsconfig: './tsconfig.json',
-      exclude: ['./node_modules', './dist', './build', './static'],
-    },
     coverage: {
       provider: 'istanbul',
       reporter: ['html', 'text', 'lcov'],
@@ -28,11 +24,12 @@ export default defineConfig({
       },
       exclude: [
         'docs', // TODO: separate coverage metrics for docs
-        'scripts', // TODO: separate coverage metrics for scripts
+        'infra', // TODO: separate coverage metrics for scripts
         'build',
         'static',
         'config',
         '.*', // no dot-files
+        '**/vite.config.ts',
 
         // typescript and javascript files in the root directory
         // tend to be config files
@@ -50,11 +47,14 @@ export default defineConfig({
         // no need to test the test files themselves
         '**/*.test.*',
         '**/*.test-d.*',
-        'test/testUtils',
+        'infra/testUtils',
         '**/*.spec.*',
         '**/*.stories.*',
         '**/__mocks__',
         '**/__snapshots__',
+
+        // build artifacts
+        '**/dist',
       ],
       // something of a desperation move using 'unknown' here... VS Code is complaining about the
       // perfectly-valid `provider: 'istanbul'` property. The actual type is deprecated in favor of

@@ -1,11 +1,13 @@
 import { describeIntegrationTest } from '@test-utils/testGroups';
 import { render, screen, waitFor } from '@testing-library/react';
 import { composeStories } from '@storybook/react';
-import { ExpandableLocalizedStrings } from '@components/layout/Expandable/localization';
-import { I18nProvider } from '@i18n/context/I18nProvider';
+import { type ExpandableLocalizedStrings } from '@components/layout/Expandable/src/localization';
+import { I18nProvider, LocalizationStringLoaders } from '@i18n'
+
 import userEvent from '@testing-library/user-event';
 
-import * as stories from '@components/layout/Expandable/storybook/Expandable.stories';
+import * as stories from '@components/layout/Expandable/src/storybook/Expandable.stories';
+import { expect, it, vi } from 'vitest';
 
 const EXPAND_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'dev.iaindavis.docodylus.layout.expandable.expandPrompt';
 const COLLAPSE_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'dev.iaindavis.docodylus.layout.expandable.collapsePrompt';
@@ -19,48 +21,63 @@ const LANGUAGE_AND_REGION_EXPAND_PROMPT = 'LANGUAGE_AND_REGION_EXPAND_PROMPT';
 const LANGUAGE_AND_SCRIPT_EXPAND_PROMPT = 'LANGUAGE_AND_SCRIPT_EXPAND_PROMPT';
 const LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT = 'LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT';
 
-type MockRawLoaders = Record<string, () => Promise<Partial<ExpandableLocalizedStrings>>>
-
-vi.mock('@components/layout/Expandable/localization/getRawLoaders', () => ({
-  getRawLoaders: function getRawLoaders(): MockRawLoaders {
-    return ({
-      // language only: en (English)
-      './txlns/en.txlns.ts': () => Promise.resolve<ExpandableLocalizedStrings>({
-        [EXPAND_PROMPT_KEY]: DEFAULT_LANGUAGE_ONLY_EXPAND_PROMPT,
-        [COLLAPSE_PROMPT_KEY]: DEFAULT_LANGUAGE_ONLY_COLLAPSE_PROMPT,
-      }),
-      // language-only: zh (Chinese)
-      './txlns/zh.txlns.ts': () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
-        [EXPAND_PROMPT_KEY]: LANGUAGE_ONLY_EXPAND_PROMPT,
-        [COLLAPSE_PROMPT_KEY]: LANGUAGE_ONLY_COLLAPSE_PROMPT,
-      }),
-      // language-script: zh-Hant (Chinese, traditional Han script)
-      './txlns/zh-Hant.txlns.ts': () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
-        [EXPAND_PROMPT_KEY]: LANGUAGE_AND_SCRIPT_EXPAND_PROMPT,
-      }),
-      // language-region: zh-TW (Taiwanese Chinese)
-      './txlns/zh-TW.txlns.ts': () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
-        [EXPAND_PROMPT_KEY]: LANGUAGE_AND_REGION_EXPAND_PROMPT,
-      }),
-      // language-script: sr-Cyrl (Serbian Cyrillic)
-      './txlns/sr-Cyrl.txlns.ts': () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
-        [EXPAND_PROMPT_KEY]: LANGUAGE_AND_SCRIPT_EXPAND_PROMPT,
-      }),
-      // language-script-region: sr-Cyrl-RS (Serbian Cyrillic, Serbia)
-      './txlns/sr-Cyrl-RS.txlns.ts': () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
-        [COLLAPSE_PROMPT_KEY]: LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT,
-      }),
-      // language-script: az (Azerbaijani)
-      './txlns/az-Latn.txlns.ts': () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
-        [EXPAND_PROMPT_KEY]: LANGUAGE_ONLY_EXPAND_PROMPT,
-      }),
-      // language-script-region: az-Latn-AZ (Azerbaijani, Latin script, Azerbaijan region)
-      './txlns/az-Latn-AZ.txlns.ts': () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
-        [COLLAPSE_PROMPT_KEY]: LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT,
-      }),
-    });
+vi.mock('../../src/common/i18n/internal/src/loaders/createLocalizationStringLoaders', () => ({
+  createLocalizationStringLoaders: function createLocalizationStringLoadersMock(): LocalizationStringLoaders<Partial<ExpandableLocalizedStrings>> {
+    return {
+      en: {
+        cacheKey: './txlns/en.txlns.ts',
+        loader: () => Promise.resolve<ExpandableLocalizedStrings>({
+          [EXPAND_PROMPT_KEY]: DEFAULT_LANGUAGE_ONLY_EXPAND_PROMPT,
+          [COLLAPSE_PROMPT_KEY]: DEFAULT_LANGUAGE_ONLY_COLLAPSE_PROMPT,
+        })
+      },
+      zh: { // language-only: zh (Chinese)
+        cacheKey: './txlns/zh.txlns.ts',
+        loader: () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+          [EXPAND_PROMPT_KEY]: LANGUAGE_ONLY_EXPAND_PROMPT,
+          [COLLAPSE_PROMPT_KEY]: LANGUAGE_ONLY_COLLAPSE_PROMPT,
+        })
+      },
+      'zh-Hant': /* language-script: zh-Hant (Chinese, traditional Han script) */ {
+        cacheKey: './txlns/zh-Hant.txlns.ts',
+        loader: () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+          [EXPAND_PROMPT_KEY]: LANGUAGE_AND_SCRIPT_EXPAND_PROMPT,
+        }),
+      },
+      'zh-TW': /* language-region: zh-TW (Taiwanese Chinese) */ {
+        cacheKey: './txlns/zhTW.txlns.ts',
+        loader: () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+          [EXPAND_PROMPT_KEY]: LANGUAGE_AND_REGION_EXPAND_PROMPT,
+        }),
+      },
+      'sr-Cyrl': /* language-script: sr-Cyrl (Serbian Cyrillic) */ {
+        cacheKey: './txlns/sr-Cyrl.txlns.ts',
+        loader: () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+          [EXPAND_PROMPT_KEY]: LANGUAGE_AND_SCRIPT_EXPAND_PROMPT,
+        }),
+      },
+      'sr-Cyrl-RS': /* language-script-region: sr-Cyrl-RS (Serbian Cyrillic, Serbia) */ {
+        cacheKey: './txlns/sr-Cyrl-RS.txlns.ts',
+        loader: () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+          [COLLAPSE_PROMPT_KEY]: LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT,
+        }),
+      },
+      'az-Latn': /* language-script: az (Azerbaijani) */ {
+        cacheKey: './txlns/az-Latn.txlns.ts',
+        loader: () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+          [EXPAND_PROMPT_KEY]: LANGUAGE_ONLY_EXPAND_PROMPT,
+        }),
+      },
+      'az-Latn-AZ': /* language-script-region: az-Latn-AZ (Azerbaijani, Latin script, Azerbaijan region) */ {
+        cacheKey: './txlns/az-Latn-AZ.txlns.ts',
+        loader: () => Promise.resolve<Partial<ExpandableLocalizedStrings>>({
+          [COLLAPSE_PROMPT_KEY]: LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT,
+        }),
+      }
+    };
   },
 }));
+
 const {
   PreExpanded: PreExpandedStory,
   Default: DefaultStory,
