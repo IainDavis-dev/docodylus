@@ -11,10 +11,4 @@ export default viteConfigFor('docodylusI18n')({
             ],
         }
     },
-    css: {
-        modules: {
-        scopeBehaviour: 'local',
-        generateScopedName: '[name]__[local]__[hash:base64:5]',
-        },
-    },
 });

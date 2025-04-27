@@ -60,7 +60,7 @@ export const viteConfigFor = (libName: string) => (overrides: Partial<UserConfig
         '**/__mocks__',
         '**/node_modules',
         '**/dist',
-        '**/static',
+        "**/static",
         '**/scripts',
       ],
       thresholds: {

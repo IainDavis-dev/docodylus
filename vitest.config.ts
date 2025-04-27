@@ -32,6 +32,8 @@ export default defineConfig({
         'infra', // TODO: separate coverage metrics for scripts
         'build',
         'static',
+        '**/static',
+        '**/scripts',
         'config',
         '.*', // no dot-files
         '**/vite.config.ts',

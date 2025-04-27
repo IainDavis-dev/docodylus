@@ -8,17 +8,17 @@ exports[`Core functionality tests > Snapshots/Visual-Regression > should maintai
   >
     <div
       class="expandableBlock"
-      data-testid="expandable-section-stable-id-0"
+      data-testid="expandable-section-mock0"
       hidden=""
-      id="expandable-section-stable-id-0"
+      id="expandable-section-mock0"
       tabindex="-1"
     />
     <button
-      aria-controls="expandable-section-toggle-stable-id-0"
+      aria-controls="expandable-section-toggle-mock0"
       aria-expanded="false"
       class="toggle"
-      data-testid="expandable-toggle-stable-id-0"
-      id="expandable-toggle-stable-id-0"
+      data-testid="expandable-toggle-mock0"
+      id="expandable-toggle-mock0"
       tabindex="0"
       type="button"
     >
@@ -36,16 +36,16 @@ exports[`Core functionality tests > Snapshots/Visual-Regression > should maintai
   >
     <div
       class="expandableBlock"
-      data-testid="expandable-section-stable-id-2"
-      id="expandable-section-stable-id-2"
+      data-testid="expandable-section-mock2"
+      id="expandable-section-mock2"
       tabindex="-1"
     />
     <button
-      aria-controls="expandable-section-toggle-stable-id-2"
+      aria-controls="expandable-section-toggle-mock2"
       aria-expanded="true"
       class="toggle"
-      data-testid="expandable-toggle-stable-id-2"
-      id="expandable-toggle-stable-id-2"
+      data-testid="expandable-toggle-mock2"
+      id="expandable-toggle-mock2"
       tabindex="0"
       type="button"
     >
