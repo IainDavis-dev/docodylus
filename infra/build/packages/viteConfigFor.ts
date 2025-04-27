@@ -41,6 +41,11 @@ export const viteConfigFor = (libName: string) => (overrides: Partial<UserConfig
     environment: 'jsdom',
     globals: true,
     setupFiles: [resolve(__dirname, '../../../vitest.setup.ts')],
+    css: {
+      modules: {
+        classNameStrategy: 'non-scoped',
+      }
+    },
     coverage: {
       provider: 'istanbul',
       reporter: ['html', 'text', 'lcov'],

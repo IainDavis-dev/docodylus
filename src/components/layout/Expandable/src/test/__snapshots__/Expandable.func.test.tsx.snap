@@ -4,21 +4,21 @@ exports[`Core functionality tests > Snapshots/Visual-Regression > should maintai
 <DocumentFragment>
   <div
     aria-live="polite"
-    class="_container_baa81e"
+    class="container"
   >
     <div
-      class="_expandableBlock_baa81e"
-      data-testid="expandable-section-«ra»"
+      class="expandableBlock"
+      data-testid="expandable-section-stable-id-0"
       hidden=""
-      id="expandable-section-«ra»"
+      id="expandable-section-stable-id-0"
       tabindex="-1"
     />
     <button
-      aria-controls="expandable-section-toggle-«ra»"
+      aria-controls="expandable-section-toggle-stable-id-0"
       aria-expanded="false"
-      class="_toggle_baa81e"
-      data-testid="expandable-toggle-«ra»"
-      id="expandable-toggle-«ra»"
+      class="toggle"
+      data-testid="expandable-toggle-stable-id-0"
+      id="expandable-toggle-stable-id-0"
       tabindex="0"
       type="button"
     >
@@ -32,20 +32,20 @@ exports[`Core functionality tests > Snapshots/Visual-Regression > should maintai
 <DocumentFragment>
   <div
     aria-live="polite"
-    class="_container_baa81e"
+    class="container"
   >
     <div
-      class="_expandableBlock_baa81e"
-      data-testid="expandable-section-«ra»"
-      id="expandable-section-«ra»"
+      class="expandableBlock"
+      data-testid="expandable-section-stable-id-2"
+      id="expandable-section-stable-id-2"
       tabindex="-1"
     />
     <button
-      aria-controls="expandable-section-toggle-«ra»"
+      aria-controls="expandable-section-toggle-stable-id-2"
       aria-expanded="true"
-      class="_toggle_baa81e"
-      data-testid="expandable-toggle-«ra»"
-      id="expandable-toggle-«ra»"
+      class="toggle"
+      data-testid="expandable-toggle-stable-id-2"
+      id="expandable-toggle-stable-id-2"
       tabindex="0"
       type="button"
     >
