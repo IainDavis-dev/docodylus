@@ -9,6 +9,11 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './vitest.setup.ts',
+    css:  {
+      modules: {
+        classNameStrategy: 'non-scoped'
+      }
+    },
     include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}', 'test/**/*.{test,spec}.{js,ts,jsx,tsx}'],
     root: '.',
     coverage: {
@@ -27,6 +32,8 @@ export default defineConfig({
         'infra', // TODO: separate coverage metrics for scripts
         'build',
         'static',
+        '**/static',
+        '**/scripts',
         'config',
         '.*', // no dot-files
         '**/vite.config.ts',

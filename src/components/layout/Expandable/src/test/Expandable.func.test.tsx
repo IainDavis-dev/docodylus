@@ -7,12 +7,21 @@ import {
 } from './__mocks__/useTranslations';
 
 import { Expandable } from '../Expandable';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, Mocked, vi } from 'vitest';
+import * as React from 'react';
 
-// vi.mock('import.meta.glob', () => Promise.resolve({})); // no-op
 vi.mock('@docodylus/i18n-internal', () => ({ useTranslations: mockUseTranslations }));
 
+let idCounter = 0;
+vi.mock('react', async () => {
+  const actualReact = await vi.importActual<typeof React>('react');
+  function mockUseId() { return `mock${idCounter++}` }
+
+  return { ...actualReact, useId: mockUseId }
+});
+
 describeUnitTest('Core functionality tests', () => {
+  beforeEach(() => idCounter = 0);
   describe('Initial state', () => {
     it('should render collapsed by default and expand when clicked', () => {
       render(<Expandable />);
@@ -116,9 +125,12 @@ describeUnitTest('Core functionality tests', () => {
   });
 
   describe('Snapshots/Visual-Regression', () => {
+
     it('should maintain visual consistency between expanded and collapsed states', () => {
       const { asFragment, rerender } = render(<Expandable startExpanded={false} />);
       expect(asFragment()).toMatchSnapshot();
+
+      screen.debug();
 
       rerender(<Expandable startExpanded />);
       expect(asFragment()).toMatchSnapshot();

@@ -4,21 +4,21 @@ exports[`Core functionality tests > Snapshots/Visual-Regression > should maintai
 <DocumentFragment>
   <div
     aria-live="polite"
-    class="_container_baa81e"
+    class="container"
   >
     <div
-      class="_expandableBlock_baa81e"
-      data-testid="expandable-section-«ra»"
+      class="expandableBlock"
+      data-testid="expandable-section-mock0"
       hidden=""
-      id="expandable-section-«ra»"
+      id="expandable-section-mock0"
       tabindex="-1"
     />
     <button
-      aria-controls="expandable-section-toggle-«ra»"
+      aria-controls="expandable-section-toggle-mock0"
       aria-expanded="false"
-      class="_toggle_baa81e"
-      data-testid="expandable-toggle-«ra»"
-      id="expandable-toggle-«ra»"
+      class="toggle"
+      data-testid="expandable-toggle-mock0"
+      id="expandable-toggle-mock0"
       tabindex="0"
       type="button"
     >
@@ -32,20 +32,20 @@ exports[`Core functionality tests > Snapshots/Visual-Regression > should maintai
 <DocumentFragment>
   <div
     aria-live="polite"
-    class="_container_baa81e"
+    class="container"
   >
     <div
-      class="_expandableBlock_baa81e"
-      data-testid="expandable-section-«ra»"
-      id="expandable-section-«ra»"
+      class="expandableBlock"
+      data-testid="expandable-section-mock2"
+      id="expandable-section-mock2"
       tabindex="-1"
     />
     <button
-      aria-controls="expandable-section-toggle-«ra»"
+      aria-controls="expandable-section-toggle-mock2"
       aria-expanded="true"
-      class="_toggle_baa81e"
-      data-testid="expandable-toggle-«ra»"
-      id="expandable-toggle-«ra»"
+      class="toggle"
+      data-testid="expandable-toggle-mock2"
+      id="expandable-toggle-mock2"
       tabindex="0"
       type="button"
     >
