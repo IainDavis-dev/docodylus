@@ -19,4 +19,5 @@ tsconfig.vitest-temp.json
 # Local Environment
 .DS_Store
 .local
+@local
 site
