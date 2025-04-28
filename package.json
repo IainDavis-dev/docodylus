@@ -90,7 +90,7 @@
     "build:since": "yarn workspaces foreach -pt --topological-dev --since=\"$SINCE\" run build",
     "build:changed": "SINCE=origin/main yarn build:since",
     "build:lastcommit": "SINCE=HEAD~1 yarn build:since",
-    "test:unit": "TEST_GROUP=UNIT,TYPE vitest --typecheck",
+    "test:unit": "TEST_GROUP=UNIT vitest",
     "test:types": "TEST_GROUP=TYPE vitest --typecheck",
     "test:integration": "TEST_GROUP=INTEGRATION vitest",
     "lint": "eslint .",
