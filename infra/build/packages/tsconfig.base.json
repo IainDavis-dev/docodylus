@@ -1,17 +1,54 @@
 {
     "compilerOptions": {
+      // package config
+      "baseUrl": "../../../",
       "target": "ESNext",
       "module": "ESNext",
-      "jsx": "react-jsx",
-      "declaration": true,
-      "outDir": "dist",
       "moduleResolution": "bundler",
-      "esModuleInterop": true,
-      "strict": true,
       "composite": true,
-      "types": ["vite/client", "vitest/globals"]
+
+      // dependencies
+      "lib": ["dom", "esnext"],
+      "jsx": "react-jsx",
+      "types": [
+        "vite/client",
+        "vitest/globals",
+        "react",
+        "react-dom",
+        "node-polyglot",
+      ],
+
+      // type-checking and validation
+      "strict": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "noImplicitAny": true,
+      "forceConsistentCasingInFileNames": true,
+
+      "paths": {
+          // infra, docs, & test stuff
+          "@docs/*": ["docs/*"],
+          "@dummies/*": ["infra/dummies/*"],
+          "@storybook-customizations/*": ["infra/storybook/customizations/*"],
+          "@test-utils/*": ["infra/testUtils/*"],
+
+          // library components
+          "@components/*": ["src/components/*"],
+
+          // cross-cutting modules
+          "@consts": ["src/common/consts/internal"],
+          "@error": ["src/common/error/internal"],
+          "@i18n": ["src/common/i18n/internal"],
+          "@i18n-extend": ["src/common/i18n/extend"],
+          "@loadable": ["src/common/loadable/internal"],
+          "@namespace/*": ["src/common/namespace/internal"],
+          "@validation/*": ["src/common/validation/internal"],
+      },
     },
+
+    // identify which files are outside a package's scope
     "exclude": [
+      "node_modules",
       "**/dist",
       "**/*.test-d.*",
       "**/*.test.*",
@@ -19,5 +56,5 @@
       "**/__snapshots__",
       "**/*.md",
       "**/*.mdx"
-    ]
+    ],
   }

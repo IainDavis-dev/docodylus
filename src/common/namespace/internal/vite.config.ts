@@ -1,9 +1,7 @@
-import { viteConfigFor} from '../../../../infra/build/packages/viteConfigFor';
+import { mergeConfig } from 'vite';
+import baseViteConfig from '../../../../infra/build/packages/vite.config.base';
+import { viteConfigForPackage } from '../../../../infra/build/packages/vite.config.package';
+import pkg from './package.json';
+import { PackageJson } from 'type-fest';
 
-export default viteConfigFor('docodylusNamespaceInternal')({
-    build: {
-        rollupOptions: {
-            external: ['@docodylus/validation-internal', '@docodylus/error-internal' ],
-        }
-    }
-});
+export default mergeConfig(baseViteConfig, viteConfigForPackage(pkg as PackageJson));

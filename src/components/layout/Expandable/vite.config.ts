@@ -1,14 +1,7 @@
-import { viteConfigFor } from "../../../../infra/build/packages/viteConfigFor";
+import { mergeConfig } from 'vite';
+import baseViteConfig from '../../../../infra/build/packages/vite.config.base';
+import { viteConfigForPackage } from '../../../../infra/build/packages/vite.config.package';
+import pkg from './package.json';
+import { PackageJson } from 'type-fest';
 
-export default viteConfigFor('docodylusI18n')({
-    build: {
-        rollupOptions: {
-            external: [
-                '@docodylus/namespace-internal',
-                '@docodylus/i18n-internal',
-                '@docodylus/i18n-extend',
-                'react'
-            ],
-        }
-    },
-});
+export default mergeConfig(baseViteConfig, viteConfigForPackage(pkg as PackageJson));
