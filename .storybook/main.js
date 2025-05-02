@@ -8,8 +8,8 @@ import path from 'path';
 const config = {
   stories: [
     "../docs/**/*.docs.mdx",
-    "../src/**/*.docs.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../packages/**/*.docs.mdx",
+    "../packages/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
 
   addons: [

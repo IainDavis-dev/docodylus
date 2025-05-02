@@ -26,15 +26,15 @@ const viteConfig = {
         '@test-utils': path.resolve(__dirname, '../../infra/test/utils'),
 
         // library components
-        '@components': path.resolve(__dirname, '../../src/components'),
+        '@components': path.resolve(__dirname, '../../packages/components'),
 
         // cross-cutting modules
-        '@consts': path.resolve(__dirname, '../../src/common/consts/internal'),
-        '@error': path.resolve(__dirname, '../../src/common/error/internal'),
-        '@i18n': path.resolve(__dirname, '../../src/common/i18n/internal'),
-        '@loadable': path.resolve(__dirname, "../../src/common/loadable/internal"),
-        '@namespace': path.resolve(__dirname, '../../src/common/namespace/internal'),
-        '@validation': path.resolve(__dirname, '../../src/common/validation/internal'),
+        '@consts': path.resolve(__dirname, '../../packages/common/consts/internal'),
+        '@error': path.resolve(__dirname, '../../packages/common/error/internal'),
+        '@i18n': path.resolve(__dirname, '../../packages/common/i18n/internal'),
+        '@loadable': path.resolve(__dirname, "../../packages/common/loadable/internal"),
+        '@namespace': path.resolve(__dirname, '../../packages/common/namespace/internal'),
+        '@validation': path.resolve(__dirname, '../../packages/common/validation/internal'),
         },
     },
 }
