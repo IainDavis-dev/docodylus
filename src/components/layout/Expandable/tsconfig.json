@@ -8,13 +8,15 @@
       "src",
       "../../../../infra/types/css-modules.d.ts",
       "../../../../infra/types/mdx.d.ts"
-    ],
+    ], 
     "exclude": [
       "node_modules",
-      "dist",
+      "**/dist",
+      "**/*.test-d.*",
       "**/*.test.*",
-      "**/*.test-d.ts",
-      "**/*.stories.*",
-      "**/*.docs.*"
+      "**/__mocks__",
+      "**/__snapshots__",
+      "**/*.md",
+      "**/*.mdx"
     ],
 }

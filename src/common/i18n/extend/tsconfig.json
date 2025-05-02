@@ -1,13 +1,7 @@
 {
     "extends": "../../../../infra/build/packages/tsconfig.base.json",
+    "include": ["index.ts", "src", "tsconfig.test.json"],
     "compilerOptions": {
       "baseUrl": ".",
     },
-    "include": ["index.ts", "src", "tsconfig.test.json"],
-    "exclude": [
-      "node_modules",
-      "dist",
-      "**/*.test.*",
-      "**/*.test-d.ts"
-    ],
 }
