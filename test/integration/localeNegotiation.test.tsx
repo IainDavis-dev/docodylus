@@ -21,7 +21,7 @@ const LANGUAGE_AND_REGION_EXPAND_PROMPT = 'LANGUAGE_AND_REGION_EXPAND_PROMPT';
 const LANGUAGE_AND_SCRIPT_EXPAND_PROMPT = 'LANGUAGE_AND_SCRIPT_EXPAND_PROMPT';
 const LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT = 'LANGUAGE_SCRIPT_REGION_COLLAPSE_PROMPT';
 
-vi.mock('../../src/common/i18n/internal/src/loaders/createLocalizationStringLoaders', () => ({
+vi.mock('../../packages/common/i18n/internal/src/loaders/createLocalizationStringLoaders', () => ({
   createLocalizationStringLoaders: function createLocalizationStringLoadersMock(): LocalizationStringLoaders<Partial<ExpandableLocalizedStrings>> {
     return {
       en: {
