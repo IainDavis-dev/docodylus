@@ -11,7 +11,7 @@ exports[`DocodylusErrorBase mixin > subclass | DocodylusTypeError > should seria
   "reference": "https://www.example.com/",
   "scope": "I18n",
   "stack": "TypeError: Test Message
-    at /Users/iain/Projects/Developer/docodylus/src/common/error/internal/src/DocodylusErrorBase.test.ts:51:19
+    at /Users/iain/Projects/Developer/docodylus/src/common/error/internal/src/DocodylusErrorBase.test.ts:60:19
     at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:103:11
     at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:596:26
     at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:879:20
@@ -30,7 +30,7 @@ exports[`DocodylusErrorBase mixin > subclass | DocodylusTypeError > should seria
 {
   "message": "Test Message",
   "stack": "TypeError: Test Message
-    at /Users/iain/Projects/Developer/docodylus/src/common/error/internal/src/DocodylusErrorBase.test.ts:66:19
+    at /Users/iain/Projects/Developer/docodylus/src/common/error/internal/src/DocodylusErrorBase.test.ts:75:19
     at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:103:11
     at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:596:26
     at file:///Users/iain/Projects/Developer/docodylus/node_modules/@vitest/runner/dist/index.js:879:20

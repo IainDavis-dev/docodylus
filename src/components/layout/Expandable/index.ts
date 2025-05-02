@@ -1,1 +1,1 @@
-export { I18nProvider } from '@docodylus/i18n-internal';
+export type { ExpandableLocalizedStrings } from './src/localization';

@@ -6,7 +6,7 @@
     "sideEffects": false,
     "exports": {
         ".": {
-            "development":  "./index.ts",
+            "development": "./index.ts",
             "import": "./dist/esm/index.mjs",
             "require": "./dist/cjs/index.cjs",
             "types": "./dist/index.d.ts"
