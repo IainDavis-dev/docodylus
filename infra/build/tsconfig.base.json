@@ -33,16 +33,16 @@
           "@test-utils/*": ["infra/test/utils/*"],
 
           // library components
-          "@components/*": ["src/components/*"],
+          "@components/*": ["packages/components/*"],
 
           // cross-cutting modules
-          "@consts": ["src/common/consts/internal"],
-          "@error": ["src/common/error/internal"],
-          "@i18n": ["src/common/i18n/internal"],
-          "@i18n-extend": ["src/common/i18n/extend"],
-          "@loadable": ["src/common/loadable/internal"],
-          "@namespace/*": ["src/common/namespace/internal"],
-          "@validation/*": ["src/common/validation/internal"],
+          "@consts": ["packages/common/consts/internal"],
+          "@error": ["packages/common/error/internal"],
+          "@i18n": ["packages/common/i18n/internal"],
+          "@i18n-extend": ["packages/common/i18n/extend"],
+          "@loadable": ["packages/common/loadable/internal"],
+          "@namespace/*": ["packages/common/namespace/internal"],
+          "@validation/*": ["packages/common/validation/internal"],
       },
     },
   }
