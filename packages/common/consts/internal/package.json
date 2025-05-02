@@ -5,10 +5,10 @@
     "type": "module",
     "exports": {
         ".": {
+            "types": "./dist/index.d.ts",
             "development": "./index.ts",
             "import": "./dist/esm/index.mjs",
-            "require": "./dist/cjs/index.cjs",
-            "types": "./dist/index.d.ts"
+            "require": "./dist/cjs/index.cjs"
         }
     },
     "files": [
