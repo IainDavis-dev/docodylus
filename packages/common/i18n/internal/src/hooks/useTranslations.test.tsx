@@ -122,8 +122,8 @@ describeUnitTest('useTranslations hook', () => {
     await waitFor(() => expectLoadingState());
   });
 
-  it('should automatically load localized strings for the default locale', () => {
-    act(() => {
+  it('should automatically load localized strings for the default locale', async () => {
+    await act(async () => {
       render(
         <I18nProvider>
           <TestComponent fileLoaders={defaultMockFileLoaders} />
@@ -135,8 +135,8 @@ describeUnitTest('useTranslations hook', () => {
     expect(FR_LOADER_MOCK).not.toBeCalled();
   });
 
-  it('should load localized strings for the requested locale and the default locale', () => {
-    act(() => {
+  it('should load localized strings for the requested locale and the default locale', async () => {
+    await act(async () => {
       render(
         <I18nProvider locale="fr">
           <TestComponent fileLoaders={defaultMockFileLoaders} />
