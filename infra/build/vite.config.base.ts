@@ -1,7 +1,7 @@
 import { mergeConfig } from "vite";
 import react from '@vitejs/plugin-react';
 import path from "path";
-import vitestConfig  from '../test/vite.config.test';
+import vitestConfig  from '../test/vite.config.test-config';
 
 const isTest = process.env.VITEST === 'true';
 const { default: mdxPlugin } = await (import('@mdx-js/rollup'));
