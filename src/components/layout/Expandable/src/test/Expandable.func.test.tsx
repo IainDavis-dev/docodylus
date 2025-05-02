@@ -130,8 +130,6 @@ describeUnitTest('Core functionality tests', () => {
       const { asFragment, rerender } = render(<Expandable startExpanded={false} />);
       expect(asFragment()).toMatchSnapshot();
 
-      screen.debug();
-
       rerender(<Expandable startExpanded />);
       expect(asFragment()).toMatchSnapshot();
     });
