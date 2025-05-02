@@ -30,7 +30,7 @@
           "@docs/*": ["docs/*"],
           "@dummies/*": ["infra/dummies/*"],
           "@storybook-customizations/*": ["infra/storybook/customizations/*"],
-          "@test-utils/*": ["infra/testUtils/*"],
+          "@test-utils/*": ["infra/test/utils/*"],
 
           // library components
           "@components/*": ["src/components/*"],

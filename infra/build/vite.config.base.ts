@@ -23,7 +23,7 @@ const viteConfig = {
         '@docs': path.resolve(__dirname, '../../docs'),
         '@dummies': path.resolve(__dirname, '../../infra/dummies'),
         '@storybook-customizations': path.resolve(__dirname, '../../infra/storybook/customizations'),
-        '@test-utils': path.resolve(__dirname, '../../infra/testUtils'),
+        '@test-utils': path.resolve(__dirname, '../../infra/test/utils'),
 
         // library components
         '@components': path.resolve(__dirname, '../../src/components'),
