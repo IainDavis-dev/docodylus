@@ -45,16 +45,4 @@
           "@validation/*": ["src/common/validation/internal"],
       },
     },
-
-    // identify which files are outside a package's scope
-    "exclude": [
-      "node_modules",
-      "**/dist",
-      "**/*.test-d.*",
-      "**/*.test.*",
-      "**/__mocks__",
-      "**/__snapshots__",
-      "**/*.md",
-      "**/*.mdx"
-    ],
   }

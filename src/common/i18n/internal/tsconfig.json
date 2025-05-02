@@ -1,16 +1,17 @@
 {
     "extends": "../../../../infra/build/packages/tsconfig.base.json",
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "@error": ["../../error/internal"]
-      }
-    },
-    "include": ["index.ts", "src", "tsconfig.test.json"],
+    "include": [
+      "index.ts",
+      "src"
+    ],
     "exclude": [
       "node_modules",
-      "dist",
+      "**/dist",
+      "**/*.test-d.*",
       "**/*.test.*",
-      "**/*.test-d.ts"
+      "**/__mocks__",
+      "**/__snapshots__",
+      "**/*.md",
+      "**/*.mdx"
     ],
 }

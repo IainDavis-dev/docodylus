@@ -1,43 +1,8 @@
 {
+    "extends": ["./infra/build/packages/tsconfig.base.json"],
+    "include": [ "**/*" ],
+    "exclude": [],
     "compilerOptions": {
-        "composite": true,
-        "jsx": "react-jsx",
-        "lib": ["dom", "esnext"],
-        "module": "esnext",
-        "moduleResolution": "bundler",
-        "typeRoots": ["node_modules/@types"], "target": "esnext",
-        "strict": true,
-        "noImplicitAny": true,
-        "baseUrl": "./",
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "types": [
-            "react",
-            "react-dom",
-            "node-polyglot",
-            "vite/client",
-        ],
-        "paths": {
-            // infra, docs, & test stuff
-            "@docs/*": ["docs/*"],
-            "@dummies/*": ["infra/dummies/*"],
-            "@storybook-customizations/*": ["infra/storybook/customizations/*"],
-            "@test-utils/*": ["infra/testUtils/*"],
-
-            // library components
-            "@components/*": ["src/components/*"],
-
-            // cross-cutting modules
-            "@consts": ["src/common/consts/internal"],
-            "@error": ["src/common/error/internal"],
-            "@i18n": ["src/common/i18n/internal"],
-            "@i18n-extend": ["src/common/i18n/extend"],
-            "@loadable": ["src/common/loadable/internal"],
-            "@namespace/*": ["src/common/namespace/internal"],
-            "@validation/*": ["src/common/validation/internal"],
-        },
+        "baseUrl": ".",
     },
-    "include": [
-        "**/*",
-    ],
 }
