@@ -3,11 +3,20 @@
 import { DocodylusTypeError } from './DocodylusTypeError';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { describe, expect, it } from 'vitest';
+import { DocodylusErrorLike, DocodylusErrorSubtype } from './DocodylusErrorLike';
+
+type ErrorConstructor = new (...args: any[]) => DocodylusErrorLike & Error;
+
+type TestCase = {
+  className: string,
+  ErrorClass: ErrorConstructor,
+  subtype: DocodylusErrorSubtype
+}
 
 describeUnitTest.each`
         className               | ErrorClass               | subtype
         ${'DocodylusTypeError'} | ${DocodylusTypeError}    | ${'InvalidLocale' /* appropriate values will vary per subclass of DocodylusErrorBase */}
-`('DocodylusErrorBase mixin', ({ className, ErrorClass, subtype }) => {
+`('DocodylusErrorBase mixin', ({ className, ErrorClass, subtype }: TestCase) => {
   describe(`subclass | ${className}`, () => {
     it('should be an instance of Error', () => {
       const err = new ErrorClass('Test Message');
