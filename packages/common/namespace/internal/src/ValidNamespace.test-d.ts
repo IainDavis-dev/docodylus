@@ -1,6 +1,6 @@
 import { describe, expectTypeOf, it } from 'vitest';
 import { describeTypeTest } from '@test-utils/testGroups'
-import { ValidNamespace } from './isValidNamespace';
+import type { ValidNamespace } from './ValidNamespace.testable-type';
 
 describeTypeTest('type ValidNamespace', () => {
   describe('valid namespace strings', () => {
