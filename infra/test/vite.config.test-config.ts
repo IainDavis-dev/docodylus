@@ -1,4 +1,4 @@
-import { resolve } from "path";
+import path, { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -13,7 +13,7 @@ export default defineConfig({
         },
         root: '.',
         typecheck: {
-            include: ['**/*.test-d.ts'],
+            tsconfig: path.resolve(__dirname, './tsconfig.type-test.json'),
         },
         include: [
             '**/*.{test,spec}.{js,ts,jsx,tsx}',

@@ -1,0 +1,14 @@
+{
+    "extends": "../build/tsconfig.base.json",
+    "include": [
+        "../../**/*.test-d.ts",
+        "../../packages/common/namespace/internal/src/isValidNamespace.ts",
+        "../../infra/test/utils/testGroups.ts"
+     ],
+     "exclude": [
+        "../../node_modules",
+     ],
+     "compilerOptions": {
+        "baseUrl": "../../",
+     }
+}
