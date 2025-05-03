@@ -21,7 +21,7 @@
         "build": "../../../../node_modules/.bin/vite build",
         "clean": "rm -rf dist",
         "lint": "eslint . --ext .ts",
-        "test:unit": "TEST_GROUP=UNIT,TYPE ../../../../node_modules/.bin/vitest run",
+        "test:unit": "TEST_GROUP=UNIT,TYPE ../../../../node_modules/.bin/vitest run --typecheck",
         "test:integration": "TEST_GROUP=INTEGRATION ../../../../node_modules/.bin/vitest run"
     },
     "dependencies": {
