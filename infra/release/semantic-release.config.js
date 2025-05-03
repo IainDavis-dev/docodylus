@@ -5,7 +5,7 @@ const getPackageJsonDirectories = () => {
   const filePaths = [
     '.', // root package.json path
     ...glob
-      .sync('src/**/package.json', { absolute: false })
+      .sync('packages/**/package.json', { absolute: false })
       .map((filePath) => filePath.replace('/package.json', '')),
   ];
 
@@ -24,7 +24,7 @@ const getNpmPluginConfigs = () => {
 export default {
   branches: [
     'main',
-    { name: 'prerelease', prerelease: 'prerelease' },
+    { name: 'develop', prerelease: 'prerelease' },
   ],
   plugins: [
     '@semantic-release/commit-analyzer',
@@ -36,7 +36,7 @@ export default {
       {
         assets: [
           'package.json',
-          'src/**/package.json',
+          'packages/**/package.json',
           'CHANGELOG.md',
         ],
         // eslint-disable-next-line no-template-curly-in-string
