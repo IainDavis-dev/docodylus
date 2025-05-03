@@ -43,22 +43,22 @@ function checkGroups(groups: TestGroup | TestGroup[]): boolean {
  * Supplies the necessary boilerplate to ensure a block of tests runs
  * only when the UNIT test group (or none) is selected
  */
-export const describeUnitTest = describe.runIf(checkGroups(UNIT));
+export const describeUnitTest: ReturnType<typeof describe.runIf> = describe.runIf(checkGroups(UNIT));
 
 /**
  * Supplies the necessary boilerplate to ensure a block of tests runs
  * only when the INTEGRATION test group (or none) is selected
  */
-export const describeIntegrationTest = describe.runIf(checkGroups(INTEGRATION));
+export const describeIntegrationTest: ReturnType<typeof describe.runIf> = describe.runIf(checkGroups(INTEGRATION));
 
 /**
  * Supplies the necessary boilerplate to ensure a block of tests runs
  * only when the POLICY test group (or none) is selected
  */
-export const describePolicyTest = describe.runIf(checkGroups(POLICY));
+export const describePolicyTest: ReturnType<typeof describe.runIf> = describe.runIf(checkGroups(POLICY));
 
 /**
  * Supplies the necessary boilerplate to ensure a block of tests runs
  * only when the TYPE test group (or none) is selected
  */
-export const describeTypeTest = describe.runIf(checkGroups(TYPE));
+export const describeTypeTest: ReturnType<typeof describe.runIf> = describe.runIf(checkGroups(TYPE));
