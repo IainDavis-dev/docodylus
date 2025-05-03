@@ -1,0 +1,14 @@
+{
+    "extends": "../build/tsconfig.base.json",
+    "include": [
+        "../../**/*.test-d.ts",
+        "../../**/*.testable-type.ts",
+        "../../infra/test/utils/testGroups.ts"
+     ],
+     "exclude": [
+        "../../node_modules",
+     ],
+     "compilerOptions": {
+        "baseUrl": "../../",
+     }
+}

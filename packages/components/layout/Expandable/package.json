@@ -27,7 +27,7 @@
         "build": "../../../../node_modules/.bin/vite build",
         "clean": "rm -rf dist",
         "lint": "eslint . --ext .ts",
-        "test:unit": "TEST_GROUP=UNIT ../../../../node_modules/.bin/vitest run",
+        "test:unit": "TEST_GROUP=UNIT ../../../../node_modules/.bin/vitest run --typecheck",
         "test:integration": "NODE_OPTIONS='--conditions development' TEST_GROUP=INTEGRATION ../../../../node_modules/.bin/vitest run"
     }
 }

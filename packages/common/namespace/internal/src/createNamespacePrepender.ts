@@ -1,6 +1,6 @@
 import { newInvalidNamespaceError } from './error/newInvalidNamespaceError';
 import { isValidNamespace } from './isValidNamespace';
-import { ValidNamespace } from './isValidNamespace'
+import { ValidNamespace } from './ValidNamespace.testable-type'
 
 export type Namespaced<NS extends string, T extends Record<string, unknown>> = {
     [K in keyof T as `${NS}.${string & K}`]: T[K]

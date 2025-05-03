@@ -1,6 +1,6 @@
 import { describe, expectTypeOf, it } from 'vitest';
 import { describeTypeTest } from '@test-utils/testGroups'
-import { ValidNamespace } from './isValidNamespace';
+import type { ValidNamespace } from './ValidNamespace.testable-type';
 
 describeTypeTest('type ValidNamespace', () => {
   describe('valid namespace strings', () => {
@@ -9,7 +9,7 @@ describeTypeTest('type ValidNamespace', () => {
     });
 
     it('should accept a string of all lowercase alpha', () => {
-      expectTypeOf<ValidNamespace<'abcde.fghij.klmnop'>>().not.toBeNever();
+      expectTypeOf<ValidNamespace<'abcde'>>().not.toBeNever();
     });
 
     it('should accept a string of all alpha lowercase alpha segments delimited by single dots', () => {
@@ -18,7 +18,7 @@ describeTypeTest('type ValidNamespace', () => {
 
     it('should accept a single-letter namespace', () => {
       // but don't do this.
-      expectTypeOf<ValidNamespace<'abcde.fghij.klmnop'>>().not.toBeNever();
+      expectTypeOf<ValidNamespace<'k'>>().not.toBeNever();
     });
   });
 
