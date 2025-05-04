@@ -1,5 +1,5 @@
-import { JSX, useEffect } from 'react';
-import { StoryContext } from '@storybook/react';
+import { Decorator } from '@storybook/react';
+import { useEffect } from 'react';
 
 const STYLESHEET_LINK_ELEMENT_ID = 'dev.iaindavis.docodylus.storybook.dynamic-framework-styles';
 
@@ -8,7 +8,7 @@ const styleSheets = {
   docusaurus: 'infra/storybook/customizations/styles/docusaurus_global.css',
 } as const;
 
-const applyStyleSheet = (stylesheetUrl: string | null) => {
+const applyStyleSheet = (stylesheetUrl: string | null): void => {
   const existingLink = document.getElementById(STYLESHEET_LINK_ELEMENT_ID);
 
   if (!stylesheetUrl) {
@@ -27,7 +27,7 @@ const applyStyleSheet = (stylesheetUrl: string | null) => {
   }
 };
 
-export const frameworkStylesDecorator = (Story: () => JSX.Element, context: StoryContext) => {
+export const frameworkStylesDecorator: Decorator = (Story, context) => {
   const { frameworkStyles } = context.globals;
 
   useEffect(() => {

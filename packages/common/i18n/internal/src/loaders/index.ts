@@ -1,2 +1,2 @@
-export { toLocalizationFileLoaderMap, type LocalizationFileLoaderMap } from './toLocalizationFileLoaderMap';
 export { createLocalizationStringLoaders } from './createLocalizationStringLoaders';
+export { type LocalizationFileLoaderMap,toLocalizationFileLoaderMap } from './toLocalizationFileLoaderMap';

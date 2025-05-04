@@ -1,7 +1,8 @@
-import { expect, it } from "vitest";
 import { DocodylusTypeError } from '@error'
-import { newInvalidLocaleError } from ".";
 import { describeUnitTest } from "@test-utils/testGroups";
+import { expect, it } from "vitest";
+
+import { newInvalidLocaleError } from ".";
 
 describeUnitTest('newInvalidLocaleError factory', () => {
 

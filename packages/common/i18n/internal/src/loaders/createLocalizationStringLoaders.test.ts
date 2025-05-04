@@ -1,7 +1,7 @@
-import { describe, it, expect, vi } from 'vitest';
-import { createLocalizationStringLoaders } from '.';
-import { SUPPORTED_LOCALES } from '../consts';
 import type { ExpandableLocalizedStrings } from '@components/layout/Expandable/src/localization';
+
+import { SUPPORTED_LOCALES } from '../consts';
+import { createLocalizationStringLoaders } from '.';
 
 describe('createLocalizationStringLoaders (unit)', () => {
   const componentFileUrl = new URL('@components/layout/Expandable/src/Expandable.tsx', import.meta.url);
@@ -37,7 +37,7 @@ describe('createLocalizationStringLoaders (unit)', () => {
     it('produces loaders that extract the default export from each module', async () => {
       const map = createLocalizationStringLoaders(dummyComponentUrl);
   
-      for (let locale of SUPPORTED_LOCALES) {
+      for (const locale of SUPPORTED_LOCALES) {
         const result = await map[locale]?.loader();
         expect(result).toHaveProperty('greeting');
         // @ts-expect-error - test mock doesn't conform to the shape expected at runtime

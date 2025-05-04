@@ -1,14 +1,6 @@
 /* eslint-disable @typescript-eslint/unbound-method */
+import { DEFAULT_LOCALE } from '@consts';
 import { describeUnitTest } from '@test-utils/testGroups';
-import {
-  SUPPORTED_LOCALES,
-  type SupportedLocale,
-} from '../consts';
-import {
-  DEFAULT_LOCALE
-} from '@consts'
-import { DEFAULT_TRANSLATIONS } from '../localization';
-import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
 import Polyglot from 'node-polyglot';
 import {
   beforeEach,
@@ -17,6 +9,10 @@ import {
   it,
   vi,
 } from 'vitest';
+
+import { SUPPORTED_LOCALES, type SupportedLocale } from '../consts';
+import { DEFAULT_TRANSLATIONS } from '../localization';
+import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
 
 describeUnitTest('LocaleAwarePolyglot', () => {
   let polyglot: Polyglot;

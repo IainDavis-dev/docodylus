@@ -1,7 +1,8 @@
-import { expect, it } from "vitest";
 import { DocodylusTypeError } from '@error';
-import { newInvalidNamespaceError } from "./newInvalidNamespaceError";
 import { describeUnitTest } from "@test-utils/testGroups";
+import { expect, it } from "vitest";
+
+import { newInvalidNamespaceError } from "./newInvalidNamespaceError";
 
 describeUnitTest('newInvalidNamespaceError', () => {
     it('newInvalidNamespaceError should create an error that reports in invalid namespace', () => {

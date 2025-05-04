@@ -1,5 +1,6 @@
-import { describe, expectTypeOf, it } from 'vitest';
 import { describeTypeTest } from '@test-utils/testGroups'
+import { describe, expectTypeOf, it } from 'vitest';
+
 import type { ValidNamespace } from './ValidNamespace.testable-type';
 
 describeTypeTest('type ValidNamespace', () => {

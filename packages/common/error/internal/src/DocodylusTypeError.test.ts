@@ -1,11 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import { describeUnitTest } from '@test-utils/testGroups';
-import {
-  DocodylusTypeError,
-  newExpectedArrayError,
-} from './DocodylusTypeError';
-import { describe, expect, it } from 'vitest';
+
+import { DocodylusTypeError, newExpectedArrayError } from './DocodylusTypeError';
 
 describeUnitTest('DocodylusTypeError', () => {
   it('should be an instance of TypeError', () => {

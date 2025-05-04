@@ -1,18 +1,19 @@
+import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
+import { DocodylusTypeError } from '@docodylus/error-internal';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { render, screen } from '@testing-library/react';
-import { I18nProvider, I18nContext } from '../context';
-import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
-import { DocodylusTypeError } from '@docodylus/error-internal';
 import { useContext } from 'react';
-import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
-import { ValidLocale } from '../validation';
 import {
-  vi,
   afterEach,
-  it,
-  expect,
   assert,
+  expect,
+  it,
+  vi,
 } from 'vitest';
+
+import { I18nContext,I18nProvider } from '../context';
+import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
+import { ValidLocale } from '../validation';
 
 vi.mock('../polyglot/LocaleAwarePolyglot', () => ({
   LocaleAwarePolyglot: vi.fn().mockImplementation(() => {

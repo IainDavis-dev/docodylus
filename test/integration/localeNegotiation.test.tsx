@@ -1,12 +1,10 @@
+import { type ExpandableLocalizedStrings } from '@components/layout/Expandable/src/localization';
+import * as stories from '@components/layout/Expandable/src/storybook/Expandable.stories';
+import { I18nProvider, LocalizationStringLoaders } from '@i18n'
+import { composeStories } from '@storybook/react';
 import { describeIntegrationTest } from '@test-utils/testGroups';
 import { render, screen, waitFor } from '@testing-library/react';
-import { composeStories } from '@storybook/react';
-import { type ExpandableLocalizedStrings } from '@components/layout/Expandable/src/localization';
-import { I18nProvider, LocalizationStringLoaders } from '@i18n'
-
 import userEvent from '@testing-library/user-event';
-
-import * as stories from '@components/layout/Expandable/src/storybook/Expandable.stories';
 import { expect, it, vi } from 'vitest';
 
 const EXPAND_PROMPT_KEY: keyof ExpandableLocalizedStrings = 'dev.iaindavis.docodylus.layout.expandable.expandPrompt';

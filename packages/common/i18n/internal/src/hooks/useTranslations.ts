@@ -1,10 +1,3 @@
-import { DefaultTranslationKey } from '../localization';
-import { I18nContext } from '../context';
-import { createLocalizationStringLoaders } from '../loaders/createLocalizationStringLoaders';
-import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
-import { LocalizedStrings } from '../types';
-import { ValidLocale } from '../validation'
-import { negotiateLocales } from '../localeNegotiation';
 import { PolyglotOptions } from 'node-polyglot';
 import {
   useContext,
@@ -12,7 +5,15 @@ import {
   useMemo,
   useState,
 } from 'react';
+
+import { I18nContext } from '../context';
 import { LocalizationFileLoaderMap } from '../loaders';
+import { createLocalizationStringLoaders } from '../loaders/createLocalizationStringLoaders';
+import { negotiateLocales } from '../localeNegotiation';
+import { DefaultTranslationKey } from '../localization';
+import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
+import { LocalizedStrings } from '../types';
+import { ValidLocale } from '../validation'
 
 // default instance serves DEFAULT_LOCALE in the absence of an explicit Provider
 let fallbackPolyglot: LocaleAwarePolyglot;
@@ -49,7 +50,6 @@ export function useTranslations<T extends LocalizedStrings = never>(
       .filter(([, { cacheKey }]) => {
         const currentState: LoadingState = loadingStates[cacheKey] ?? 'not-loaded';
         return !['loading', 'success', 'error'].includes(currentState);
-      // eslint-disable-next-line arrow-body-style
       }).map(([loc, { cacheKey, loader }]) => {
         return (async (): Promise<void> => {
           setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'loading' }));
@@ -58,13 +58,11 @@ export function useTranslations<T extends LocalizedStrings = never>(
             setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'success' }));
             i18n.extend(loc as ValidLocale, localizedStrings);
           } catch (error) {
-            // eslint-disable-next-line no-console
             console.error(`Failed to load translations from ${cacheKey}:`, error);
             setLoadingStates((prev) => ({ ...prev, [cacheKey]: 'error' }));
           }
         })();
       });
-    // eslint-disable-next-line no-void
     void Promise.all(loadersToRun);
   });
 

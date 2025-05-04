@@ -1,9 +1,8 @@
-// test/createRawLoaders.test.ts
-import { expect, it, vi } from 'vitest';
-import { createLazyLoaders } from './createLazyLoaders';
-import { describeIntegrationTest, describeUnitTest } from '@test-utils/testGroups';
 import { ExpandableLocalizedStrings } from '@components/layout/Expandable/src/localization';
 import { DocodylusTypeError } from '@error';
+import { describeIntegrationTest, describeUnitTest } from '@test-utils/testGroups';
+
+import { createLazyLoaders } from './createLazyLoaders';
 
 describeUnitTest('createRawLoaders', () => {
   it('returns a map of lazy loaders from URLs', () => {
