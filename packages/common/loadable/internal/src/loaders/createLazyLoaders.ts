@@ -19,7 +19,8 @@ function identity<T>(x: unknown): T {return x as T};
  */
 export function createLazyLoaders<T = unknown> (
     urls?: URL[],
-    transform: (mod: unknown) => T = identity
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    transform: (mod: any) => T = identity
 ): LazyLoaders<T> {
     if (validateUrls(urls)) {
         return Object.fromEntries( (urls ?? []).map((url) => [

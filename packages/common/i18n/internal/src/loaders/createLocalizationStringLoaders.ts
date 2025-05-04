@@ -14,7 +14,7 @@ export function createLocalizationStringLoaders<T extends LocalizedStrings>(
         new URL(`./${locale}.txlns.ts`, baseDir),
     );
 
-    const raw = createLazyLoaders<TxlnsModuleType<T>, T>(urls, ({ default: txlns }) => txlns);
+    const raw = createLazyLoaders<T>(urls, ({ default: txlns }: TxlnsModuleType<T>): T => txlns);
     return toLocalizationFileLoaderMap<T>(raw);
 }
 
