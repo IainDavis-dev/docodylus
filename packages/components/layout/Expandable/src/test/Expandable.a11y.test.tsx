@@ -9,12 +9,8 @@ import {
 } from 'vitest';
 
 import { Expandable } from '../Expandable';
-import {
-  MOCK_DEFAULT_COLLAPSE_PROMPT,
-  MOCK_DEFAULT_EXPAND_PROMPT,
-  mockUseTranslations,
-} from './__mocks__/useTranslations';
 import { ExpandableLocalizedStrings } from '../localization';
+import { MOCK_DEFAULT_COLLAPSE_PROMPT, MOCK_DEFAULT_EXPAND_PROMPT } from './__mocks__/useTranslations';
 
 vi.mock('import.meta.glob', () => Promise.resolve({})); // no-op
 vi.mock('@docodylus/i18n-internal', () => ({
@@ -28,7 +24,6 @@ vi.mock('@docodylus/i18n-internal', () => ({
       return mockTranslations[k] || `MISSING_TRANSLATION:${String(k)}`;
     };
   }
-
 }));
 
 const HIDDEN = 'hidden';
