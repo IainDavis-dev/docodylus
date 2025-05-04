@@ -1,7 +1,8 @@
-import { toLocalizationFileLoaderMap } from '.';
 import type { LazyLoaders } from '@docodylus/loadable-internal';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { describe, expect, it } from 'vitest';
+
+import { toLocalizationFileLoaderMap } from '.';
 
 describeUnitTest('toLocalizationFileLoaderMap', () => {
   it('should transform the FileLoaderMap to the correct output shape', () => {

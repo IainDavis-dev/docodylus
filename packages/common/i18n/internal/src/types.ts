@@ -1,4 +1,5 @@
 import { DocodylusLocalizableStrings } from '@docodylus/i18n-extend';
+
 import { ValidLocale } from './validation';
 
 /**

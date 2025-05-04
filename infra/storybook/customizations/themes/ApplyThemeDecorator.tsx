@@ -1,14 +1,16 @@
-import { JSX, useEffect } from "react";
 import { addons } from '@storybook/manager-api';
+import { Decorator } from '@storybook/react'
 import { themes } from '@storybook/theming'
-import {StoryContext} from '@storybook/react'
+import { useEffect } from "react";
 
-const applyThemeDecorator = (Story: () => JSX.Element, context: StoryContext): JSX.Element => {
-    const theme: keyof typeof themes = context?.globals?.theme ?? 'light'
+type Theme = keyof typeof themes;
+
+const applyThemeDecorator: Decorator = (Story, context) => {
+    const theme: Theme = context?.globals?.theme as Theme ?? 'light'
 
     useEffect(() => {
         const themeRoot = document.querySelector('html');
-        themeRoot && themeRoot.setAttribute('data-theme', theme);
+        if (themeRoot) themeRoot.setAttribute('data-theme', theme);
         addons.setConfig({ theme: themes[theme] })
     }, [theme])
 

@@ -1,7 +1,8 @@
 import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
-import { isValidLocale, type ValidLocale } from '../validation';
-import { newInvalidLocaleError } from '../error';
 import { newExpectedArrayError } from '@docodylus/error-internal';
+
+import { newInvalidLocaleError } from '../error';
+import { isValidLocale, type ValidLocale } from '../validation';
 
 type LocaleSort =
     'none'

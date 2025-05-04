@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-import { DocodylusTypeError } from './DocodylusTypeError';
 import { describeUnitTest } from '@test-utils/testGroups';
 import { describe, expect, it } from 'vitest';
+
 import { DocodylusErrorLike, DocodylusErrorSubtype } from './DocodylusErrorLike';
+import { DocodylusTypeError } from './DocodylusTypeError';
 
 type ErrorConstructor = new (...args: any[]) => DocodylusErrorLike & Error;
 

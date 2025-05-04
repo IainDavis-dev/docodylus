@@ -1,5 +1,6 @@
 import { describeUnitTest } from '@test-utils/testGroups';
 import { expect, it } from 'vitest';
+
 import { isValidNamespace } from './isValidNamespace';
 
 type TestCase = {input: unknown, isValid: boolean};

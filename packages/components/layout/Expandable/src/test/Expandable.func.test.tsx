@@ -1,21 +1,28 @@
 import { describeUnitTest } from '@test-utils/testGroups';
 import { fireEvent, render, screen } from '@testing-library/react';
-import {
-  mockUseTranslations,
-  MOCK_DEFAULT_EXPAND_PROMPT,
-  MOCK_DEFAULT_COLLAPSE_PROMPT,
-} from './__mocks__/useTranslations';
-
-import { Expandable } from '../Expandable';
-import { beforeEach, describe, expect, it, Mocked, vi } from 'vitest';
 import * as React from 'react';
 
-vi.mock('@docodylus/i18n-internal', () => ({ useTranslations: mockUseTranslations }));
+import { Expandable } from '../Expandable';
+import { ExpandableLocalizedStrings } from '../localization';
+import { MOCK_DEFAULT_COLLAPSE_PROMPT, MOCK_DEFAULT_EXPAND_PROMPT } from './__mocks__/useTranslations';
+
+vi.mock('@docodylus/i18n-internal', () => ({
+  useTranslations: function mockUseTranslations() {
+    const mockTranslations: ExpandableLocalizedStrings = {
+      'dev.iaindavis.docodylus.layout.expandable.collapsePrompt': 'MOCK_EXPAND_PROMPT',
+      'dev.iaindavis.docodylus.layout.expandable.expandPrompt': 'MOCK_COLLAPSE_PROMPT',
+    } as const;
+
+    return function mockT(k: keyof ExpandableLocalizedStrings): string {
+      return mockTranslations[k] || `MISSING_TRANSLATION:${String(k)}`;
+    };
+  }
+}));
 
 let idCounter = 0;
 vi.mock('react', async () => {
   const actualReact = await vi.importActual<typeof React>('react');
-  function mockUseId() { return `mock${idCounter++}` }
+  function mockUseId(): string { return `mock${idCounter++}` }
 
   return { ...actualReact, useId: mockUseId }
 });

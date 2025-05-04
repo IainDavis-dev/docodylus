@@ -1,14 +1,15 @@
-import { describeUnitTest } from '@test-utils/testGroups';
-import { DocodylusTypeError } from '@docodylus/error-internal';
 import { DEFAULT_LOCALE } from '@docodylus/consts-internal';
-import { ValidLocale } from '../validation';
-import { negotiateLocales } from '.';
+import { DocodylusTypeError } from '@docodylus/error-internal';
+import { describeUnitTest } from '@test-utils/testGroups';
 import {
   assert,
   describe,
   expect,
   it,
 } from 'vitest';
+
+import { ValidLocale } from '../validation';
+import { negotiateLocales } from '.';
 
 describeUnitTest('negotiateLocales', () => {
   const availableLocales = ['bs', 'bs-Latn-BA', 'bs-Latn', 'bs-Cyrl', 'fr', 'fr-FR'] as ValidLocale[];

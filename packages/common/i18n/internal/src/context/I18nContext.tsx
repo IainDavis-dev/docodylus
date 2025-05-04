@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+
 import { LocaleAwarePolyglot } from '../polyglot/LocaleAwarePolyglot';
 import type { ValidLocale } from '../validation';
 

@@ -1,12 +1,12 @@
+import { useTranslations } from '@docodylus/i18n-internal';
 import {
   useEffect,
   useId,
   useRef,
   useState,
 } from 'react';
-import { useTranslations } from '@docodylus/i18n-internal';
-import styles from './Expandable.module.css';
 
+import styles from './Expandable.module.css';
 import { ExpandableLocalizedStrings, ExpandableNamespace as ns } from './localization';
 
 export type ExpandablePropsType = {

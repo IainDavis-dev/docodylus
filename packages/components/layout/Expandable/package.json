@@ -23,6 +23,9 @@
         "@docodylus/i18n-internal": "workspace:*",
         "@docodylus/namespace-internal": "workspace:*"
     },
+    "peerDependencies": {
+        "@testing-library/react": "^16.2.0"
+    },
     "scripts": {
         "build": "../../../../node_modules/.bin/vite build",
         "clean": "rm -rf dist",

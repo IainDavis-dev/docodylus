@@ -1,9 +1,9 @@
-import { JSX } from 'react';
-import { StoryContext } from '@storybook/react';
 import { I18nProvider } from '@i18n';
+import { Decorator } from '@storybook/react';
+import { ValidLocale } from 'packages/common/i18n/internal/dist';
 
-const localeDecorator = (Story: () => JSX.Element, context: StoryContext) => (
-    <I18nProvider locale={context.globals.locale} >
+const localeDecorator: Decorator = (Story, context) => (
+    <I18nProvider locale={context.globals.locale as ValidLocale} >
         <Story />
     </I18nProvider>
 )

@@ -6,6 +6,7 @@ import {
   expect,
   it,
 } from 'vitest';
+
 import { createNamespacePrepender } from './createNamespacePrepender';
 
 describeUnitTest('createNamespacePrepender', () => {

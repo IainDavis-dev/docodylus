@@ -1,20 +1,22 @@
+/* eslint-disable @typescript-eslint/require-await */
+import defer from '@test-utils/defer';
 import { describeUnitTest } from '@test-utils/testGroups';
-import { I18nProvider } from '../context';
-import { useTranslations } from '../hooks/useTranslations';
-import { LocalizationFileLoaderMap } from '../loaders';
 import {
   act,
   render,
   screen,
   waitFor,
 } from '@testing-library/react';
-import defer from '@test-utils/defer';
 import {
   beforeEach,
   expect,
   it,
   vi,
 } from 'vitest';
+
+import { I18nProvider } from '../context';
+import { useTranslations } from '../hooks/useTranslations';
+import { LocalizationFileLoaderMap } from '../loaders';
 
 type TestLocalizedStrings = Partial<{
     'dev.iaindavis.test.unit.testProp1': string
@@ -84,8 +86,7 @@ interface TestComponentProps {
     fileLoaders: Partial<LocalizationFileLoaderMap<TestLocalizedStrings>>
 }
 
-// eslint-disable-next-line react/prop-types
-const TestComponent: React.FC<TestComponentProps> = ({ fileLoaders }) => {
+const TestComponent: React.FC<TestComponentProps> = () => {
   const t = useTranslations<Partial<TestLocalizedStrings>>(new URL(import.meta.url));
   return (
     <>

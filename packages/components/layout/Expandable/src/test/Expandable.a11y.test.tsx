@@ -1,19 +1,35 @@
 import { describeUnitTest } from '@test-utils/testGroups';
-
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
 import {
-  mockUseTranslations,
-  MOCK_DEFAULT_EXPAND_PROMPT,
-  MOCK_DEFAULT_COLLAPSE_PROMPT,
-} from './__mocks__/useTranslations';
+  describe,
+  expect,
+  it,
+  vi
+} from 'vitest';
 
 import { Expandable } from '../Expandable';
-import { describe, expect, it, vi } from 'vitest';
+import {
+  MOCK_DEFAULT_COLLAPSE_PROMPT,
+  MOCK_DEFAULT_EXPAND_PROMPT,
+  mockUseTranslations,
+} from './__mocks__/useTranslations';
+import { ExpandableLocalizedStrings } from '../localization';
 
 vi.mock('import.meta.glob', () => Promise.resolve({})); // no-op
-vi.mock('@docodylus/i18n-internal', () => ({ useTranslations: mockUseTranslations }));
+vi.mock('@docodylus/i18n-internal', () => ({
+  useTranslations: function mockUseTranslations() {
+    const mockTranslations: ExpandableLocalizedStrings = {
+      'dev.iaindavis.docodylus.layout.expandable.collapsePrompt': 'MOCK_EXPAND_PROMPT',
+      'dev.iaindavis.docodylus.layout.expandable.expandPrompt': 'MOCK_COLLAPSE_PROMPT',
+    } as const;
+
+    return function mockT(k: keyof ExpandableLocalizedStrings): string {
+      return mockTranslations[k] || `MISSING_TRANSLATION:${String(k)}`;
+    };
+  }
+
+}));
 
 const HIDDEN = 'hidden';
 describeUnitTest('Accessibility tests', () => {

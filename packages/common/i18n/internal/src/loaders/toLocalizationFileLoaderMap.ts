@@ -1,4 +1,5 @@
 import type { LazyLoader, LazyLoaders } from '@docodylus/loadable-internal';
+
 import { ValidLocale } from '../validation';
 
 const localeRegex = /\/\S*\/localization\/txlns\/(\S+)\.txlns.ts$/i;
