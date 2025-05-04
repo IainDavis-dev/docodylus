@@ -1,41 +1,25 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import { globalConfigFactory } from './infra/config/eslint/globalEslintConfig.js';
-import { javascriptSourceConfigFactory } from './infra/config/eslint/javascriptSource.js';
-import { typescriptSourceConfigFactory } from './infra/config/eslint/typescriptSource.js';
-import { nonRuntimeFilesConfig } from './infra/config/eslint/nonRuntimeFiles.js';
-import { testFilesConfig } from './infra/config/eslint/testFiles.js';
-import { ignoredFilesConfig } from './infra/config/eslint/eslintignore.js';
-import { ruleOverrides } from './infra/config/eslint/ruleOverrides.js';
-import { dynamicallyLoadedFilesConfig } from './infra/config/eslint/dynamicallyLoaded.js';
-import { typeDeclarationFilesConfig } from './infra/config/eslint/typeDeclarations.js';
-
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
+import allSourceFlat from './infra/checks/eslint/allSourceFlat.mjs';
+import tsSourceFlat from './infra/checks/eslint/tsSourceFlat.mjs';
+import testsFlat from './infra/checks/eslint/testsFlat.mjs';
+import nonRuntimeFlat from './infra/checks/eslint/nonRuntimeFlat.mjs'
+import mdxFlat from './infra/checks/eslint/mdxFlat.mjs';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  {
-    settings: {
-      'import/resolver': {
-        typescript: {
-          project: './tsconfig/json',
-        },
-        node: {
-          extensions: ['.js', '.mjs', '.ts', '.tsx'],
-        },
-      },
+    {
+        ignores: [
+            '**/dist/**',
+            '**/static/**',
+            '**/node_modules/**',
+            '.*',
+            '@',
+            '**/*.config.*',
+            '**/_generated/**/*'
+        ],
     },
-  },
-  globalConfigFactory(import.meta.dirname),
-  ...javascriptSourceConfigFactory(compat),
-  ...typescriptSourceConfigFactory(import.meta.dirname),
-  ruleOverrides,
-  typeDeclarationFilesConfig,
-  dynamicallyLoadedFilesConfig,
-  nonRuntimeFilesConfig,
-  testFilesConfig,
-  // this has to be last, apparently, or eslint will override the
-  // `ignores` array within when merging configs
-  ignoredFilesConfig,
-];
+    allSourceFlat,
+    ...tsSourceFlat,
+    nonRuntimeFlat,
+    testsFlat,
+    ...mdxFlat
+]

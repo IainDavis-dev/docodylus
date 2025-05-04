@@ -1,30 +1,23 @@
 import tseslint from 'typescript-eslint';
-import { TYPESCRIPT_FILES } from './consts.js';
 
-export function typescriptSourceConfigFactory(dirname) {
-  /** @type {import('eslint').Linter.Config[]} */
-  return [
-    ...tseslint.configs.recommended.map((config) => ({ ...config, files: TYPESCRIPT_FILES })),
-    ...tseslint.configs.recommendedTypeChecked.map(
-      (config) => ({ ...config, files: TYPESCRIPT_FILES }),
-    ),
-    {
-      files: TYPESCRIPT_FILES,
-      languageOptions: {
+import { commonConfig, TYPESCRIPT_FILES } from './consts.mjs';
+
+/** @type {import('eslint').Linter.Config} */
+const config = {
+    ...commonConfig,
+    languageOptions: {
+        ...commonConfig.languageOptions,
         parser: tseslint.parser,
         parserOptions: {
-          projectService: true,
-          tsconfigRootDir: dirname,
-        },
-      },
-      plugins: {
+            projectService: true,
+            tsconfigRootDir: '.',
+        }
+    },
+    files: [TYPESCRIPT_FILES],
+    plugins: {
         '@typescript-eslint': tseslint.plugin,
-      },
-      // we've omitted the AirBnB typescript configs due to
-      // incompatibilities with the existing rulesets.
-      // This block restores some of the more important rules from
-      // AirBnBs style guide.
-      rules: {
+    },
+    rules: {
         '@typescript-eslint/explicit-function-return-type': 'warn',
         '@typescript-eslint/no-floating-promises': 'error',
         '@typescript-eslint/strict-boolean-expressions': [
@@ -51,14 +44,13 @@ export function typescriptSourceConfigFactory(dirname) {
           ],
         }],
         '@typescript-eslint/restrict-template-expressions': 'off',
-        'import/no-extraneous-dependencies': [
-          'error',
-          {
-            // tell ESLint where to find globally-defined dependencies
-            packageDir: ['../../../'],
-          },
-        ],
-      },
-    },
-  ];
+    }
 }
+
+export default [
+    ...tseslint.configs.recommended.map((config) => ({ ...config, files: [TYPESCRIPT_FILES] })),
+    ...tseslint.configs.recommendedTypeChecked.map(
+      (config) => ({ ...config, files: [TYPESCRIPT_FILES]}),
+    ),
+    config
+];
