@@ -1,1 +1,0 @@
-![Code Organization Diagram](./assets/diagrams/code-organization.drawio.svg)

@@ -3,10 +3,26 @@ site_url: https://IainDavis-dev.github.io/docodylus/
 
 plugins:
   - search
+  - macros
+
+markdown_extensions:
+  - attr_list
 
 theme:
-  name: readthedocs
+  name: material
 
 nav:
-  - Overview: ./index.md
-  - Code Organization: ./code-organization/code-organization.md
+  - Overview:
+    - About Docodylus: ./index.md
+    - Tech Stack: ./overview/tech-stack.md
+    - Code Organization: ./overview/code-organization.md
+  - Contributing:
+    - Getting Started: ./contributing/gettingStarted.md
+    - Code Standards: ./contributing/code-standards.md
+    - PR Expectations: ./contributing/pull-request-expectations.md
+  - Testing: 
+    - Unit Testing: ./testing/unit-tests.md
+  - Infra: 
+    - Build: ./infra/build.md
+    - Release: ./infra/deploy.md
+
