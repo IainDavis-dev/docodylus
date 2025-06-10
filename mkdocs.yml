@@ -25,4 +25,5 @@ nav:
   - Infra: 
     - Build: ./infra/build.md
     - Release: ./infra/deploy.md
-
+  - Architecture Decisions:
+    - "ADR 0001": ./adr/0001-define-adr-structure-and-format-for-project.md
